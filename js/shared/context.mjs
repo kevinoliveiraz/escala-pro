@@ -44,8 +44,12 @@ export const state = { // Disponibiliza este recurso para outros arquivos.
 }; // Encerra este bloco.
 for (const key of rememberedKeys) if (Object.hasOwn(remembered, key)) state[key] = remembered[key]; // Percorre os itens.
 if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(state.month)) state.month = '2026-11'; // Confere a condição.
-if (!db.departments.some(item => item.id === state.departmentId)) state.departmentId = db.departments[0].id; // Confere a condição.
+if (!db.departments.some(item => item.id === state.departmentId)) state.departmentId = db.departments[0]?.id ?? null; // Confere a condição.
 if (!db.employees.some(item => item.id === state.portalEmployee)) state.portalEmployee = db.employees.find(item => item.active)?.id || db.employees[0]?.id; // Confere a condição.
+if (!db.departments.length) {
+  state.departmentId = null;
+  state.preview = null;
+}
 let paint = () => {}; // Prepara os valores usados no bloco.
 export function setRenderer(renderer) { // Disponibiliza este recurso para outros arquivos.
   paint = renderer; // Executa esta etapa.

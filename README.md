@@ -1,10 +1,16 @@
 # EscalaPro — páginas separadas
 
-O projeto usa HTML, CSS e JavaScript puro, sem etapa de compilação. Cada item do menu tem seu próprio HTML, CSS e módulo JavaScript. Os dados continuam no mesmo `localStorage`, com a chave `escalapro-standalone-v2`.
+O projeto usa HTML, CSS e JavaScript puro, sem etapa de compilação. Cada item do menu tem seu próprio HTML, CSS e módulo JavaScript. Os dados ficam no `localStorage`, com a chave `escalapro-standalone-v2`. O sistema inicia sem funcionários, setores, solicitações ou escalas de exemplo. Os turnos Manhã, Tarde e Noite continuam disponíveis para o cadastro.
 
 ## Abrir o projeto
 
 Abra `index.html` pelo Live Server do VS Code. Mantenha o mesmo endereço e a mesma porta usados anteriormente para acessar os dados já salvos no navegador. `landing.html` continua sendo a apresentação pública.
+
+## Começar a preencher
+
+Em Funcionários, clique em Adicionar funcionário. No primeiro cadastro, informe também o nome do primeiro setor. Você também pode criar setores pela página Setores. O funcionário salvo aparece na lista e permanece cadastrado ao recarregar a página.
+
+Na primeira abertura após esta atualização, os dados antigos são substituídos por uma base vazia. Uma cópia integral anterior fica guardada no mesmo navegador, na chave `escalapro-standalone-v2-before-empty-start-v1`. Essa limpeza ocorre uma única vez; os novos cadastros são preservados. Em Configurações, Limpar dados volta a uma base vazia.
 
 ## Onde editar cada tela
 

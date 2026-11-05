@@ -9,7 +9,7 @@ function departmentsPage() { // Define esta rotina.
       const emps = db.employees.filter(e => e.departmentId === d.id && e.active), // Prepara os valores usados no bloco.
         r = evaluate(db, state.month, d.id); // Executa esta etapa.
       return `<button type="button" class="department-card ${d.id === state.departmentId ? 'selected' : ''}" data-department="${d.id}"><span class="dep-icon" style="--dep:${d.color}">${icon('building', 22)}</span><h2>${safe(d.name)}</h2><p>${safe(d.description || '')}</p><div class="dep-summary"><span>${emps.length} funcionários</span><strong>${r.percent}% cobertura</strong></div></button>`; // Retorna o resultado.
-    }).join(''), // Continua a organização do bloco.
+    }).join('') || '<div class="empty-list">Nenhum setor cadastrado. Clique em Novo setor para começar.</div>', // Continua a organização do bloco.
     conteudo2: safe(department(db, state.departmentId)?.name || ''), // Define esta informação.
     conteudo3: db.shifts.map(s => `<div><span class="dot" style="background:${s.color}"></span><span>${safe(s.name)} (${s.start}–${s.end})</span><strong>${db.rules[state.departmentId]?.minStaff[s.id] || 0} por dia</strong></div>`).join(''), // Monta o conteúdo da interface.
     acao: btn(icon('settings') + ' Configurar regras', 'open-settings', 'outline') // Define esta informação.
@@ -36,7 +36,7 @@ async function handlePageAction(el) { // Define esta rotina.
 function submitPageForm(form) { // Define esta rotina.
   const fd = new FormData(form); // Prepara os valores usados no bloco.
   const val = key => String(fd.get(key) || ''); // Prepara os valores usados no bloco.
-  switch (form.id) { // Executa esta etapa.
+  switch (form.getAttribute('id')) { // Executa esta etapa.
     case 'department-form': // Trata esta opção.
       { // Encerra este bloco.
         const id = ++db.sequence; // Prepara os valores usados no bloco.

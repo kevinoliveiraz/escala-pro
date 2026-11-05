@@ -1,12 +1,12 @@
 import { db, state, replaceDatabase, persist, navigate, render } from './shared/context.mjs'; // Importa os recursos usados aqui.
 import { renderTemplate, title, viewSelect, btn, icon, safe, notice } from './shared/ui.mjs'; // Importa os recursos usados aqui.
-import { department } from './core.mjs'; // Importa os recursos usados aqui.
+import { department, defaultRules } from './core.mjs'; // Importa os recursos usados aqui.
 import { reset } from './storage.mjs'; // Importa os recursos usados aqui.
 import { startPage } from './shared/boot.mjs'; // Importa os recursos usados aqui.
 function settingsPage() { // Define esta rotina.
-  const rules = db.rules[state.departmentId]; // Prepara os valores usados no bloco.
+  const rules = db.rules[state.departmentId] || defaultRules(db.shifts); // Prepara os valores usados no bloco.
   return renderTemplate({ // Retorna o resultado.
-    cabecalho: title('Configurações', 'Defina restrições, cobertura e preferências de geração.', `${viewSelect()}${btn(icon('download') + ' Backup', 'export-json', 'outline')}${btn(icon('refresh') + ' Restaurar dados', 'reset-demo', 'outline red')}`), // Define esta informação.
+    cabecalho: title('Configurações', 'Defina restrições, cobertura e preferências de geração.', `${viewSelect()}${btn(icon('download') + ' Backup', 'export-json', 'outline')}${btn(icon('refresh') + ' Limpar dados', 'reset-data', 'outline red')}`), // Define esta informação.
     conteudo: safe(department(db, state.departmentId)?.name), // Define esta informação.
     conteudo2: rules.maxWeeklyHours, // Define esta informação.
     conteudo3: rules.maxConsecutive, // Define esta informação.
@@ -26,14 +26,14 @@ async function handlePageAction(el) { // Define esta rotina.
   const act = el.dataset.action; // Prepara os valores usados no bloco.
   const id = Number(el.dataset.id || 0); // Prepara os valores usados no bloco.
   switch (act) { // Executa esta etapa.
-    case 'reset-demo': // Trata esta opção.
-      if (confirm('Tem certeza que deseja apagar alterações e restaurar todos os dados de demonstração?')) { // Confere a condição.
+    case 'reset-data': // Trata esta opção.
+      if (confirm('Tem certeza que deseja limpar os cadastros e escalas para começar do zero?')) { // Confere a condição.
         replaceDatabase(reset()); // Executa esta etapa.
-        state.departmentId = db.departments[0].id; // Executa esta etapa.
+        state.departmentId = db.departments[0]?.id ?? null; // Executa esta etapa.
         state.preview = null; // Executa esta etapa.
         persist(); // Salva os dados locais.
         navigate('escalas'); // Executa esta etapa.
-        notice('Dados restaurados.'); // Executa esta etapa.
+        notice('Dados limpos. Cadastre seu primeiro setor.'); // Executa esta etapa.
       } // Encerra este bloco.
       break; // Finaliza esta opção.
     default: // Define esta informação.
@@ -44,10 +44,11 @@ async function handlePageAction(el) { // Define esta rotina.
 function submitPageForm(form) { // Define esta rotina.
   const fd = new FormData(form); // Prepara os valores usados no bloco.
   const val = key => String(fd.get(key) || ''); // Prepara os valores usados no bloco.
-  switch (form.id) { // Executa esta etapa.
+  switch (form.getAttribute('id')) { // Executa esta etapa.
     case 'settings-form': // Trata esta opção.
       { // Encerra este bloco.
-        const r = db.rules[state.departmentId]; // Prepara os valores usados no bloco.
+        const r = db.rules[state.departmentId];
+        if (!r) throw Error('Cadastre um setor antes de configurar suas regras.'); // Prepara os valores usados no bloco.
         r.maxWeeklyHours = Number(val('maxWeeklyHours')); // Executa esta etapa.
         r.maxConsecutive = Number(val('maxConsecutive')); // Executa esta etapa.
         r.minRest = Number(val('minRest')); // Executa esta etapa.

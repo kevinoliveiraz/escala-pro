@@ -122,7 +122,8 @@ const action = (name, data = {}) => handlers.click({ // Confere esta etapa do fu
 const submit = (id, fields) => handlers.submit({ // Confere esta etapa do funcionamento.
   preventDefault() {}, // Confere esta etapa do funcionamento.
   target: { // Confere esta etapa do funcionamento.
-    id, // Confere esta etapa do funcionamento.
+    id: ['employee-form', 'assignment-form', 'decision-form'].includes(id) ? { value: fields.id || '' } : id, // Named inputs shadow form.id in real browsers.
+    getAttribute(name) { return name === 'id' ? id : null; },
     fields // Confere esta etapa do funcionamento.
   } // Confere esta etapa do funcionamento.
 }); // Confere esta etapa do funcionamento.
@@ -161,6 +162,50 @@ function dragEmployee(employeeId, day) { // Confere esta etapa do funcionamento.
     } // Confere esta etapa do funcionamento.
   }); // Confere esta etapa do funcionamento.
 } // Confere esta etapa do funcionamento.
+test('as nove páginas abrem sem cadastros ou dados de exemplo', async () => {
+  for (const [id] of pages) {
+    await loadPage(id);
+    assert.match(nodes['#app'].innerHTML, /<h1>/);
+    assert.doesNotMatch(nodes['#app'].innerHTML, /NaN|undefined|Ana Silva|Farmácia|Recepção/);
+  }
+  for (const field of ['employees', 'departments', 'assignments', 'requests', 'daysOff', 'audit']) {
+    assert.deepEqual(snapshot()[field], []);
+  }
+});
+
+test('cadastro inicial cria o primeiro setor e mantém o funcionário salvo', async () => {
+  await loadPage('funcionarios');
+  await action('new-employee');
+  assert.match(nodes['#overlay'].innerHTML, /name="departmentName"/);
+  assert.doesNotMatch(nodes['#overlay'].innerHTML, /class="modal-backdrop" data-action/);
+  const before = snapshot();
+  await submit('employee-form', { name: 'Pessoa de teste', email: 'teste@example.com', role: 'Atendente', preferredShiftId: '1' });
+  assert.deepEqual(snapshot(), before);
+  assert.match(nodes['#overlay'].innerHTML, /employee-form/);
+  await submit('employee-form', { name: 'Pessoa de teste', email: 'teste@example.com', role: 'Atendente', preferredShiftId: '1', departmentName: 'Meu setor' });
+  const saved = snapshot();
+  assert.equal(saved.departments.length, 1);
+  assert.equal(saved.employees.length, 1);
+  assert.equal(saved.employees[0].departmentId, saved.departments[0].id);
+  assert.match(nodes['#app'].innerHTML, /Pessoa de teste/);
+  const { load } = await import('../js/storage.mjs');
+  assert.deepEqual(load(), saved);
+  await loadPage('configuracoes');
+  assert.match(nodes['#app'].innerHTML, /Limpar dados/);
+  await action('reset-data');
+  assert.deepEqual(snapshot().employees, []);
+  assert.deepEqual(snapshot().departments, []);
+});
+
+test('prepara uma equipe apenas para os cenários de teste seguintes', async () => {
+  const { fixtureDatabase } = await import('./fixtures.mjs');
+  const { generate } = await import('../js/core.mjs');
+  const { replaceDatabase, persist, state } = await import('../js/shared/context.mjs');
+  replaceDatabase(generate(fixtureDatabase(), '2026-11', 1).db);
+  Object.assign(state, { departmentId: 1, portalEmployee: 1, selectedStaff: 1, selectedRequest: 1 });
+  persist();
+});
+
 test('cada item do menu abre seu HTML, CSS e JavaScript próprios', async () => { // Confere esta etapa do funcionamento.
   for (const [id, file,, heading] of pages) { // Confere esta etapa do funcionamento.
     await loadPage(id); // Confere esta etapa do funcionamento.

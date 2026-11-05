@@ -88,7 +88,7 @@ function dayPanel() { // Define esta rotina.
     coverage = db.shifts.map(s => ({ // Organiza a lista de dados.
       s, // Executa esta etapa.
       count: items.filter(a => a.shiftId === s.id).length, // Organiza a lista de dados.
-      min: rules.minStaff[s.id] || 0 // Define esta informação.
+      min: rules?.minStaff[s.id] || 0 // Define esta informação.
     })); // Encerra este bloco.
   return `<aside class="day-panel"><div class="panel-cap"><span>Dia selecionado</span><h2>${safe(labelDate(state.day))}</h2><small>${items.length} funcionário(s) escalado(s)</small></div><div class="panel-inner"><div class="tab-row"><b>Equipe do dia</b><span>${items.length}</span></div><div class="assigned-list">${items.length ? items.map(a => { // Retorna o resultado.
     const e = employee(db, a.employeeId), // Prepara os valores usados no bloco.
@@ -123,6 +123,10 @@ function calendarPage() { // Define esta rotina.
   }); // Encerra este bloco.
 } // Encerra este bloco.
 function assignmentModal(id = null, date = state.day) { // Define esta rotina.
+  if (!db.employees.some(e => e.active && e.departmentId === state.departmentId)) {
+    openModal('Adicionar funcionário', '<p>Cadastre um funcionário antes de adicioná-lo à escala.</p><a class="btn primary full" href="./funcionarios.html">Cadastrar funcionário</a>');
+    return;
+  }
   const a = id ? db.assignments.find(a => a.id === id) : null; // Prepara os valores usados no bloco.
   const dep = state.departmentId; // Prepara os valores usados no bloco.
   openModal(a ? 'Editar alocação' : 'Adicionar funcionário', `<form id="assignment-form"><input type="hidden" name="id" value="${a?.id || ''}"><label>Data<input name="day" type="date" value="${safe(a?.day || date)}" required></label><label>Funcionário<select name="employeeId" ${a ? 'disabled' : ''}>${db.employees.filter(e => e.departmentId === dep && e.active).map(e => `<option value="${e.id}" ${e.id === (a?.employeeId || state.selectedEmployee) ? 'selected' : ''}>${safe(e.name)}</option>`).join('')}</select></label><label>Turno<select name="shiftId">${db.shifts.map(s => `<option value="${s.id}" ${s.id === (a?.shiftId || state.shiftId) ? 'selected' : ''}>${safe(s.name)} · ${s.start}–${s.end}</option>`).join('')}</select></label><label class="check-field"><input type="checkbox" name="locked" ${a?.locked ? 'checked' : ''}> Manter este turno fixo nas simulações</label><button class="btn primary full" type="submit">${icon('save')} Salvar alocação</button></form>`); // Monta o conteúdo da interface.
@@ -257,7 +261,7 @@ async function handlePageAction(el) { // Define esta rotina.
 function submitPageForm(form) { // Define esta rotina.
   const fd = new FormData(form); // Prepara os valores usados no bloco.
   const val = key => String(fd.get(key) || ''); // Prepara os valores usados no bloco.
-  switch (form.id) { // Executa esta etapa.
+  switch (form.getAttribute('id')) { // Executa esta etapa.
     case 'assignment-form': // Trata esta opção.
       { // Encerra este bloco.
         const id = Number(val('id')), // Prepara os valores usados no bloco.

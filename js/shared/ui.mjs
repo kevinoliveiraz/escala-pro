@@ -78,7 +78,7 @@ function title(title, desc, actions = '') { // Define esta rotina.
   return `<div class="page-heading"><div><h1>${safe(title)}</h1><p>${safe(desc)}</p></div><div class="heading-actions">${actions}</div></div>`; // Retorna o resultado.
 } // Encerra este bloco.
 function viewSelect() { // Define esta rotina.
-  return `<select class="field-select" id="department-switch" aria-label="Selecionar setor">${db.departments.map(d => `<option value="${d.id}" ${d.id === state.departmentId ? 'selected' : ''}>${safe(d.name)}</option>`).join('')}</select>`; // Retorna o resultado.
+  return `<select class="field-select" id="department-switch" aria-label="Selecionar setor">${!db.departments.length ? '<option value="">Cadastre um setor</option>' : ''}${db.departments.map(d => `<option value="${d.id}" ${d.id === state.departmentId ? 'selected' : ''}>${safe(d.name)}</option>`).join('')}</select>`; // Retorna o resultado.
 } // Encerra este bloco.
 function monthBar() { // Define esta rotina.
   return `<div class="month-picker">${btn(icon('left'), 'previous-month', 'square', 'aria-label="Mês anterior" title="Mês anterior"')}<input id="month-choice" type="month" value="${state.month}" aria-label="Mês da escala">${btn(icon('right'), 'next-month', 'square', 'aria-label="Próximo mês" title="Próximo mês"')}</div>`; // Retorna o resultado.
@@ -95,7 +95,7 @@ function layout(body) { // Define esta rotina.
 function openModal(title, contents, footer = '', className = '') { // Define esta rotina.
   closeModal(); // Executa esta etapa.
   const root = $('#overlay'); // Prepara os valores usados no bloco.
-  root.innerHTML = `<div class="modal-backdrop" data-action="close-modal"><section class="modal ${safe(className)}" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><h2 id="modal-title">${title}</h2>${btn(icon('close'), 'close-modal', 'icon-btn', 'aria-label="Fechar janela"')}</div><div class="modal-body">${contents}</div>${footer ? `<div class="modal-footer">${footer}</div>` : ''}</section></div>`; // Monta o conteúdo da interface.
+  root.innerHTML = `<div class="modal-backdrop"><section class="modal ${safe(className)}" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><h2 id="modal-title">${title}</h2>${btn(icon('close'), 'close-modal', 'icon-btn', 'aria-label="Fechar janela"')}</div><div class="modal-body">${contents}</div>${footer ? `<div class="modal-footer">${footer}</div>` : ''}</section></div>`; // Monta o conteúdo da interface.
   root.classList.add('shown'); // Executa esta etapa.
   $('.modal input:not([type=hidden]),.modal select')?.focus(); // Posiciona o foco do teclado.
 } // Encerra este bloco.

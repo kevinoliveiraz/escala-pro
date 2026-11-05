@@ -1,6 +1,7 @@
+import { fixtureDatabase as defaults } from './fixtures.mjs';
 import test from 'node:test'; // Confere esta etapa do funcionamento.
 import assert from 'node:assert/strict'; // Confere esta etapa do funcionamento.
-import { defaults, clone } from '../js/core.mjs'; // Confere esta etapa do funcionamento.
+import { clone } from '../js/core.mjs'; // Confere esta etapa do funcionamento.
 import { buildScheduleReport, createSchedulePdf } from '../js/schedule-pdf.mjs'; // Confere esta etapa do funcionamento.
 test('PDF mantém 31 dias e inclui a equipe só uma vez, separada por turno', () => { // Confere esta etapa do funcionamento.
   const db = defaults(), // Confere esta etapa do funcionamento.

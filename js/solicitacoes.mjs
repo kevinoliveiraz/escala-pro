@@ -56,7 +56,7 @@ async function handlePageAction(el) { // Define esta rotina.
 function submitPageForm(form) { // Define esta rotina.
   const fd = new FormData(form); // Prepara os valores usados no bloco.
   const val = key => String(fd.get(key) || ''); // Prepara os valores usados no bloco.
-  switch (form.id) { // Executa esta etapa.
+  switch (form.getAttribute('id')) { // Executa esta etapa.
     case 'decision-form': // Trata esta opção.
       { // Encerra este bloco.
         const removed = applyRequest(db, Number(val('id')), val('status'), val('note')); // Prepara os valores usados no bloco.

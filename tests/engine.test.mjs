@@ -1,6 +1,7 @@
+import { fixtureDatabase as defaults } from './fixtures.mjs';
 import test from 'node:test'; // Confere esta etapa do funcionamento.
 import assert from 'node:assert/strict'; // Confere esta etapa do funcionamento.
-import { defaults, clone, addDays, validateInsert, putAssignment, removeAssignment, generate, evaluate, applyRequest, publish, weekDay, csvRows } from '../js/core.mjs'; // Confere esta etapa do funcionamento.
+import { clone, addDays, validateInsert, putAssignment, removeAssignment, generate, evaluate, applyRequest, publish, weekDay, csvRows } from '../js/core.mjs'; // Confere esta etapa do funcionamento.
 const month = '2026-11'; // Confere esta etapa do funcionamento.
 test('datas funcionam na virada de mês', () => { // Confere esta etapa do funcionamento.
   assert.equal(addDays('2026-11-30', 1), '2026-12-01'); // Confere esta etapa do funcionamento.

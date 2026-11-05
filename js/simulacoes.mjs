@@ -57,7 +57,7 @@ async function handlePageAction(el) { // Define esta rotina.
 function submitPageForm(form) { // Define esta rotina.
   const fd = new FormData(form); // Prepara os valores usados no bloco.
   const val = key => String(fd.get(key) || ''); // Prepara os valores usados no bloco.
-  switch (form.id) { // Executa esta etapa.
+  switch (form.getAttribute('id')) { // Executa esta etapa.
     case 'simulation-form': // Trata esta opção.
       { // Encerra este bloco.
         const emp = Number(val('employee')), // Prepara os valores usados no bloco.

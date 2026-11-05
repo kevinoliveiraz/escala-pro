@@ -91,10 +91,11 @@ export function startPage({ // Disponibiliza este recurso para outros arquivos.
     events.click?.(event); // Executa esta etapa.
   }); // Encerra este bloco.
   document.addEventListener('submit', async event => { // Conecta a interação da página.
-    if (!event.target.id) return; // Confere a condição.
+    const formId = event.target.getAttribute('id');
+    if (!formId) return; // Confere a condição.
     event.preventDefault(); // Executa esta etapa.
     try { // Controla possíveis falhas.
-      if (event.target.id === 'request-form') { // Confere a condição.
+      if (formId === 'request-form') { // Confere a condição.
         const requests = await import('./requests.mjs'); // Prepara os valores usados no bloco.
         requests.submitRequest(event.target); // Executa esta etapa.
       } else await onSubmit(event.target); // Continua a organização do bloco.
