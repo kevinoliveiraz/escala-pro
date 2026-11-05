@@ -1,0 +1,76 @@
+html { /* Raiz do CSS aninhado desta página. */
+  & .portal-switch select { /* Estiliza estes elementos. */
+    height: 39px; /* Define a altura. */
+    border: 1px solid #e1e6ef; /* Define a borda. */
+    background: white; /* Define o fundo. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    padding: 0 11px; /* Define o espaço interno. */
+    color: #3c4d6a; /* Define a cor do texto. */
+    min-width: 140px; /* Define a largura mínima. */
+    outline-color: #90baff; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .portal-switch { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    align-items: center; /* Alinha os itens. */
+    margin-bottom: 15px; /* Ajusta esta característica. */
+    gap: 10px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .portal-switch label { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 8px; /* Separa os elementos. */
+    font-weight: 650; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .portal-grid { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: minmax(0,1.8fr) 300px; /* Distribui as colunas. */
+    gap: 13px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .portal-days { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(7,1fr); /* Distribui as colunas. */
+    gap: 7px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .portal-day { /* Estiliza estes elementos. */
+    border: 1px solid #e5eaf0; /* Define a borda. */
+    border-radius: 8px; /* Arredonda os cantos. */
+    min-height: 75px; /* Define a altura mínima. */
+    padding: 10px 6px; /* Define o espaço interno. */
+    display: flex; /* Organiza os elementos. */
+    flex-direction: column; /* Define a direção dos itens. */
+    gap: 6px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .portal-day.work { /* Estiliza estes elementos. */
+    background: #f1f6ff; /* Define o fundo. */
+    border-color: #d5e5ff; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .portal-day.off { /* Estiliza estes elementos. */
+    background: #fcfcfd; /* Define o fundo. */
+    color: #8796aa; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .portal-day small { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .portal-day strong { /* Estiliza estes elementos. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .portal-day span { /* Estiliza estes elementos. */
+    font-size: 10px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  @media(max-width:1080px) { /* Adapta a apresentação. */
+    & .portal-grid { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:760px) { /* Adapta a apresentação. */
+    & .portal-days { /* Estiliza estes elementos. */
+      grid-template-columns: repeat(4,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:410px) { /* Adapta a apresentação. */
+    & .portal-days { /* Estiliza estes elementos. */
+      grid-template-columns: repeat(3,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+} /* Fim do CSS aninhado. */

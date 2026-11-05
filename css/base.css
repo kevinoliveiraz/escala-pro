@@ -1,0 +1,994 @@
+html { /* Raiz do CSS aninhado desta página. */
+  & { /* Estiliza estes elementos. */
+    --page: #faf8f5; /* Guarda um valor do tema. */
+    --paper: #fffefd; /* Guarda um valor do tema. */
+    --edge: #e9e9eb; /* Guarda um valor do tema. */
+    --text: #132749; /* Guarda um valor do tema. */
+    --muted: #78879b; /* Guarda um valor do tema. */
+    --navy: #0e274a; /* Guarda um valor do tema. */
+    --blue: #2068d9; /* Guarda um valor do tema. */
+    --sky: #eef5ff; /* Guarda um valor do tema. */
+    --soft: #f5f7fa; /* Guarda um valor do tema. */
+    --radius: 16px; /* Guarda um valor do tema. */
+    --shadow: 0 10px 35px rgba(24,41,67,.038); /* Guarda um valor do tema. */
+    font-family: Inter,"Segoe UI",Arial,sans-serif; /* Ajusta esta característica. */
+    color: var(--text); /* Define a cor do texto. */
+    font-synthesis: none; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  &, & * { /* Estiliza estes elementos. */
+    box-sizing: border-box; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  &, & body { /* Estiliza estes elementos. */
+    margin: 0; /* Define o espaço externo. */
+    min-height: 100%; /* Define a altura mínima. */
+    background: var(--page); /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & body { /* Estiliza estes elementos. */
+    font-size: 13.5px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & button, & input, & select, & textarea { /* Estiliza estes elementos. */
+    font: inherit; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & button { /* Estiliza estes elementos. */
+    cursor: pointer; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & button:disabled { /* Estiliza estes elementos. */
+    opacity: .5; /* Ajusta esta característica. */
+    cursor: not-allowed; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & button:focus-visible, & a:focus-visible, & [role=button]:focus-visible { /* Estiliza estes elementos. */
+    outline: 3px solid #77aafd; /* Ajusta esta característica. */
+    outline-offset: 2px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & a { /* Estiliza estes elementos. */
+    text-decoration: none; /* Ajusta esta característica. */
+    color: inherit; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & h1, & h2, & h3, & p { /* Estiliza estes elementos. */
+    margin-top: 0; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & h1 { /* Estiliza estes elementos. */
+    font-size: 33px; /* Define o tamanho do texto. */
+    line-height: 1.1; /* Ajusta esta característica. */
+    letter-spacing: -1.15px; /* Ajusta esta característica. */
+    margin-bottom: 7px; /* Ajusta esta característica. */
+    font-weight: 750; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & h2 { /* Estiliza estes elementos. */
+    font-size: 16px; /* Define o tamanho do texto. */
+    margin-bottom: 8px; /* Ajusta esta característica. */
+    letter-spacing: -.3px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & h3 { /* Estiliza estes elementos. */
+    font-size: 14px; /* Define o tamanho do texto. */
+    margin-bottom: 7px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & p { /* Estiliza estes elementos. */
+    line-height: 1.5; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .boot { /* Estiliza estes elementos. */
+    padding: 60px; /* Define o espaço interno. */
+    font-size: 20px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .shell { /* Estiliza estes elementos. */
+    display: block; /* Organiza os elementos. */
+    min-height: 100vh; /* Define a altura mínima. */
+  } /* Fim destes estilos. */
+  & .brand { /* Estiliza estes elementos. */
+    font-size: 22px; /* Define o tamanho do texto. */
+    letter-spacing: -.95px; /* Ajusta esta característica. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 11px; /* Separa os elementos. */
+    font-weight: 800; /* Define o peso do texto. */
+    padding: 4px 12px 34px; /* Define o espaço interno. */
+    white-space: nowrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .brand-light { /* Estiliza estes elementos. */
+    font-weight: 800; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .brand-mark { /* Estiliza estes elementos. */
+    width: 37px; /* Define a largura. */
+    height: 37px; /* Define a altura. */
+    border-radius: 11px; /* Arredonda os cantos. */
+    background: var(--navy); /* Define o fundo. */
+    display: grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    color: #fff; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .side-nav { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    flex-direction: column; /* Define a direção dos itens. */
+    gap: 4px; /* Separa os elementos. */
+    position: relative; /* Define a posição. */
+    z-index: 1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .nav-item { /* Estiliza estes elementos. */
+    height: 47px; /* Define a altura. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 14px; /* Separa os elementos. */
+    padding: 0 13px; /* Define o espaço interno. */
+    border-radius: 10px; /* Arredonda os cantos. */
+    font-weight: 530; /* Define o peso do texto. */
+    color: #4a607f; /* Define a cor do texto. */
+    transition: background .15s; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .nav-item.active { /* Estiliza estes elementos. */
+    background: #e6f0ff; /* Define o fundo. */
+    color: #0959cd; /* Define a cor do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .nav-item:hover:not(.active) { /* Estiliza estes elementos. */
+    background: #f1f4f8; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .nav-badge { /* Estiliza estes elementos. */
+    background: #e94d63; /* Define o fundo. */
+    color: white; /* Define a cor do texto. */
+    display: grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    border-radius: 50%; /* Arredonda os cantos. */
+    min-width: 20px; /* Define a largura mínima. */
+    height: 20px; /* Define a altura. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    margin-left: auto; /* Ajusta esta característica. */
+    padding: 0 4px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .progress-track { /* Estiliza estes elementos. */
+    height: 6px; /* Define a altura. */
+    background: #e3e8ef; /* Define o fundo. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+  } /* Fim destes estilos. */
+  & .progress-track>div { /* Estiliza estes elementos. */
+    height: 100%; /* Define a altura. */
+    background: #2c6db9; /* Define o fundo. */
+    border-radius: 8px; /* Arredonda os cantos. */
+  } /* Fim destes estilos. */
+  & .workspace { /* Estiliza estes elementos. */
+    min-width: 0; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .topbar { /* Estiliza estes elementos. */
+    height: 77px; /* Define a altura. */
+    border-bottom: 1px solid #ebe9e6; /* Ajusta esta característica. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    padding: 0 27px; /* Define o espaço interno. */
+    background: rgba(255,255,255,.4); /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .top-actions { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 15px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .local-label { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    color: #647b9a; /* Define a cor do texto. */
+    display: flex; /* Organiza os elementos. */
+    gap: 6px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+  } /* Fim destes estilos. */
+  & .profile-btn { /* Estiliza estes elementos. */
+    background: transparent; /* Define o fundo. */
+    border: 0; /* Define a borda. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 9px; /* Separa os elementos. */
+    color: var(--text); /* Define a cor do texto. */
+    text-align: left; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .profile-btn>span:nth-child(2) { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    gap: 3px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .profile-btn small { /* Estiliza estes elementos. */
+    color: var(--muted); /* Define a cor do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .avatar { /* Estiliza estes elementos. */
+    --av: #2674d7; /* Guarda um valor do tema. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+    color: white; /* Define a cor do texto. */
+    background: var(--av); /* Define o fundo. */
+    width: 31px; /* Define a largura. */
+    height: 31px; /* Define a altura. */
+    border-radius: 50%; /* Arredonda os cantos. */
+    display: inline-flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: center; /* Distribui o conteúdo. */
+    font-weight: 700; /* Define o peso do texto. */
+    font-size: 10px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .avatar.large { /* Estiliza estes elementos. */
+    width: 47px; /* Define a largura. */
+    height: 47px; /* Define a altura. */
+    font-size: 13px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .avatar.tiny { /* Estiliza estes elementos. */
+    width: 16px; /* Define a largura. */
+    height: 16px; /* Define a altura. */
+    font-size: 8px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .main { /* Estiliza estes elementos. */
+    padding: 23px 27px 44px; /* Define o espaço interno. */
+    max-width: 1750px; /* Limita a largura. */
+    margin: auto; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .page-heading { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    gap: 16px; /* Separa os elementos. */
+    min-height: 71px; /* Define a altura mínima. */
+    margin-bottom: 20px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .page-heading p { /* Estiliza estes elementos. */
+    color: #697e9c; /* Define a cor do texto. */
+    font-size: 14px; /* Define o tamanho do texto. */
+    margin-bottom: 0; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .heading-actions, & .month-picker, & .panel-action-row { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 9px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .heading-actions { /* Estiliza estes elementos. */
+    justify-content: end; /* Distribui o conteúdo. */
+  } /* Fim destes estilos. */
+  & .btn { /* Estiliza estes elementos. */
+    height: 39px; /* Define a altura. */
+    padding: 0 15px; /* Define o espaço interno. */
+    border: 1px solid #dfe6ed; /* Define a borda. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    display: inline-flex; /* Organiza os elementos. */
+    gap: 9px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: center; /* Distribui o conteúdo. */
+    white-space: nowrap; /* Ajusta esta característica. */
+    font-weight: 650; /* Define o peso do texto. */
+    box-shadow: none; /* Ajusta esta característica. */
+    transition: background .15s,transform .15s; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .btn:active { /* Estiliza estes elementos. */
+    transform: translateY(1px); /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .btn.outline { /* Estiliza estes elementos. */
+    background: #fffefd; /* Define o fundo. */
+    color: #283e60; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .btn.outline:hover { /* Estiliza estes elementos. */
+    background: #f0f4f8; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .btn.primary { /* Estiliza estes elementos. */
+    border-color: #0b2b55; /* Ajusta esta característica. */
+    background: #0d2b51; /* Define o fundo. */
+    color: white; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .btn.primary:hover { /* Estiliza estes elementos. */
+    background: #174578; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .btn.small { /* Estiliza estes elementos. */
+    height: 34px; /* Define a altura. */
+    padding: 0 12px; /* Define o espaço interno. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .btn.square { /* Estiliza estes elementos. */
+    height: 38px; /* Define a altura. */
+    width: 38px; /* Define a largura. */
+    padding: 0; /* Define o espaço interno. */
+    background: #fff; /* Define o fundo. */
+    border-color: #e2e5ec; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .btn.text { /* Estiliza estes elementos. */
+    border: 0; /* Define a borda. */
+    background: transparent; /* Define o fundo. */
+    color: var(--blue); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .btn.icon-btn, & .icon-btn { /* Estiliza estes elementos. */
+    width: 32px; /* Define a largura. */
+    height: 32px; /* Define a altura. */
+    padding: 0; /* Define o espaço interno. */
+    display: inline-grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    border: 0; /* Define a borda. */
+    background: transparent; /* Define o fundo. */
+    color: #667c97; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .btn.red, & .red { /* Estiliza estes elementos. */
+    color: #dd5460!important; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .btn.danger-btn { /* Estiliza estes elementos. */
+    background: #fff1f1; /* Define o fundo. */
+    color: #c63d4b; /* Define a cor do texto. */
+    border: 1px solid #ffd3d7; /* Define a borda. */
+  } /* Fim destes estilos. */
+  & .btn.full { /* Estiliza estes elementos. */
+    width: 100%; /* Define a largura. */
+    margin-top: 12px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .btn.grow { /* Estiliza estes elementos. */
+    flex: 1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .field-select, & .month-picker input { /* Estiliza estes elementos. */
+    height: 39px; /* Define a altura. */
+    border: 1px solid #e1e6ef; /* Define a borda. */
+    background: white; /* Define o fundo. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    padding: 0 11px; /* Define o espaço interno. */
+    color: #3c4d6a; /* Define a cor do texto. */
+    min-width: 140px; /* Define a largura mínima. */
+    outline-color: #90baff; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .month-picker input { /* Estiliza estes elementos. */
+    width: 149px; /* Define a largura. */
+    min-width: 0; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .metrics-grid { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(4,minmax(0,1fr)); /* Distribui as colunas. */
+    gap: 13px; /* Separa os elementos. */
+    margin-bottom: 18px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .metrics-grid.three { /* Estiliza estes elementos. */
+    grid-template-columns: repeat(3,minmax(0,1fr)); /* Distribui as colunas. */
+  } /* Fim destes estilos. */
+  & .metric { /* Estiliza estes elementos. */
+    background: white; /* Define o fundo. */
+    border: 1px solid var(--edge); /* Define a borda. */
+    border-radius: 15px; /* Arredonda os cantos. */
+    min-height: 91px; /* Define a altura mínima. */
+    padding: 17px; /* Define o espaço interno. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 14px; /* Separa os elementos. */
+    box-shadow: var(--shadow); /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .metric-icon { /* Estiliza estes elementos. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+    width: 43px; /* Define a largura. */
+    height: 43px; /* Define a altura. */
+    display: grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    background: #e7f1ff; /* Define o fundo. */
+    border-radius: 13px; /* Arredonda os cantos. */
+    color: #236ada; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .metric:nth-child(2) .metric-icon { /* Estiliza estes elementos. */
+    color: #148d82; /* Define a cor do texto. */
+    background: #e2f5ef; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .metric:nth-child(3) .metric-icon { /* Estiliza estes elementos. */
+    color: #dd844a; /* Define a cor do texto. */
+    background: #fff0e4; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .metric:nth-child(4) .metric-icon { /* Estiliza estes elementos. */
+    color: #7655c9; /* Define a cor do texto. */
+    background: #f0eaff; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .metric>div { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    gap: 2px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .metric strong { /* Estiliza estes elementos. */
+    font-size: 23px; /* Define o tamanho do texto. */
+    line-height: 1; /* Ajusta esta característica. */
+    font-weight: 800; /* Define o peso do texto. */
+    letter-spacing: -.8px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .metric b { /* Estiliza estes elementos. */
+    font-size: 12.5px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .metric small { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    color: #8290a2; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .panel { /* Estiliza estes elementos. */
+    background: #fff; /* Define o fundo. */
+    border: 1px solid #e7e8eb; /* Define a borda. */
+    border-radius: 14px; /* Arredonda os cantos. */
+    box-shadow: var(--shadow); /* Ajusta esta característica. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+  } /* Fim destes estilos. */
+  & .section-head { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    align-items: center; /* Alinha os itens. */
+    margin-bottom: 13px; /* Ajusta esta característica. */
+    gap: 10px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .section-head h2 { /* Estiliza estes elementos. */
+    margin: 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .count { /* Estiliza estes elementos. */
+    color: var(--blue); /* Define a cor do texto. */
+    background: #e7f0ff; /* Define o fundo. */
+    border-radius: 8px; /* Arredonda os cantos. */
+    padding: 4px 8px; /* Define o espaço interno. */
+    font-weight: 700; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .search-input { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 9px; /* Separa os elementos. */
+    border: 1px solid #e4e9ee; /* Define a borda. */
+    background: #f8fafc; /* Define o fundo. */
+    padding: 0 9px; /* Define o espaço interno. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    height: 38px; /* Define a altura. */
+    color: #7a8da6; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .search-input input { /* Estiliza estes elementos. */
+    min-width: 0; /* Define a largura mínima. */
+    border: 0; /* Define a borda. */
+    background: transparent; /* Define o fundo. */
+    width: 100%; /* Define a largura. */
+    outline: 0; /* Ajusta esta característica. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .dot { /* Estiliza estes elementos. */
+    width: 9px; /* Define a largura. */
+    height: 9px; /* Define a altura. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+    border-radius: 50%; /* Arredonda os cantos. */
+    display: inline-block; /* Organiza os elementos. */
+  } /* Fim destes estilos. */
+  & .panel-action-row { /* Estiliza estes elementos. */
+    margin-top: 15px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .footnote { /* Estiliza estes elementos. */
+    margin-top: 13px; /* Ajusta esta característica. */
+    background: #eef6ff; /* Define o fundo. */
+    padding: 12px; /* Define o espaço interno. */
+    border-radius: 10px; /* Arredonda os cantos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 9px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    color: #386896; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .panel { /* Estiliza estes elementos. */
+    padding: 17px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .tag { /* Estiliza estes elementos. */
+    display: inline-flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: center; /* Distribui o conteúdo. */
+    border-radius: 7px; /* Arredonda os cantos. */
+    padding: 5px 9px; /* Define o espaço interno. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+    white-space: nowrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .tag.success { /* Estiliza estes elementos. */
+    background: #def6ed; /* Define o fundo. */
+    color: #10836b; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .tag.warning { /* Estiliza estes elementos. */
+    background: #fff0d7; /* Define o fundo. */
+    color: #a66a11; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .tag.danger { /* Estiliza estes elementos. */
+    background: #ffe6ea; /* Define o fundo. */
+    color: #c7455d; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .tag.gray { /* Estiliza estes elementos. */
+    background: #edf1f6; /* Define o fundo. */
+    color: #5c718c; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .modal form label:not(.check-field) { /* Estiliza estes elementos. */
+    display: block; /* Organiza os elementos. */
+    color: #425b76; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    font-weight: 650; /* Define o peso do texto. */
+    margin-top: 10px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .modal input:not([type=checkbox]), & .modal select, & .modal textarea { /* Estiliza estes elementos. */
+    display: block; /* Organiza os elementos. */
+    width: 100%; /* Define a largura. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    border: 1px solid #dce4ee; /* Define a borda. */
+    background: #fff; /* Define o fundo. */
+    padding: 10px; /* Define o espaço interno. */
+    color: #344960; /* Define a cor do texto. */
+    outline-color: #78a7eb; /* Ajusta esta característica. */
+    margin-top: 6px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .check-field { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 8px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    margin: 16px 0 5px; /* Define o espaço externo. */
+    color: #516a87; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .subdued { /* Estiliza estes elementos. */
+    color: #8090a4; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .empty-simulation { /* Estiliza estes elementos. */
+    height: 100%; /* Define a altura. */
+    min-height: 270px; /* Define a altura mínima. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: center; /* Distribui o conteúdo. */
+    flex-direction: column; /* Define a direção dos itens. */
+    text-align: center; /* Ajusta esta característica. */
+    gap: 8px; /* Separa os elementos. */
+    padding: 25px; /* Define o espaço interno. */
+    color: #7b8da5; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .empty-simulation svg { /* Estiliza estes elementos. */
+    color: #236dd3; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .empty-simulation h3 { /* Estiliza estes elementos. */
+    color: #263c60; /* Define a cor do texto. */
+    margin: 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .empty-simulation p { /* Estiliza estes elementos. */
+    max-width: 380px; /* Limita a largura. */
+  } /* Fim destes estilos. */
+  & .request-layout { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: minmax(0,1.6fr) minmax(285px,.8fr); /* Distribui as colunas. */
+    gap: 12px; /* Separa os elementos. */
+    align-items: start; /* Alinha os itens. */
+  } /* Fim destes estilos. */
+  & .cell-person { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 9px; /* Separa os elementos. */
+    min-width: 0; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .cell-person>span:nth-child(2) { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    gap: 2px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .cell-person b { /* Estiliza estes elementos. */
+    font-size: 11.5px; /* Define o tamanho do texto. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+    text-overflow: ellipsis; /* Ajusta esta característica. */
+    white-space: nowrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .cell-person small { /* Estiliza estes elementos. */
+    font-size: 10px; /* Define o tamanho do texto. */
+    color: #8c9db2; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .clip-text { /* Estiliza estes elementos. */
+    white-space: nowrap; /* Ajusta esta característica. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+    text-overflow: ellipsis; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .person-profile { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 12px; /* Separa os elementos. */
+    padding: 10px 0 18px; /* Define o espaço interno. */
+    border-bottom: 1px solid #e9edf1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .person-profile>div { /* Estiliza estes elementos. */
+    flex: 1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .person-profile h2 { /* Estiliza estes elementos. */
+    margin-bottom: 3px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .person-profile p { /* Estiliza estes elementos. */
+    margin: 0; /* Define o espaço externo. */
+    color: #8393a7; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .callout { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: start; /* Alinha os itens. */
+    gap: 11px; /* Separa os elementos. */
+    line-height: 1.5; /* Ajusta esta característica. */
+    border-radius: 10px; /* Arredonda os cantos. */
+    padding: 13px; /* Define o espaço interno. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .callout.warm { /* Estiliza estes elementos. */
+    background: #fff3e7; /* Define o fundo. */
+    color: #975f24; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .callout.cool { /* Estiliza estes elementos. */
+    background: #eaf6f4; /* Define o fundo. */
+    color: #237d70; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .empty-list { /* Estiliza estes elementos. */
+    padding: 30px 10px; /* Define o espaço interno. */
+    text-align: center; /* Ajusta esta característica. */
+    color: #8c9ab0; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .form-grid { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(3,1fr); /* Distribui as colunas. */
+    gap: 14px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .form-grid label { /* Estiliza estes elementos. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    color: #516982; /* Define a cor do texto. */
+    font-weight: 600; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .portal-request { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    align-items: center; /* Alinha os itens. */
+    gap: 10px; /* Separa os elementos. */
+    border-bottom: 1px solid #e9edf1; /* Ajusta esta característica. */
+    padding: 13px 0; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .portal-request>div { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    gap: 4px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .portal-request small { /* Estiliza estes elementos. */
+    color: #798da4; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .modal-backdrop { /* Estiliza estes elementos. */
+    position: fixed; /* Define a posição. */
+    inset: 0; /* Ajusta esta característica. */
+    background: rgba(5,19,37,.42); /* Define o fundo. */
+    display: grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    padding: 20px; /* Define o espaço interno. */
+    z-index: 100; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .modal { /* Estiliza estes elementos. */
+    width: min(95vw,480px); /* Define a largura. */
+    max-height: 90vh; /* Limita a altura. */
+    overflow: auto; /* Controla o conteúdo excedente. */
+    background: white; /* Define o fundo. */
+    border-radius: 18px; /* Arredonda os cantos. */
+    box-shadow: 0 25px 100px rgba(0,0,0,.22); /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .modal-head { /* Estiliza estes elementos. */
+    padding: 18px 21px; /* Define o espaço interno. */
+    border-bottom: 1px solid #edf0f4; /* Ajusta esta característica. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+  } /* Fim destes estilos. */
+  & .modal-head h2 { /* Estiliza estes elementos. */
+    margin: 0; /* Define o espaço externo. */
+    font-size: 18px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .modal-body { /* Estiliza estes elementos. */
+    padding: 19px 21px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .modal-body>p { /* Estiliza estes elementos. */
+    color: #647b97; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .modal form { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    flex-direction: column; /* Define a direção dos itens. */
+    gap: 6px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .modal-footer { /* Estiliza estes elementos. */
+    border-top: 1px solid #edf0f4; /* Ajusta esta característica. */
+    padding: 12px 20px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .modal textarea { /* Estiliza estes elementos. */
+    resize: vertical; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .modal .form-grid { /* Estiliza estes elementos. */
+    grid-template-columns: repeat(2,1fr); /* Distribui as colunas. */
+  } /* Fim destes estilos. */
+  & .modal .check-field { /* Estiliza estes elementos. */
+    margin: 13px 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .toast { /* Estiliza estes elementos. */
+    position: relative; /* Define a posição. */
+    background: #102f54; /* Define o fundo. */
+    color: #fff; /* Define a cor do texto. */
+    border-radius: 10px; /* Arredonda os cantos. */
+    margin-bottom: 9px; /* Ajusta esta característica. */
+    padding: 13px 17px; /* Define o espaço interno. */
+    max-width: 420px; /* Limita a largura. */
+    box-shadow: 0 9px 25px #0d234044; /* Ajusta esta característica. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .toast.error { /* Estiliza estes elementos. */
+    background: #aa374c; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .toast.warn { /* Estiliza estes elementos. */
+    background: #9d6924; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & #toast { /* Estiliza estes elementos. */
+    position: fixed; /* Define a posição. */
+    bottom: 22px; /* Ajusta esta característica. */
+    right: 22px; /* Ajusta esta característica. */
+    z-index: 200; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  @media(max-width:1320px) { /* Adapta a apresentação. */
+    & .shell { /* Estiliza estes elementos. */
+      grid-template-columns: 201px minmax(0,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .main { /* Estiliza estes elementos. */
+      padding: 20px 17px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .topbar { /* Estiliza estes elementos. */
+      padding: 0 18px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .metric { /* Estiliza estes elementos. */
+      padding: 12px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .metric strong { /* Estiliza estes elementos. */
+      font-size: 21px; /* Define o tamanho do texto. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:1080px) { /* Adapta a apresentação. */
+    & .page-heading { /* Estiliza estes elementos. */
+      flex-wrap: wrap; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .metrics-grid { /* Estiliza estes elementos. */
+      gap: 8px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+    & .request-layout { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .form-grid { /* Estiliza estes elementos. */
+      grid-template-columns: repeat(2,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:760px) { /* Adapta a apresentação. */
+    & .shell { /* Estiliza estes elementos. */
+      display: block; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .topbar { /* Estiliza estes elementos. */
+      height: 65px; /* Define a altura. */
+    } /* Fim destes estilos. */
+    & .local-label, & .profile-btn>span:nth-child(2) { /* Estiliza estes elementos. */
+      display: none; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .main { /* Estiliza estes elementos. */
+      padding: 17px 12px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .page-heading h1 { /* Estiliza estes elementos. */
+      font-size: 28px; /* Define o tamanho do texto. */
+    } /* Fim destes estilos. */
+    & .heading-actions { /* Estiliza estes elementos. */
+      justify-content: start; /* Distribui o conteúdo. */
+    } /* Fim destes estilos. */
+    & .metrics-grid, & .metrics-grid.three { /* Estiliza estes elementos. */
+      grid-template-columns: repeat(2,minmax(0,1fr)); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .form-grid { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .request-layout .panel { /* Estiliza estes elementos. */
+      overflow: auto; /* Controla o conteúdo excedente. */
+    } /* Fim destes estilos. */
+    & .page-heading { /* Estiliza estes elementos. */
+      gap: 12px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+    & .month-picker input { /* Estiliza estes elementos. */
+      width: 132px; /* Define a largura. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:410px) { /* Adapta a apresentação. */
+    & .metrics-grid, & .metrics-grid.three { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .metric { /* Estiliza estes elementos. */
+      gap: 8px; /* Separa os elementos. */
+      padding: 8px; /* Define o espaço interno. */
+      min-height: 78px; /* Define a altura mínima. */
+    } /* Fim destes estilos. */
+    & .metric strong { /* Estiliza estes elementos. */
+      font-size: 18px; /* Define o tamanho do texto. */
+    } /* Fim destes estilos. */
+    & .metric small { /* Estiliza estes elementos. */
+      font-size: 10px; /* Define o tamanho do texto. */
+    } /* Fim destes estilos. */
+    & .metric-icon { /* Estiliza estes elementos. */
+      width: 34px; /* Define a largura. */
+      height: 34px; /* Define a altura. */
+    } /* Fim destes estilos. */
+    & .modal .form-grid { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media print { /* Adapta a apresentação. */
+    & .topbar, & .heading-actions, & .footnote, & .btn, & #overlay, & #toast { /* Estiliza estes elementos. */
+      display: none!important; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .shell { /* Estiliza estes elementos. */
+      display: block; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .main { /* Estiliza estes elementos. */
+      padding: 0; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .metrics-grid { /* Estiliza estes elementos. */
+      grid-template-columns: repeat(4,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & body { /* Estiliza estes elementos. */
+      background: white; /* Define o fundo. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  & .topbar { /* Estiliza estes elementos. */
+    position: relative; /* Define a posição. */
+    z-index: 30; /* Ajusta esta característica. */
+    gap: 20px; /* Separa os elementos. */
+    padding: 0 clamp(16px,2vw,32px); /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .header-brand { /* Estiliza estes elementos. */
+    padding: 0; /* Define o espaço interno. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+    gap: 9px; /* Separa os elementos. */
+    font-size: 21px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .header-brand .brand-mark { /* Estiliza estes elementos. */
+    width: 34px; /* Define a largura. */
+    height: 34px; /* Define a altura. */
+    border-radius: 10px; /* Arredonda os cantos. */
+  } /* Fim destes estilos. */
+  & .header-nav { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 2px; /* Separa os elementos. */
+    margin: 0 auto; /* Define o espaço externo. */
+    min-width: 0; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .header-nav .nav-item { /* Estiliza estes elementos. */
+    height: 40px; /* Define a altura. */
+    gap: 7px; /* Separa os elementos. */
+    padding: 0 9px; /* Define o espaço interno. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    white-space: nowrap; /* Ajusta esta característica. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .header-nav .nav-badge { /* Estiliza estes elementos. */
+    min-width: 17px; /* Define a largura mínima. */
+    height: 17px; /* Define a altura. */
+    margin-left: 0; /* Ajusta esta característica. */
+    font-size: 9px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .topbar .top-actions { /* Estiliza estes elementos. */
+    gap: 12px; /* Separa os elementos. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .topbar .menu-toggle { /* Estiliza estes elementos. */
+    display: none; /* Organiza os elementos. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  @media(max-width:1440px) { /* Adapta a apresentação. */
+    & .topbar .local-label>span { /* Estiliza estes elementos. */
+      display: none; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:1320px) { /* Adapta a apresentação. */
+    & .topbar .profile-btn>span:nth-child(2) { /* Estiliza estes elementos. */
+      display: none; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .topbar { /* Estiliza estes elementos. */
+      gap: 16px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:1120px) { /* Adapta a apresentação. */
+    & .topbar { /* Estiliza estes elementos. */
+      min-height: 72px; /* Define a altura mínima. */
+      gap: 12px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+    & .header-brand { /* Estiliza estes elementos. */
+      margin-right: auto; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .topbar .menu-toggle { /* Estiliza estes elementos. */
+      display: inline-grid; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .header-nav { /* Estiliza estes elementos. */
+      display: none; /* Organiza os elementos. */
+      position: absolute; /* Define a posição. */
+      top: 100%; /* Ajusta esta característica. */
+      left: 16px; /* Ajusta esta característica. */
+      right: 16px; /* Ajusta esta característica. */
+      margin: 0; /* Define o espaço externo. */
+      padding: 10px; /* Define o espaço interno. */
+      gap: 6px; /* Separa os elementos. */
+      grid-template-columns: repeat(2,minmax(0,1fr)); /* Distribui as colunas. */
+      background: var(--paper); /* Define o fundo. */
+      border: 1px solid var(--edge); /* Define a borda. */
+      border-radius: 0 0 14px 14px; /* Arredonda os cantos. */
+      box-shadow: 0 15px 30px rgba(24,41,67,.12); /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .header-nav.is-open { /* Estiliza estes elementos. */
+      display: grid; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .header-nav .nav-item { /* Estiliza estes elementos. */
+      height: 44px; /* Define a altura. */
+      font-size: 13px; /* Define o tamanho do texto. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:760px) { /* Adapta a apresentação. */
+    & .topbar { /* Estiliza estes elementos. */
+      min-height: 65px; /* Define a altura mínima. */
+      gap: 8px; /* Separa os elementos. */
+      padding: 0 12px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .header-brand { /* Estiliza estes elementos. */
+      font-size: 19px; /* Define o tamanho do texto. */
+      gap: 8px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+    & .topbar .top-actions { /* Estiliza estes elementos. */
+      gap: 8px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+    & .header-nav { /* Estiliza estes elementos. */
+      left: 12px; /* Ajusta esta característica. */
+      right: 12px; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  & .month-picker { /* Estiliza estes elementos. */
+    flex-wrap: nowrap; /* Ajusta esta característica. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .month-picker input { /* Estiliza estes elementos. */
+    width: 220px; /* Define a largura. */
+    min-width: 220px; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  @media(max-width:420px) { /* Adapta a apresentação. */
+    & .month-picker { /* Estiliza estes elementos. */
+      flex-wrap: wrap; /* Ajusta esta característica. */
+      justify-content: space-between; /* Distribui o conteúdo. */
+      width: 100%; /* Define a largura. */
+    } /* Fim destes estilos. */
+    & .month-picker input { /* Estiliza estes elementos. */
+      order: -1; /* Ajusta esta característica. */
+      flex: 1 0 100%; /* Ajusta esta característica. */
+      width: 100%; /* Define a largura. */
+      min-width: 0; /* Define a largura mínima. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  & .modal-footer { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    justify-content: flex-end; /* Distribui o conteúdo. */
+    gap: 9px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .modal.pdf-preview-modal { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    flex-direction: column; /* Define a direção dos itens. */
+    width: min(1160px,96vw); /* Define a largura. */
+    height: 92vh; /* Define a altura. */
+    max-height: 92vh; /* Limita a altura. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+  } /* Fim destes estilos. */
+  & .pdf-preview-modal .modal-head, & .pdf-preview-modal .modal-footer { /* Estiliza estes elementos. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .pdf-preview-modal .modal-body { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    flex-direction: column; /* Define a direção dos itens. */
+    flex: 1; /* Ajusta esta característica. */
+    gap: 12px; /* Separa os elementos. */
+    min-height: 0; /* Define a altura mínima. */
+    padding: 14px 20px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .pdf-preview-summary { /* Estiliza estes elementos. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+    margin: 0; /* Define o espaço externo. */
+    font-size: 13px; /* Define o tamanho do texto. */
+    color: #657e9c; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .pdf-preview-frame { /* Estiliza estes elementos. */
+    display: block; /* Organiza os elementos. */
+    flex: 1; /* Ajusta esta característica. */
+    width: 100%; /* Define a largura. */
+    min-height: 0; /* Define a altura mínima. */
+    border: 1px solid #dbe3ec; /* Define a borda. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    background: #e8edf3; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  @media(max-width:600px) { /* Adapta a apresentação. */
+    & .pdf-preview-modal .modal-head { /* Estiliza estes elementos. */
+      padding: 14px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .pdf-preview-modal .modal-head h2 { /* Estiliza estes elementos. */
+      font-size: 16px; /* Define o tamanho do texto. */
+    } /* Fim destes estilos. */
+    & .pdf-preview-modal .modal-body { /* Estiliza estes elementos. */
+      padding: 10px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .pdf-preview-modal .modal-footer { /* Estiliza estes elementos. */
+      padding: 10px 14px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+} /* Fim do CSS aninhado. */

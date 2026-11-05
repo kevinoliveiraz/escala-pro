@@ -1,0 +1,130 @@
+<!doctype html> <!-- Define o documento. -->
+<html lang="pt-BR"> <!-- Organiza esta parte da página. -->
+  <head> <!-- Organiza esta parte da página. -->
+    <meta charset="utf-8"> <!-- Organiza esta parte da página. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Organiza esta parte da página. -->
+    <meta name="theme-color" content="#faf8f5"> <!-- Organiza esta parte da página. -->
+    <meta name="description" content="Escalas da equipe no EscalaPro."> <!-- Organiza esta parte da página. -->
+    <title>Escalas | EscalaPro</title> <!-- Organiza esta parte da página. -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml"> <!-- Organiza o arquivo de estilo. -->
+    <link rel="stylesheet" href="./css/base.css"> <!-- Organiza o arquivo de estilo. -->
+    <link rel="stylesheet" href="./css/escalas.css"> <!-- Organiza o arquivo de estilo. -->
+    <script type="module" src="./js/escalas.mjs"></script> <!-- Organiza o código da página. -->
+  </head> <!-- Encerra esta parte. -->
+  <body data-page="escalas" data-title="Escalas"> <!-- Organiza esta parte da página. -->
+    <div id="app"> <!-- Organiza esta parte da página. -->
+      <header> <!-- Organiza esta parte da página. -->
+        <a href="./index.html"> <!-- Organiza esta parte da página. -->
+          EscalaPro <!-- Mostra este conteúdo. -->
+        </a> <!-- Encerra esta parte. -->
+        <nav aria-label="Navegação principal"> <!-- Organiza esta parte da página. -->
+          <a href="./index.html" data-page="escalas" aria-current="page"> <!-- Organiza esta parte da página. -->
+            Escalas <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./simulacoes.html" data-page="simulacoes" > <!-- Organiza esta parte da página. -->
+            Simulações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./solicitacoes.html" data-page="solicitacoes" > <!-- Organiza esta parte da página. -->
+            Solicitações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./funcionarios.html" data-page="funcionarios" > <!-- Organiza esta parte da página. -->
+            Funcionários <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./setores.html" data-page="setores" > <!-- Organiza esta parte da página. -->
+            Setores <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./relatorios.html" data-page="relatorios" > <!-- Organiza esta parte da página. -->
+            Relatórios <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./configuracoes.html" data-page="configuracoes" > <!-- Organiza esta parte da página. -->
+            Configurações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+        </nav> <!-- Encerra esta parte. -->
+      </header> <!-- Encerra esta parte. -->
+      <main> <!-- Organiza esta parte da página. -->
+        <h1> <!-- Organiza esta parte da página. -->
+          Escalas <!-- Mostra este conteúdo. -->
+        </h1> <!-- Encerra esta parte. -->
+        <p> <!-- Organiza esta parte da página. -->
+          Carregando os dados desta página… <!-- Mostra este conteúdo. -->
+        </p> <!-- Encerra esta parte. -->
+      </main> <!-- Encerra esta parte. -->
+    </div> <!-- Encerra esta parte. -->
+    <template id="page-template"> <!-- Organiza o modelo desta página. -->
+      {{cabecalho}} <!-- Mostra este conteúdo. -->
+      <section class="planning-toolbar" aria-labelledby="planning-title"> <!-- Organiza esta parte da página. -->
+        <div class="planning-intro"> <!-- Organiza esta parte da página. -->
+          <span class="planning-icon"> <!-- Organiza esta parte da página. -->
+            {{icone}} <!-- Mostra este conteúdo. -->
+          </span> <!-- Encerra esta parte. -->
+          <div> <!-- Organiza esta parte da página. -->
+            <h2 id="planning-title"> <!-- Organiza esta parte da página. -->
+              Planejar escala <!-- Mostra este conteúdo. -->
+            </h2> <!-- Encerra esta parte. -->
+            <p> <!-- Organiza esta parte da página. -->
+              Escolha o mês e o setor da equipe. <!-- Mostra este conteúdo. -->
+            </p> <!-- Encerra esta parte. -->
+          </div> <!-- Encerra esta parte. -->
+        </div> <!-- Encerra esta parte. -->
+        <div class="planning-controls"> <!-- Organiza esta parte da página. -->
+          <div class="planning-field"> <!-- Organiza esta parte da página. -->
+            <label for="month-choice"> <!-- Organiza esta parte da página. -->
+              Mês da escala <!-- Mostra este conteúdo. -->
+            </label> <!-- Encerra esta parte. -->
+            {{mes}} <!-- Mostra este conteúdo. -->
+          </div> <!-- Encerra esta parte. -->
+          <div class="planning-field"> <!-- Organiza esta parte da página. -->
+            <label for="department-switch"> <!-- Organiza esta parte da página. -->
+              Setor <!-- Mostra este conteúdo. -->
+            </label> <!-- Encerra esta parte. -->
+            {{setor}} <!-- Mostra este conteúdo. -->
+          </div> <!-- Encerra esta parte. -->
+          {{acao}} <!-- Mostra este conteúdo. -->
+        </div> <!-- Encerra esta parte. -->
+      </section> <!-- Encerra esta parte. -->
+      <div class="editor-tools"> <!-- Organiza esta parte da página. -->
+        <div class="tools-left"> <!-- Organiza esta parte da página. -->
+          <span> <!-- Organiza esta parte da página. -->
+            Arraste uma pessoa até o dia e escolha Folga ou Plantão. <!-- Mostra este conteúdo. -->
+          </span> <!-- Encerra esta parte. -->
+          {{conteudo}} <!-- Mostra este conteúdo. -->
+        </div> <!-- Encerra esta parte. -->
+        <div class="tools-right"> <!-- Organiza esta parte da página. -->
+          {{acao2}}{{acao3}}{{acao4}}{{acao5}}{{acao6}} <!-- Mostra este conteúdo. -->
+        </div> <!-- Encerra esta parte. -->
+      </div> <!-- Encerra esta parte. -->
+      <section class="editor-layout"> <!-- Organiza esta parte da página. -->
+        {{funcionarios}} <!-- Mostra este conteúdo. -->
+        <div class="calendar-container"> <!-- Organiza esta parte da página. -->
+          {{calendario}} <!-- Mostra este conteúdo. -->
+          <div class="legend"> <!-- Organiza esta parte da página. -->
+            {{conteudo2}} <!-- Mostra este conteúdo. -->
+            <span> <!-- Organiza esta parte da página. -->
+              <i style="background:#e2b36f"> <!-- Organiza esta parte da página. -->
+              </i> <!-- Encerra esta parte. -->
+              Folga <!-- Mostra este conteúdo. -->
+            </span> <!-- Encerra esta parte. -->
+            <span> <!-- Organiza esta parte da página. -->
+              <i style="background:#b9c0cd"> <!-- Organiza esta parte da página. -->
+              </i> <!-- Encerra esta parte. -->
+              Sem alocação <!-- Mostra este conteúdo. -->
+            </span> <!-- Encerra esta parte. -->
+          </div> <!-- Encerra esta parte. -->
+        </div> <!-- Encerra esta parte. -->
+        {{detalhesDoDia}} <!-- Mostra este conteúdo. -->
+      </section> <!-- Encerra esta parte. -->
+      <div class="footnote"> <!-- Organiza esta parte da página. -->
+        {{icone2}} Todas as alterações são salvas neste navegador. A publicação exige cobertura completa e ausência de conflitos. Para compartilhar entre dispositivos será necessário um backend. <!-- Mostra este conteúdo. -->
+      </div> <!-- Encerra esta parte. -->
+    </template> <!-- Encerra esta parte. -->
+    <noscript> <!-- Organiza esta parte da página. -->
+      <p> <!-- Organiza esta parte da página. -->
+        Ative o JavaScript para utilizar o EscalaPro. <!-- Mostra este conteúdo. -->
+      </p> <!-- Encerra esta parte. -->
+    </noscript> <!-- Encerra esta parte. -->
+    <div id="overlay"> <!-- Organiza esta parte da página. -->
+    </div> <!-- Encerra esta parte. -->
+    <div id="toast" aria-live="polite"> <!-- Organiza esta parte da página. -->
+    </div> <!-- Encerra esta parte. -->
+  </body> <!-- Encerra esta parte. -->
+</html> <!-- Encerra esta parte. -->

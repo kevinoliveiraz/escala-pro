@@ -1,0 +1,96 @@
+html { /* Raiz do CSS aninhado desta página. */
+  & .stack-buttons { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 9px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .settings-block input[type=number] { /* Estiliza estes elementos. */
+    display: block; /* Organiza os elementos. */
+    width: 100%; /* Define a largura. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    border: 1px solid #dce4ee; /* Define a borda. */
+    background: #fff; /* Define o fundo. */
+    padding: 10px; /* Define o espaço interno. */
+    color: #344960; /* Define a cor do texto. */
+    outline-color: #78a7eb; /* Ajusta esta característica. */
+    margin-top: 6px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .settings-layout { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: minmax(0,1.7fr) minmax(280px,.8fr); /* Distribui as colunas. */
+    gap: 13px; /* Separa os elementos. */
+    align-items: start; /* Alinha os itens. */
+  } /* Fim destes estilos. */
+  & .settings-block { /* Estiliza estes elementos. */
+    padding: 19px 0; /* Define o espaço interno. */
+    border-top: 1px solid #eef0f4; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .settings-block p { /* Estiliza estes elementos. */
+    color: #8192a5; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .settings-block input[type=number] { /* Estiliza estes elementos. */
+    max-width: 140px; /* Limita a largura. */
+  } /* Fim destes estilos. */
+  & .setting-row { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 11px; /* Separa os elementos. */
+    padding: 11px 4px; /* Define o espaço interno. */
+    border-bottom: 1px solid #f0f2f5; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .setting-row>span:nth-child(2) { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    gap: 4px; /* Separa os elementos. */
+    flex: 1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .setting-row small { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    color: #7a8aa0; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .setting-row input[type=number] { /* Estiliza estes elementos. */
+    width: 78px; /* Define a largura. */
+    margin: 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .toggle-row { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    align-items: center; /* Alinha os itens. */
+    gap: 14px; /* Separa os elementos. */
+    padding: 13px 0; /* Define o espaço interno. */
+    border-bottom: 1px solid #f0f2f5; /* Ajusta esta característica. */
+    font-weight: 650; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .toggle-row span { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    gap: 5px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .toggle-row small { /* Estiliza estes elementos. */
+    font-weight: 400; /* Define o peso do texto. */
+    color: #8493a6; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .toggle-row input { /* Estiliza estes elementos. */
+    width: 19px; /* Define a largura. */
+    height: 19px; /* Define a altura. */
+    accent-color: #286fe1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .settings-side .callout { /* Estiliza estes elementos. */
+    margin: 16px 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .settings-side>p { /* Estiliza estes elementos. */
+    color: #7589a3; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .stack-buttons { /* Estiliza estes elementos. */
+    flex-direction: column; /* Define a direção dos itens. */
+    align-items: stretch; /* Alinha os itens. */
+  } /* Fim destes estilos. */
+  & .stack-buttons .btn { /* Estiliza estes elementos. */
+    width: 100%; /* Define a largura. */
+  } /* Fim destes estilos. */
+  @media(max-width:1080px) { /* Adapta a apresentação. */
+    & .settings-layout { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+} /* Fim do CSS aninhado. */

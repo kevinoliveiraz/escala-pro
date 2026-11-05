@@ -1,0 +1,79 @@
+html { /* Raiz do CSS aninhado desta página. */
+  & .decision-actions { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 9px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .request-toolbar select { /* Estiliza estes elementos. */
+    height: 39px; /* Define a altura. */
+    border: 1px solid #e1e6ef; /* Define a borda. */
+    background: white; /* Define o fundo. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    padding: 0 11px; /* Define o espaço interno. */
+    color: #3c4d6a; /* Define a cor do texto. */
+    min-width: 140px; /* Define a largura mínima. */
+    outline-color: #90baff; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .request-toolbar { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    align-items: center; /* Alinha os itens. */
+    margin-bottom: 11px; /* Ajusta esta característica. */
+    color: #526985; /* Define a cor do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .request-list { /* Estiliza estes elementos. */
+    padding: 8px; /* Define o espaço interno. */
+    overflow-x: auto; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .request-header, & .request-row { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: 1.65fr .85fr 1.05fr 1.45fr .75fr; /* Distribui as colunas. */
+    gap: 11px; /* Separa os elementos. */
+    min-width: 580px; /* Define a largura mínima. */
+    align-items: center; /* Alinha os itens. */
+  } /* Fim destes estilos. */
+  & .request-header { /* Estiliza estes elementos. */
+    height: 38px; /* Define a altura. */
+    padding: 0 12px; /* Define o espaço interno. */
+    color: #607998; /* Define a cor do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    border-bottom: 1px solid #e9edf3; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .request-row { /* Estiliza estes elementos. */
+    width: 100%; /* Define a largura. */
+    text-align: left; /* Ajusta esta característica. */
+    background: transparent; /* Define o fundo. */
+    border: 0; /* Define a borda. */
+    border-bottom: 1px solid #eef0f4; /* Ajusta esta característica. */
+    padding: 11px 12px; /* Define o espaço interno. */
+    color: #415571; /* Define a cor do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .request-row:hover, & .request-row.selected { /* Estiliza estes elementos. */
+    background: #eef5ff; /* Define o fundo. */
+    border-radius: 8px; /* Arredonda os cantos. */
+  } /* Fim destes estilos. */
+  & .request-detail dl { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: 115px 1fr; /* Distribui as colunas. */
+    gap: 15px 10px; /* Separa os elementos. */
+    margin: 23px 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .request-detail dt { /* Estiliza estes elementos. */
+    color: #6b8098; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .request-detail dd { /* Estiliza estes elementos. */
+    margin: 0; /* Define o espaço externo. */
+    font-weight: 650; /* Define o peso do texto. */
+    overflow-wrap: anywhere; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .decision-actions { /* Estiliza estes elementos. */
+    margin-top: 16px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .decision-actions .btn { /* Estiliza estes elementos. */
+    flex: 1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+} /* Fim do CSS aninhado. */

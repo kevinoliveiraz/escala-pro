@@ -1,0 +1,311 @@
+html { /* Raiz dos estilos da apresentação. */
+  & { /* Estiliza estes elementos. */
+    --navy: #112b4c; /* Guarda um valor do tema. */
+    --blue: #2469ce; /* Guarda um valor do tema. */
+    --cream: #f8f6f2; /* Guarda um valor do tema. */
+    --text: #526881; /* Guarda um valor do tema. */
+  } /* Fim destes estilos. */
+  &, & * { /* Estiliza estes elementos. */
+    box-sizing: border-box; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & body { /* Estiliza estes elementos. */
+    margin: 0; /* Define o espaço externo. */
+    background: #fff; /* Define o fundo. */
+    color: var(--navy); /* Define a cor do texto. */
+    font-family: Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & a { /* Estiliza estes elementos. */
+    color: inherit; /* Define a cor do texto. */
+    text-decoration: none; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .top { /* Estiliza estes elementos. */
+    height: 82px; /* Define a altura. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    gap: 20px; /* Separa os elementos. */
+    padding: 0 clamp(24px,5vw,90px); /* Define o espaço interno. */
+    border-bottom: 1px solid #eee; /* Ajusta esta característica. */
+    background: #fff; /* Define o fundo. */
+    position: relative; /* Define a posição. */
+    z-index: 1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .logo { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 11px; /* Separa os elementos. */
+    font-size: 23px; /* Define o tamanho do texto. */
+    font-weight: 800; /* Define o peso do texto. */
+    letter-spacing: -1.4px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .logo-mark { /* Estiliza estes elementos. */
+    background: var(--navy); /* Define o fundo. */
+    color: #fff; /* Define a cor do texto. */
+    border-radius: 10px; /* Arredonda os cantos. */
+    display: grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    width: 39px; /* Define a largura. */
+    height: 39px; /* Define a altura. */
+    font-size: 25px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .top nav { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 31px; /* Separa os elementos. */
+    font-size: 13px; /* Define o tamanho do texto. */
+    color: #60728a; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .top nav a:hover { /* Estiliza estes elementos. */
+    color: var(--blue); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .link-button { /* Estiliza estes elementos. */
+    padding: 11px 17px; /* Define o espaço interno. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    border: 1px solid #e1e7f0; /* Define a borda. */
+    font-weight: 650; /* Define o peso do texto. */
+    font-size: 13px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .hero { /* Estiliza estes elementos. */
+    background: radial-gradient(ellipse at 78% 9%,#e7effc,transparent 45%),linear-gradient(125deg,#f7f5f1,#fcfaf6); /* Define o fundo. */
+    padding: 70px clamp(24px,5vw,90px) 77px; /* Define o espaço interno. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+  } /* Fim destes estilos. */
+  & .hero-inner { /* Estiliza estes elementos. */
+    max-width: 1530px; /* Limita a largura. */
+    margin: auto; /* Define o espaço externo. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: .86fr 1.1fr; /* Distribui as colunas. */
+    gap: 55px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+  } /* Fim destes estilos. */
+  & .eyebrow { /* Estiliza estes elementos. */
+    display: inline-block; /* Organiza os elementos. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    letter-spacing: 1px; /* Ajusta esta característica. */
+    text-transform: uppercase; /* Ajusta esta característica. */
+    color: var(--blue); /* Define a cor do texto. */
+    font-weight: 760; /* Define o peso do texto. */
+    background: #e8f0fe; /* Define o fundo. */
+    padding: 8px 13px; /* Define o espaço interno. */
+    border-radius: 30px; /* Arredonda os cantos. */
+  } /* Fim destes estilos. */
+  & .copy h1 { /* Estiliza estes elementos. */
+    font-size: clamp(43px,4.2vw,73px); /* Define o tamanho do texto. */
+    letter-spacing: -.066em; /* Ajusta esta característica. */
+    line-height: 1.08; /* Ajusta esta característica. */
+    margin: 28px 0 18px; /* Define o espaço externo. */
+    max-width: 660px; /* Limita a largura. */
+  } /* Fim destes estilos. */
+  & .copy h1 em { /* Estiliza estes elementos. */
+    font-style: normal; /* Ajusta esta característica. */
+    color: #3974c8; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .copy p { /* Estiliza estes elementos. */
+    color: var(--text); /* Define a cor do texto. */
+    font-size: 16px; /* Define o tamanho do texto. */
+    max-width: 560px; /* Limita a largura. */
+    line-height: 1.7; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .buttons { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 10px; /* Separa os elementos. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+    margin-top: 27px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .primary, & .secondary { /* Estiliza estes elementos. */
+    border-radius: 10px; /* Arredonda os cantos. */
+    display: inline-flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 15px; /* Separa os elementos. */
+    padding: 14px 23px; /* Define o espaço interno. */
+    font-weight: 670; /* Define o peso do texto. */
+    font-size: 14px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .primary { /* Estiliza estes elementos. */
+    background: var(--navy); /* Define o fundo. */
+    color: #fff; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .primary:hover { /* Estiliza estes elementos. */
+    background: #23518b; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .secondary { /* Estiliza estes elementos. */
+    background: #fff; /* Define o fundo. */
+    border: 1px solid #dce2eb; /* Define a borda. */
+    color: var(--navy); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .secondary:hover { /* Estiliza estes elementos. */
+    background: #f2f6fa; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .pill-row { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 17px; /* Separa os elementos. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+    margin-top: 28px; /* Ajusta esta característica. */
+    color: #657a91; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .product { /* Estiliza estes elementos. */
+    background: #fff; /* Define o fundo. */
+    border: 1px solid #e0e4e9; /* Define a borda. */
+    border-radius: 23px; /* Arredonda os cantos. */
+    padding: 13px; /* Define o espaço interno. */
+    box-shadow: 0 26px 55px #1d38592b; /* Ajusta esta característica. */
+    transform: rotate(-1.3deg); /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .product img { /* Estiliza estes elementos. */
+    display: block; /* Organiza os elementos. */
+    width: 100%; /* Define a largura. */
+    border-radius: 10px; /* Arredonda os cantos. */
+    object-fit: cover; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .product-label { /* Estiliza estes elementos. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    font-weight: 680; /* Define o peso do texto. */
+    color: #425977; /* Define a cor do texto. */
+    margin: 9px 11px 14px; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .dot { /* Estiliza estes elementos. */
+    display: inline-block; /* Organiza os elementos. */
+    width: 9px; /* Define a largura. */
+    height: 9px; /* Define a altura. */
+    background: #25b48b; /* Define o fundo. */
+    border-radius: 100%; /* Arredonda os cantos. */
+    margin-right: 7px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .features, & .steps { /* Estiliza estes elementos. */
+    max-width: 1430px; /* Limita a largura. */
+    margin: auto; /* Define o espaço externo. */
+    padding: 86px 35px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .section-title h2 { /* Estiliza estes elementos. */
+    font-size: clamp(29px,3.3vw,47px); /* Define o tamanho do texto. */
+    letter-spacing: -.05em; /* Ajusta esta característica. */
+    line-height: 1.13; /* Ajusta esta característica. */
+    margin: 20px 0 34px; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .feature-grid { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(3,1fr); /* Distribui as colunas. */
+    gap: 15px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .feature-grid article { /* Estiliza estes elementos. */
+    border: 1px solid #e8ebf0; /* Define a borda. */
+    border-radius: 17px; /* Arredonda os cantos. */
+    padding: 27px; /* Define o espaço interno. */
+    min-height: 188px; /* Define a altura mínima. */
+  } /* Fim destes estilos. */
+  & .feature-icon { /* Estiliza estes elementos. */
+    width: 44px; /* Define a largura. */
+    height: 44px; /* Define a altura. */
+    border-radius: 12px; /* Arredonda os cantos. */
+    background: #e8f1ff; /* Define o fundo. */
+    color: #2469ce; /* Define a cor do texto. */
+    display: grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    font-size: 25px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .feature-grid h3 { /* Estiliza estes elementos. */
+    font-size: 16px; /* Define o tamanho do texto. */
+    letter-spacing: -.02em; /* Ajusta esta característica. */
+    margin: 19px 0 9px; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .feature-grid p, & .steps-grid p { /* Estiliza estes elementos. */
+    font-size: 13px; /* Define o tamanho do texto. */
+    color: #6b7d92; /* Define a cor do texto. */
+    line-height: 1.65; /* Ajusta esta característica. */
+    margin: 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .steps { /* Estiliza estes elementos. */
+    background: #f8f7f5; /* Define o fundo. */
+    max-width: none; /* Limita a largura. */
+    padding-left: max(35px,calc((100vw - 1360px)/2)); /* Ajusta esta característica. */
+    padding-right: max(35px,calc((100vw - 1360px)/2)); /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .steps-grid { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(4,1fr); /* Distribui as colunas. */
+    gap: 14px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .steps-grid>div { /* Estiliza estes elementos. */
+    background: #fff; /* Define o fundo. */
+    border: 1px solid #e8ebef; /* Define a borda. */
+    padding: 27px; /* Define o espaço interno. */
+    border-radius: 15px; /* Arredonda os cantos. */
+  } /* Fim destes estilos. */
+  & .steps-grid b { /* Estiliza estes elementos. */
+    font-size: 30px; /* Define o tamanho do texto. */
+    color: #9bb9df; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .steps-grid h3 { /* Estiliza estes elementos. */
+    margin: 18px 0 8px; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .final { /* Estiliza estes elementos. */
+    background: #133257; /* Define o fundo. */
+    color: #fff; /* Define a cor do texto. */
+    text-align: center; /* Ajusta esta característica. */
+    padding: 78px 30px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .final h2 { /* Estiliza estes elementos. */
+    font-size: clamp(27px,3vw,43px); /* Define o tamanho do texto. */
+    letter-spacing: -.04em; /* Ajusta esta característica. */
+    margin: 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .final p { /* Estiliza estes elementos. */
+    color: #bfcede; /* Define a cor do texto. */
+    margin: 13px 0 28px; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .final .primary { /* Estiliza estes elementos. */
+    background: #fff; /* Define o fundo. */
+    color: #163d67; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & footer { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    padding: 28px clamp(24px,5vw,90px); /* Define o espaço interno. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    color: #6b7c91; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  @media(max-width:1100px) { /* Adapta a apresentação. */
+    & .hero-inner { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .copy h1 { /* Estiliza estes elementos. */
+      max-width: 900px; /* Limita a largura. */
+    } /* Fim destes estilos. */
+    & .feature-grid { /* Estiliza estes elementos. */
+      grid-template-columns: repeat(2,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:680px) { /* Adapta a apresentação. */
+    & .top { /* Estiliza estes elementos. */
+      height: 72px; /* Define a altura. */
+    } /* Fim destes estilos. */
+    & .top nav { /* Estiliza estes elementos. */
+      display: none; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .hero { /* Estiliza estes elementos. */
+      padding: 45px 20px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .copy h1 { /* Estiliza estes elementos. */
+      font-size: 43px; /* Define o tamanho do texto. */
+    } /* Fim destes estilos. */
+    & .features, & .steps { /* Estiliza estes elementos. */
+      padding: 50px 20px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .feature-grid, & .steps-grid { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .product { /* Estiliza estes elementos. */
+      transform: none; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .top .logo { /* Estiliza estes elementos. */
+      font-size: 20px; /* Define o tamanho do texto. */
+    } /* Fim destes estilos. */
+    & .link-button { /* Estiliza estes elementos. */
+      font-size: 11px; /* Define o tamanho do texto. */
+    } /* Fim destes estilos. */
+    & footer { /* Estiliza estes elementos. */
+      flex-direction: column; /* Define a direção dos itens. */
+      gap: 10px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+} /* Fim dos estilos da apresentação. */

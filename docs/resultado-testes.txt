@@ -1,0 +1,172 @@
+TAP version 13
+# Subtest: datas funcionam na virada de mês
+ok 1 - datas funcionam na virada de mês
+  ---
+  duration_ms: 1.422413
+  type: 'test'
+  ...
+# Subtest: distribuição automática respeita todos os mínimos e regras sem IA
+ok 2 - distribuição automática respeita todos os mínimos e regras sem IA
+  ---
+  duration_ms: 258.792547
+  type: 'test'
+  ...
+# Subtest: setor separado tem cobertura independente
+ok 3 - setor separado tem cobertura independente
+  ---
+  duration_ms: 24.162646
+  type: 'test'
+  ...
+# Subtest: reprova funcionário repetido no dia
+ok 4 - reprova funcionário repetido no dia
+  ---
+  duration_ms: 0.579192
+  type: 'test'
+  ...
+# Subtest: reprova descanso insuficiente entre turnos
+ok 5 - reprova descanso insuficiente entre turnos
+  ---
+  duration_ms: 0.254193
+  type: 'test'
+  ...
+# Subtest: reprova carga semanal ultrapassada
+ok 6 - reprova carga semanal ultrapassada
+  ---
+  duration_ms: 0.357689
+  type: 'test'
+  ...
+# Subtest: folga aprovada bloqueia alocação
+ok 7 - folga aprovada bloqueia alocação
+  ---
+  duration_ms: 0.296156
+  type: 'test'
+  ...
+# Subtest: aprovação exclui do rascunho e impede novas alocações
+ok 8 - aprovação exclui do rascunho e impede novas alocações
+  ---
+  duration_ms: 0.391289
+  type: 'test'
+  ...
+# Subtest: impossível publicar escala incompleta
+ok 9 - impossível publicar escala incompleta
+  ---
+  duration_ms: 0.878043
+  type: 'test'
+  ...
+# Subtest: só publica calendário válido e congela snapshot
+ok 10 - só publica calendário válido e congela snapshot
+  ---
+  duration_ms: 165.660018
+  type: 'test'
+  ...
+# Subtest: simulação de ausência não edita base original
+ok 11 - simulação de ausência não edita base original
+  ---
+  duration_ms: 187.462468
+  type: 'test'
+  ...
+# Subtest: exportação CSV contém turnos e funcionário
+ok 12 - exportação CSV contém turnos e funcionário
+  ---
+  duration_ms: 130.41585
+  type: 'test'
+  ...
+# Subtest: turno noturno na virada da semana divide horas corretamente
+ok 13 - turno noturno na virada da semana divide horas corretamente
+  ---
+  duration_ms: 0.399411
+  type: 'test'
+  ...
+# Subtest: pedido de troca aprovado não transforma o dia em indisponibilidade
+ok 14 - pedido de troca aprovado não transforma o dia em indisponibilidade
+  ---
+  duration_ms: 0.129275
+  type: 'test'
+  ...
+# Subtest: home carrega sem backend, rotas absolutas ou erros
+ok 15 - home carrega sem backend, rotas absolutas ou erros
+  ---
+  duration_ms: 1.310344
+  type: 'test'
+  ...
+# Subtest: navegação para simulacoes
+ok 16 - navegação para simulacoes
+  ---
+  duration_ms: 23.847041
+  type: 'test'
+  ...
+# Subtest: navegação para solicitacoes
+ok 17 - navegação para solicitacoes
+  ---
+  duration_ms: 7.305026
+  type: 'test'
+  ...
+# Subtest: navegação para funcionarios
+ok 18 - navegação para funcionarios
+  ---
+  duration_ms: 7.584939
+  type: 'test'
+  ...
+# Subtest: navegação para setores
+ok 19 - navegação para setores
+  ---
+  duration_ms: 14.998118
+  type: 'test'
+  ...
+# Subtest: navegação para relatorios
+ok 20 - navegação para relatorios
+  ---
+  duration_ms: 13.460521
+  type: 'test'
+  ...
+# Subtest: navegação para configuracoes
+ok 21 - navegação para configuracoes
+  ---
+  duration_ms: 7.522975
+  type: 'test'
+  ...
+# Subtest: navegação para escalas
+ok 22 - navegação para escalas
+  ---
+  duration_ms: 21.471321
+  type: 'test'
+  ...
+# Subtest: simulação via formulário produz comparação sem alterar o rascunho
+ok 23 - simulação via formulário produz comparação sem alterar o rascunho
+  ---
+  duration_ms: 205.889197
+  type: 'test'
+  ...
+# Subtest: configurações exibem regras e inputs
+ok 24 - configurações exibem regras e inputs
+  ---
+  duration_ms: 7.44635
+  type: 'test'
+  ...
+# Subtest: publicar calendário de demonstração abre acesso local do funcionário
+ok 25 - publicar calendário de demonstração abre acesso local do funcionário
+  ---
+  duration_ms: 57.500446
+  type: 'test'
+  ...
+# Subtest: troca de perfis não se anuncia como login seguro
+ok 26 - troca de perfis não se anuncia como login seguro
+  ---
+  duration_ms: 16.847295
+  type: 'test'
+  ...
+# Subtest: arrastar e soltar é recebido pelo editor e persiste localmente
+ok 27 - arrastar e soltar é recebido pelo editor e persiste localmente
+  ---
+  duration_ms: 20.294928
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5732.476478

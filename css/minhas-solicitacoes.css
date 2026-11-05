@@ -1,0 +1,5 @@
+html { /* Raiz do CSS aninhado desta página. */
+  & .portal-requests { /* Estiliza estes elementos. */
+    max-width: 850px; /* Limita a largura. */
+  } /* Fim destes estilos. */
+} /* Fim do CSS aninhado. */

@@ -1,0 +1,808 @@
+html { /* Raiz do CSS aninhado desta página. */
+  & .tools-left, & .tools-right, & .editor-tools { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 9px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .editor-tools select { /* Estiliza estes elementos. */
+    height: 39px; /* Define a altura. */
+    border: 1px solid #e1e6ef; /* Define a borda. */
+    background: white; /* Define o fundo. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    padding: 0 11px; /* Define o espaço interno. */
+    color: #3c4d6a; /* Define a cor do texto. */
+    min-width: 140px; /* Define a largura mínima. */
+    outline-color: #90baff; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .editor-tools { /* Estiliza estes elementos. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    margin: 10px 0 14px; /* Define o espaço externo. */
+    min-height: 34px; /* Define a altura mínima. */
+  } /* Fim destes estilos. */
+  & .tools-left>span { /* Estiliza estes elementos. */
+    color: #73849c; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .editor-tools select { /* Estiliza estes elementos. */
+    height: 34px; /* Define a altura. */
+    min-width: 130px; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .editor-layout { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: 192px minmax(0,1fr) 250px; /* Distribui as colunas. */
+    gap: 11px; /* Separa os elementos. */
+    align-items: start; /* Alinha os itens. */
+  } /* Fim destes estilos. */
+  & .employee-pool, & .calendar-container, & .day-panel { /* Estiliza estes elementos. */
+    background: #fff; /* Define o fundo. */
+    border: 1px solid #e7e8eb; /* Define a borda. */
+    border-radius: 14px; /* Arredonda os cantos. */
+    box-shadow: var(--shadow); /* Ajusta esta característica. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+  } /* Fim destes estilos. */
+  & .employee-pool { /* Estiliza estes elementos. */
+    padding: 14px 10px; /* Define o espaço interno. */
+    min-height: 635px; /* Define a altura mínima. */
+  } /* Fim destes estilos. */
+  & .pool-help { /* Estiliza estes elementos. */
+    background: #eef6ff; /* Define o fundo. */
+    color: #40678f; /* Define a cor do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    line-height: 1.6; /* Ajusta esta característica. */
+    padding: 9px; /* Define o espaço interno. */
+    margin: 9px 0 11px; /* Define o espaço externo. */
+    border-radius: 8px; /* Arredonda os cantos. */
+  } /* Fim destes estilos. */
+  & .pool-list { /* Estiliza estes elementos. */
+    max-height: 600px; /* Limita a altura. */
+    overflow-y: auto; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .pool-person { /* Estiliza estes elementos. */
+    width: 100%; /* Define a largura. */
+    display: flex; /* Organiza os elementos. */
+    text-align: left; /* Ajusta esta característica. */
+    align-items: center; /* Alinha os itens. */
+    gap: 9px; /* Separa os elementos. */
+    padding: 8px 4px; /* Define o espaço interno. */
+    background: transparent; /* Define o fundo. */
+    border: 1px solid transparent; /* Define a borda. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    color: var(--text); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .pool-person[hidden] { /* Estiliza estes elementos. */
+    display: none; /* Organiza os elementos. */
+  } /* Fim destes estilos. */
+  & .pool-person:hover, & .pool-person.chosen { /* Estiliza estes elementos. */
+    border-color: #9dbff6; /* Ajusta esta característica. */
+    background: #eef5ff; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .pool-person>span:nth-child(2) { /* Estiliza estes elementos. */
+    min-width: 0; /* Define a largura mínima. */
+    display: grid; /* Organiza os elementos. */
+    gap: 3px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .pool-person strong { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+    text-overflow: ellipsis; /* Ajusta esta característica. */
+    white-space: nowrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .pool-person small { /* Estiliza estes elementos. */
+    font-size: 10px; /* Define o tamanho do texto. */
+    color: #8b98a9; /* Define a cor do texto. */
+    white-space: nowrap; /* Ajusta esta característica. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+    text-overflow: ellipsis; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drag-handle { /* Estiliza estes elementos. */
+    margin-left: auto; /* Ajusta esta característica. */
+    color: #8a9bb4; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .calendar-grid { /* Estiliza estes elementos. */
+    width: 100%; /* Define a largura. */
+    min-width: 450px; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .weekday-header { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(7,minmax(0,1fr)); /* Distribui as colunas. */
+    height: 42px; /* Define a altura. */
+    background: #fbfcfe; /* Define o fundo. */
+    border-bottom: 1px solid #e9ecf1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .weekday-header>span { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    color: #667a96; /* Define a cor do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .calendar-days { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(7,minmax(0,1fr)); /* Distribui as colunas. */
+  } /* Fim destes estilos. */
+  & .day-cell { /* Estiliza estes elementos. */
+    min-height: 116px; /* Define a altura mínima. */
+    border-right: 1px solid #edf0f3; /* Ajusta esta característica. */
+    border-bottom: 1px solid #edf0f3; /* Ajusta esta característica. */
+    padding: 7px 5px; /* Define o espaço interno. */
+    min-width: 0; /* Define a largura mínima. */
+    cursor: pointer; /* Ajusta esta característica. */
+    transition: background .12s; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .day-cell:nth-child(7n) { /* Estiliza estes elementos. */
+    border-right: 0; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .day-cell:hover:not(.out-month) { /* Estiliza estes elementos. */
+    background: #f6faff; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .day-cell.selected-day { /* Estiliza estes elementos. */
+    outline: 2px solid #2e71dc; /* Ajusta esta característica. */
+    outline-offset: -2px; /* Ajusta esta característica. */
+    background: #f1f6ff; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .day-cell.drag-over { /* Estiliza estes elementos. */
+    box-shadow: inset 0 0 0 3px #5c9aff; /* Ajusta esta característica. */
+    background: #deedff; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .day-cell.out-month { /* Estiliza estes elementos. */
+    background: #fafbfd; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .day-top { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    height: 19px; /* Define a altura. */
+    margin-bottom: 4px; /* Ajusta esta característica. */
+    color: #253b5c; /* Define a cor do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .out-month .day-top { /* Estiliza estes elementos. */
+    color: #bdc6d4; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .day-add { /* Estiliza estes elementos. */
+    opacity: 0; /* Ajusta esta característica. */
+    border: 0; /* Define a borda. */
+    background: #e4edff; /* Define o fundo. */
+    color: #266dd3; /* Define a cor do texto. */
+    border-radius: 5px; /* Arredonda os cantos. */
+    width: 18px; /* Define a largura. */
+    height: 18px; /* Define a altura. */
+    line-height: 18px; /* Ajusta esta característica. */
+    padding: 0; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .day-cell:hover .day-add, & .day-cell.selected-day .day-add { /* Estiliza estes elementos. */
+    opacity: 1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .day-chips { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    gap: 3px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .shift-pill { /* Estiliza estes elementos. */
+    border: 0; /* Define a borda. */
+    min-width: 0; /* Define a largura mínima. */
+    width: 100%; /* Define a largura. */
+    height: 24px; /* Define a altura. */
+    border-radius: 6px; /* Arredonda os cantos. */
+    background: color-mix(in srgb,var(--pill) 12%,white); /* Define o fundo. */
+    color: #2a4261; /* Define a cor do texto. */
+    padding: 2px 4px; /* Define o espaço interno. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 4px; /* Separa os elementos. */
+    cursor: grab; /* Ajusta esta característica. */
+    text-align: left; /* Ajusta esta característica. */
+    font-size: 10px; /* Define o tamanho do texto. */
+    white-space: nowrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .shift-pill:hover { /* Estiliza estes elementos. */
+    outline: 1px solid var(--pill); /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .shift-pill .avatar { /* Estiliza estes elementos. */
+    background: var(--pill); /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .shift-pill>span:nth-child(2) { /* Estiliza estes elementos. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+    text-overflow: ellipsis; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .shift-pill small { /* Estiliza estes elementos. */
+    font-size: 8px; /* Define o tamanho do texto. */
+    opacity: .6; /* Ajusta esta característica. */
+    margin-left: auto; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .shift-pill.static { /* Estiliza estes elementos. */
+    cursor: default; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .more-people { /* Estiliza estes elementos. */
+    font-size: 10px; /* Define o tamanho do texto. */
+    color: #6c81a1; /* Define a cor do texto. */
+    padding-left: 4px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .legend { /* Estiliza estes elementos. */
+    border-top: 1px solid #e9edf1; /* Ajusta esta característica. */
+    padding: 12px 10px; /* Define o espaço interno. */
+    display: flex; /* Organiza os elementos. */
+    gap: 12px; /* Separa os elementos. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .legend span { /* Estiliza estes elementos. */
+    font-size: 10px; /* Define o tamanho do texto. */
+    color: #71849a; /* Define a cor do texto. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 5px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .legend i { /* Estiliza estes elementos. */
+    width: 9px; /* Define a largura. */
+    height: 9px; /* Define a altura. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+    border-radius: 50%; /* Arredonda os cantos. */
+    display: inline-block; /* Organiza os elementos. */
+  } /* Fim destes estilos. */
+  & .day-panel { /* Estiliza estes elementos. */
+    min-height: 550px; /* Define a altura mínima. */
+  } /* Fim destes estilos. */
+  & .panel-cap { /* Estiliza estes elementos. */
+    background: #0d2b51; /* Define o fundo. */
+    color: white; /* Define a cor do texto. */
+    padding: 20px 16px 17px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .panel-cap span { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    opacity: .75; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .panel-cap h2 { /* Estiliza estes elementos. */
+    font-size: 19px; /* Define o tamanho do texto. */
+    color: #fff; /* Define a cor do texto. */
+    line-height: 1.35; /* Ajusta esta característica. */
+    margin: 7px 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .panel-cap small { /* Estiliza estes elementos. */
+    color: #c1cee0; /* Define a cor do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .panel-inner { /* Estiliza estes elementos. */
+    padding: 15px 12px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .tab-row { /* Estiliza estes elementos. */
+    border-bottom: 1px solid #edf0f5; /* Ajusta esta característica. */
+    padding-bottom: 12px; /* Ajusta esta característica. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .tab-row span { /* Estiliza estes elementos. */
+    color: #2969c2; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .assigned-list { /* Estiliza estes elementos. */
+    max-height: 370px; /* Limita a altura. */
+    overflow: auto; /* Controla o conteúdo excedente. */
+  } /* Fim destes estilos. */
+  & .assigned-person { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 8px; /* Separa os elementos. */
+    padding: 10px 0; /* Define o espaço interno. */
+    border-bottom: 1px solid #eff0f2; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .assigned-person>span:nth-child(2) { /* Estiliza estes elementos. */
+    min-width: 0; /* Define a largura mínima. */
+    flex: 1; /* Ajusta esta característica. */
+    display: grid; /* Organiza os elementos. */
+    gap: 4px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .assigned-person b { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .assigned-person small { /* Estiliza estes elementos. */
+    color: #7486a2; /* Define a cor do texto. */
+    font-size: 10px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .assigned-person .icon-btn { /* Estiliza estes elementos. */
+    height: 24px; /* Define a altura. */
+    width: 21px; /* Define a largura. */
+  } /* Fim destes estilos. */
+  & .ghost-add { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: center; /* Distribui o conteúdo. */
+    gap: 7px; /* Separa os elementos. */
+    width: 100%; /* Define a largura. */
+    height: 38px; /* Define a altura. */
+    border: 1px solid #c8ddfb; /* Define a borda. */
+    background: #f1f6ff; /* Define o fundo. */
+    border-radius: 8px; /* Arredonda os cantos. */
+    color: #1965ce; /* Define a cor do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+    margin: 12px 0 18px; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .day-summary { /* Estiliza estes elementos. */
+    background: #f8fafc; /* Define o fundo. */
+    padding: 12px 10px; /* Define o espaço interno. */
+    border-radius: 10px; /* Arredonda os cantos. */
+  } /* Fim destes estilos. */
+  & .day-summary h3 { /* Estiliza estes elementos. */
+    font-size: 13px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .coverage-line { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 7px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    padding: 5px 0; /* Define o espaço interno. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    color: #556c87; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .coverage-line span:nth-child(2) { /* Estiliza estes elementos. */
+    flex: 1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .coverage-line strong { /* Estiliza estes elementos. */
+    color: #0c806b; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .coverage-line .red-text { /* Estiliza estes elementos. */
+    color: #d65a53; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  @media(max-width:1320px) { /* Adapta a apresentação. */
+    & .editor-layout { /* Estiliza estes elementos. */
+      grid-template-columns: 165px minmax(0,1fr) 219px; /* Distribui as colunas. */
+      gap: 8px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+    & .employee-pool { /* Estiliza estes elementos. */
+      padding: 10px 6px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+    & .day-cell { /* Estiliza estes elementos. */
+      min-height: 108px; /* Define a altura mínima. */
+    } /* Fim destes estilos. */
+    & .assigned-person .avatar { /* Estiliza estes elementos. */
+      width: 26px; /* Define a largura. */
+      height: 26px; /* Define a altura. */
+    } /* Fim destes estilos. */
+    & .day-panel .panel-inner { /* Estiliza estes elementos. */
+      padding: 10px 9px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:1080px) { /* Adapta a apresentação. */
+    & .editor-layout { /* Estiliza estes elementos. */
+      grid-template-columns: 185px minmax(0,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .day-panel { /* Estiliza estes elementos. */
+      grid-column: 1/-1; /* Ajusta esta característica. */
+      min-height: unset; /* Define a altura mínima. */
+    } /* Fim destes estilos. */
+    & .assigned-list { /* Estiliza estes elementos. */
+      display: grid; /* Organiza os elementos. */
+      grid-template-columns: repeat(2,minmax(0,1fr)); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .calendar-container { /* Estiliza estes elementos. */
+      overflow: auto; /* Controla o conteúdo excedente. */
+    } /* Fim destes estilos. */
+    & .day-cell { /* Estiliza estes elementos. */
+      min-height: 105px; /* Define a altura mínima. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:760px) { /* Adapta a apresentação. */
+    & .editor-layout { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .employee-pool { /* Estiliza estes elementos. */
+      min-height: 0; /* Define a altura mínima. */
+    } /* Fim destes estilos. */
+    & .pool-list { /* Estiliza estes elementos. */
+      display: flex; /* Organiza os elementos. */
+      gap: 4px; /* Separa os elementos. */
+      overflow-x: auto; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .pool-person { /* Estiliza estes elementos. */
+      min-width: 142px; /* Define a largura mínima. */
+    } /* Fim destes estilos. */
+    & .day-panel { /* Estiliza estes elementos. */
+      grid-column: auto; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .assigned-list { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .tools-left, & .tools-right { /* Estiliza estes elementos. */
+      width: 100%; /* Define a largura. */
+    } /* Fim destes estilos. */
+    & .calendar-container { /* Estiliza estes elementos. */
+      overflow: auto; /* Controla o conteúdo excedente. */
+    } /* Fim destes estilos. */
+    & .calendar-grid { /* Estiliza estes elementos. */
+      min-width: 500px; /* Define a largura mínima. */
+    } /* Fim destes estilos. */
+    & .editor-tools { /* Estiliza estes elementos. */
+      gap: 9px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media print { /* Adapta a apresentação. */
+    & .editor-tools, & .employee-pool, & .day-panel { /* Estiliza estes elementos. */
+      display: none!important; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .editor-layout { /* Estiliza estes elementos. */
+      display: block; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+    & .calendar-grid { /* Estiliza estes elementos. */
+      width: 100%; /* Define a largura. */
+    } /* Fim destes estilos. */
+    & .day-cell { /* Estiliza estes elementos. */
+      min-height: 90px; /* Define a altura mínima. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  & .planning-toolbar { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    gap: 24px; /* Separa os elementos. */
+    padding: 20px 22px; /* Define o espaço interno. */
+    margin-bottom: 22px; /* Ajusta esta característica. */
+    background: linear-gradient(110deg,#eaf2ff,#f7faff); /* Define o fundo. */
+    border: 1px solid #cbdcf5; /* Define a borda. */
+    border-left: 4px solid var(--blue); /* Ajusta esta característica. */
+    border-radius: 14px; /* Arredonda os cantos. */
+  } /* Fim destes estilos. */
+  & .planning-intro { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 13px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .planning-icon { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    flex-shrink: 0; /* Ajusta esta característica. */
+    width: 44px; /* Define a largura. */
+    height: 44px; /* Define a altura. */
+    color: var(--blue); /* Define a cor do texto. */
+    background: #fff; /* Define o fundo. */
+    border: 1px solid #d4e3fa; /* Define a borda. */
+    border-radius: 12px; /* Arredonda os cantos. */
+  } /* Fim destes estilos. */
+  & .planning-intro h2 { /* Estiliza estes elementos. */
+    margin: 0 0 5px; /* Define o espaço externo. */
+    font-size: 17px; /* Define o tamanho do texto. */
+    color: var(--navy); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .planning-intro p { /* Estiliza estes elementos. */
+    margin: 0; /* Define o espaço externo. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    color: #56708f; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .planning-controls { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: flex-end; /* Alinha os itens. */
+    gap: 14px; /* Separa os elementos. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .planning-field { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    gap: 7px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .planning-field>label { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+    color: #415c7d; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .planning-toolbar .month-picker { /* Estiliza estes elementos. */
+    gap: 6px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .planning-toolbar .month-picker input, & .planning-toolbar .field-select { /* Estiliza estes elementos. */
+    height: 46px; /* Define a altura. */
+    border-color: #bdcee7; /* Ajusta esta característica. */
+    border-radius: 9px; /* Arredonda os cantos. */
+    background: #fff; /* Define o fundo. */
+    font-size: 14px; /* Define o tamanho do texto. */
+    color: var(--navy); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .planning-toolbar .field-select { /* Estiliza estes elementos. */
+    min-width: 168px; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .planning-toolbar .month-picker .square { /* Estiliza estes elementos. */
+    width: 40px; /* Define a largura. */
+    height: 46px; /* Define a altura. */
+    border-color: #c7d7ed; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .planning-toolbar .month-picker .square:hover { /* Estiliza estes elementos. */
+    background: #e0ecff; /* Define o fundo. */
+    border-color: #93b5e9; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .planning-toolbar .btn.primary { /* Estiliza estes elementos. */
+    height: 46px; /* Define a altura. */
+    padding: 0 20px; /* Define o espaço interno. */
+    background: var(--blue); /* Define o fundo. */
+    border-color: var(--blue); /* Ajusta esta característica. */
+    box-shadow: 0 5px 12px rgba(32,104,217,.16); /* Ajusta esta característica. */
+    font-size: 14px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .planning-toolbar .btn.primary:hover { /* Estiliza estes elementos. */
+    background: #1757bc; /* Define o fundo. */
+    border-color: #1757bc; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  @media(max-width:1180px) { /* Adapta a apresentação. */
+    & .planning-toolbar { /* Estiliza estes elementos. */
+      align-items: flex-start; /* Alinha os itens. */
+      flex-direction: column; /* Define a direção dos itens. */
+      gap: 18px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+    & .planning-controls { /* Estiliza estes elementos. */
+      width: 100%; /* Define a largura. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:760px) { /* Adapta a apresentação. */
+    & .planning-toolbar { /* Estiliza estes elementos. */
+      padding: 18px 16px; /* Define o espaço interno. */
+      margin-bottom: 18px; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .planning-controls { /* Estiliza estes elementos. */
+      display: grid; /* Organiza os elementos. */
+      grid-template-columns: minmax(0,1fr); /* Distribui as colunas. */
+      gap: 16px; /* Separa os elementos. */
+    } /* Fim destes estilos. */
+    & .planning-toolbar .month-picker { /* Estiliza estes elementos. */
+      display: flex; /* Organiza os elementos. */
+      width: 100%; /* Define a largura. */
+    } /* Fim destes estilos. */
+    & .planning-toolbar .month-picker input { /* Estiliza estes elementos. */
+      flex: 1; /* Ajusta esta característica. */
+      min-width: 0; /* Define a largura mínima. */
+      width: auto; /* Define a largura. */
+    } /* Fim destes estilos. */
+    & .planning-toolbar .month-picker .square { /* Estiliza estes elementos. */
+      flex: 0 0 40px; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .planning-toolbar .field-select { /* Estiliza estes elementos. */
+      width: 100%; /* Define a largura. */
+      min-width: 0; /* Define a largura mínima. */
+    } /* Fim destes estilos. */
+    & .planning-toolbar .btn.primary { /* Estiliza estes elementos. */
+      width: 100%; /* Define a largura. */
+      height: 48px; /* Define a altura. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:420px) { /* Adapta a apresentação. */
+    & .planning-toolbar .month-picker { /* Estiliza estes elementos. */
+      flex-wrap: wrap; /* Ajusta esta característica. */
+      justify-content: space-between; /* Distribui o conteúdo. */
+      width: 100%; /* Define a largura. */
+    } /* Fim destes estilos. */
+    & .planning-toolbar .month-picker input { /* Estiliza estes elementos. */
+      order: -1; /* Ajusta esta característica. */
+      flex: 1 0 100%; /* Ajusta esta característica. */
+      width: 100%; /* Define a largura. */
+      min-width: 0; /* Define a largura mínima. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media print { /* Adapta a apresentação. */
+    & .planning-toolbar { /* Estiliza estes elementos. */
+      display: none!important; /* Organiza os elementos. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  & .editor-layout { /* Estiliza estes elementos. */
+    grid-template-columns: 192px minmax(0,1fr) 250px; /* Distribui as colunas. */
+  } /* Fim destes estilos. */
+  & .employee-pool { /* Estiliza estes elementos. */
+    padding: 14px 10px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .employee-pool .search-input { /* Estiliza estes elementos. */
+    margin-bottom: 9px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .pool-help { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    line-height: 1.6; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .pool-selected-date { /* Estiliza estes elementos. */
+    margin: 12px 3px 7px; /* Define o espaço externo. */
+    color: #70849d; /* Define a cor do texto. */
+    font-size: 10px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .pool-list { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    flex-direction: column; /* Define a direção dos itens. */
+    gap: 4px; /* Separa os elementos. */
+    max-height: 600px; /* Limita a altura. */
+    overflow-y: auto; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .pool-person { /* Estiliza estes elementos. */
+    min-height: 72px; /* Define a altura mínima. */
+    padding: 8px 4px; /* Define o espaço interno. */
+    cursor: grab; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .pool-person:active { /* Estiliza estes elementos. */
+    cursor: grabbing; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .pool-person[hidden] { /* Estiliza estes elementos. */
+    display: none; /* Organiza os elementos. */
+  } /* Fim destes estilos. */
+  & .pool-person strong { /* Estiliza estes elementos. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .pool-day-status { /* Estiliza estes elementos. */
+    font-size: 10px; /* Define o tamanho do texto. */
+    line-height: 1.5; /* Ajusta esta característica. */
+    color: #8793a5; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .pool-day-status.folga { /* Estiliza estes elementos. */
+    color: #8a5b1e; /* Define a cor do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .pool-day-status.plantao { /* Estiliza estes elementos. */
+    color: #176b50; /* Define a cor do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .shift-pill.off-pill { /* Estiliza estes elementos. */
+    background: #fff1dc; /* Define o fundo. */
+    color: #87551a; /* Define a cor do texto. */
+    cursor: pointer; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .shift-pill.off-pill:hover { /* Estiliza estes elementos. */
+    outline: 1px solid #c9954f; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .shift-pill.off-pill small { /* Estiliza estes elementos. */
+    opacity: 1; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-status-person { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 13px; /* Separa os elementos. */
+    margin: 0 0 20px; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .drop-status-person>div { /* Estiliza estes elementos. */
+    min-width: 0; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .drop-status-person h3 { /* Estiliza estes elementos. */
+    margin: 0 0 6px; /* Define o espaço externo. */
+    font-size: 18px; /* Define o tamanho do texto. */
+    color: var(--navy); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .drop-status-person p { /* Estiliza estes elementos. */
+    margin: 0; /* Define o espaço externo. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    line-height: 1.6; /* Ajusta esta característica. */
+    color: #657e9c; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .drop-status-hint { /* Estiliza estes elementos. */
+    margin-bottom: 13px; /* Ajusta esta característica. */
+    font-size: 13px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .drop-status-options { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(2,minmax(0,1fr)); /* Distribui as colunas. */
+    gap: 14px; /* Separa os elementos. */
+    margin-top: 14px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-status-choice { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    flex-direction: column; /* Define a direção dos itens. */
+    align-items: center; /* Alinha os itens. */
+    justify-content: center; /* Distribui o conteúdo. */
+    gap: 8px; /* Separa os elementos. */
+    min-width: 0; /* Define a largura mínima. */
+    padding: 15px 8px; /* Define o espaço interno. */
+    border: 1px solid; /* Define a borda. */
+    border-radius: 13px; /* Arredonda os cantos. */
+    text-align: center; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-status-choice strong { /* Estiliza estes elementos. */
+    font-size: 17px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .drop-status-choice small { /* Estiliza estes elementos. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    line-height: 1.5; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-off { /* Estiliza estes elementos. */
+    flex-direction: row; /* Define a direção dos itens. */
+    justify-content: flex-start; /* Distribui o conteúdo. */
+    gap: 12px; /* Separa os elementos. */
+    min-height: 82px; /* Define a altura mínima. */
+    padding: 14px; /* Define o espaço interno. */
+    background: #fff5e8; /* Define o fundo. */
+    color: #87551a; /* Define a cor do texto. */
+    border-color: #e0c196; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-choice-copy { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    gap: 4px; /* Separa os elementos. */
+    text-align: left; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-off:hover { /* Estiliza estes elementos. */
+    background: #ffebd0; /* Define o fundo. */
+    border-color: #bc873c; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-shift-group { /* Estiliza estes elementos. */
+    grid-column: 1/-1; /* Ajusta esta característica. */
+    min-width: 0; /* Define a largura mínima. */
+    margin: 0; /* Define o espaço externo. */
+    padding: 0; /* Define o espaço interno. */
+    border: 0; /* Define a borda. */
+  } /* Fim destes estilos. */
+  & .drop-shift-group[hidden] { /* Estiliza estes elementos. */
+    display: none; /* Organiza os elementos. */
+  } /* Fim destes estilos. */
+  & .drop-duty-toggle { /* Estiliza estes elementos. */
+    flex-direction: row; /* Define a direção dos itens. */
+    gap: 12px; /* Separa os elementos. */
+    min-height: 82px; /* Define a altura mínima. */
+    padding: 14px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .drop-shift-group legend { /* Estiliza estes elementos. */
+    padding: 0; /* Define o espaço interno. */
+    margin-bottom: 11px; /* Ajusta esta característica. */
+    font-size: 13px; /* Define o tamanho do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+    color: var(--navy); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .drop-shift-options { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(3,minmax(0,1fr)); /* Distribui as colunas. */
+    gap: 9px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .drop-shift-choice { /* Estiliza estes elementos. */
+    position: relative; /* Define a posição. */
+    min-height: 128px; /* Define a altura mínima. */
+    padding-bottom: 28px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-shift-choice small { /* Estiliza estes elementos. */
+    white-space: nowrap; /* Ajusta esta característica. */
+    font-size: 10.5px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .drop-duty { /* Estiliza estes elementos. */
+    background: #edf4ff; /* Define o fundo. */
+    color: #1956a6; /* Define a cor do texto. */
+    border-color: #a9c6ed; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-duty:hover { /* Estiliza estes elementos. */
+    background: #dbeaff; /* Define o fundo. */
+    border-color: #5f91d3; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-current-shift { /* Estiliza estes elementos. */
+    position: absolute; /* Define a posição. */
+    bottom: 8px; /* Ajusta esta característica. */
+    padding: 2px 7px; /* Define o espaço interno. */
+    border-radius: 5px; /* Arredonda os cantos. */
+    background: #d5e6ff; /* Define o fundo. */
+    font-size: 10px; /* Define o tamanho do texto. */
+    font-weight: 700; /* Define o peso do texto. */
+  } /* Fim destes estilos. */
+  & .drop-status-error { /* Estiliza estes elementos. */
+    padding: 11px; /* Define o espaço interno. */
+    margin-top: 15px; /* Ajusta esta característica. */
+    border-radius: 8px; /* Arredonda os cantos. */
+    background: #fff0f0; /* Define o fundo. */
+    color: #a23242; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+    line-height: 1.6; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .drop-status-error:empty { /* Estiliza estes elementos. */
+    display: none; /* Organiza os elementos. */
+  } /* Fim destes estilos. */
+  @media(max-width:1320px) { /* Adapta a apresentação. */
+    & .editor-layout { /* Estiliza estes elementos. */
+      grid-template-columns: 165px minmax(0,1fr) 219px; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .employee-pool { /* Estiliza estes elementos. */
+      padding: 10px 6px; /* Define o espaço interno. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:1080px) { /* Adapta a apresentação. */
+    & .editor-layout { /* Estiliza estes elementos. */
+      grid-template-columns: 185px minmax(0,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:760px) { /* Adapta a apresentação. */
+    & .editor-layout { /* Estiliza estes elementos. */
+      grid-template-columns: minmax(0,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+    & .pool-list { /* Estiliza estes elementos. */
+      flex-direction: row; /* Define a direção dos itens. */
+      max-height: none; /* Limita a altura. */
+      overflow-x: auto; /* Ajusta esta característica. */
+      overflow-y: hidden; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .pool-person { /* Estiliza estes elementos. */
+      min-width: 180px; /* Define a largura mínima. */
+      flex-shrink: 0; /* Ajusta esta característica. */
+    } /* Fim destes estilos. */
+    & .drop-shift-choice { /* Estiliza estes elementos. */
+      min-height: 128px; /* Define a altura mínima. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+} /* Fim do CSS aninhado. */

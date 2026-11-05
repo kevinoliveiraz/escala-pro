@@ -1,0 +1,98 @@
+html { /* Raiz do CSS aninhado desta página. */
+  & .report-grid { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: 1.3fr 1fr; /* Distribui as colunas. */
+    gap: 13px; /* Separa os elementos. */
+    margin-bottom: 14px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .chart-panel h2 { /* Estiliza estes elementos. */
+    margin-bottom: 4px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .chart-panel p { /* Estiliza estes elementos. */
+    color: #8697a9; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .daily-bars { /* Estiliza estes elementos. */
+    height: 210px; /* Define a altura. */
+    display: flex; /* Organiza os elementos. */
+    gap: 5px; /* Separa os elementos. */
+    align-items: end; /* Alinha os itens. */
+    border-bottom: 1px solid #e7ecf2; /* Ajusta esta característica. */
+    padding-top: 25px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .bar-col { /* Estiliza estes elementos. */
+    flex: 1; /* Ajusta esta característica. */
+    min-width: 0; /* Define a largura mínima. */
+    display: flex; /* Organiza os elementos. */
+    flex-direction: column; /* Define a direção dos itens. */
+    align-items: center; /* Alinha os itens. */
+    height: 100%; /* Define a altura. */
+    justify-content: end; /* Distribui o conteúdo. */
+    gap: 4px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .bar-col .bar { /* Estiliza estes elementos. */
+    background: var(--fill); /* Define o fundo. */
+    width: 82%; /* Define a largura. */
+    min-height: 4px; /* Define a altura mínima. */
+    border-radius: 4px 4px 0 0; /* Arredonda os cantos. */
+    max-height: calc(100% - 16px); /* Limita a altura. */
+  } /* Fim destes estilos. */
+  & .bar-col small { /* Estiliza estes elementos. */
+    font-size: 9px; /* Define o tamanho do texto. */
+    color: #8293a6; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .person-bar { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: 110px minmax(0,1fr) 25px; /* Distribui as colunas. */
+    gap: 8px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    margin: 12px 0; /* Define o espaço externo. */
+    color: #50657f; /* Define a cor do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .person-bar>span { /* Estiliza estes elementos. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+    text-overflow: ellipsis; /* Ajusta esta característica. */
+    white-space: nowrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .person-bar>div { /* Estiliza estes elementos. */
+    height: 10px; /* Define a altura. */
+    background: #e9eef4; /* Define o fundo. */
+    border-radius: 10px; /* Arredonda os cantos. */
+    overflow: hidden; /* Controla o conteúdo excedente. */
+  } /* Fim destes estilos. */
+  & .person-bar>div>i { /* Estiliza estes elementos. */
+    height: 100%; /* Define a altura. */
+    display: block; /* Organiza os elementos. */
+    border-radius: 10px; /* Arredonda os cantos. */
+    background: #3984e3; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .person-bar b { /* Estiliza estes elementos. */
+    text-align: right; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .report-detail { /* Estiliza estes elementos. */
+    margin-top: 13px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .data-head, & .data-row { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: 2fr .7fr .7fr 1fr; /* Distribui as colunas. */
+    gap: 12px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    padding: 12px 9px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .data-head { /* Estiliza estes elementos. */
+    color: #71859c; /* Define a cor do texto. */
+    border-bottom: 1px solid #e9edf2; /* Ajusta esta característica. */
+    font-size: 11px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .data-row { /* Estiliza estes elementos. */
+    border-bottom: 1px solid #eef0f4; /* Ajusta esta característica. */
+    color: #45607e; /* Define a cor do texto. */
+    font-size: 12px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  @media(max-width:760px) { /* Adapta a apresentação. */
+    & .report-grid { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+} /* Fim do CSS aninhado. */

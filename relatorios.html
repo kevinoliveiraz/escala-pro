@@ -1,0 +1,118 @@
+<!doctype html> <!-- Define o documento. -->
+<html lang="pt-BR"> <!-- Organiza esta parte da página. -->
+  <head> <!-- Organiza esta parte da página. -->
+    <meta charset="utf-8"> <!-- Organiza esta parte da página. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Organiza esta parte da página. -->
+    <meta name="theme-color" content="#faf8f5"> <!-- Organiza esta parte da página. -->
+    <meta name="description" content="Relatórios da equipe no EscalaPro."> <!-- Organiza esta parte da página. -->
+    <title>Relatórios | EscalaPro</title> <!-- Organiza esta parte da página. -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml"> <!-- Organiza o arquivo de estilo. -->
+    <link rel="stylesheet" href="./css/base.css"> <!-- Organiza o arquivo de estilo. -->
+    <link rel="stylesheet" href="./css/relatorios.css"> <!-- Organiza o arquivo de estilo. -->
+    <script type="module" src="./js/relatorios.mjs"></script> <!-- Organiza o código da página. -->
+  </head> <!-- Encerra esta parte. -->
+  <body data-page="relatorios" data-title="Relatórios"> <!-- Organiza esta parte da página. -->
+    <div id="app"> <!-- Organiza esta parte da página. -->
+      <header> <!-- Organiza esta parte da página. -->
+        <a href="./index.html"> <!-- Organiza esta parte da página. -->
+          EscalaPro <!-- Mostra este conteúdo. -->
+        </a> <!-- Encerra esta parte. -->
+        <nav aria-label="Navegação principal"> <!-- Organiza esta parte da página. -->
+          <a href="./index.html" data-page="escalas" > <!-- Organiza esta parte da página. -->
+            Escalas <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./simulacoes.html" data-page="simulacoes" > <!-- Organiza esta parte da página. -->
+            Simulações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./solicitacoes.html" data-page="solicitacoes" > <!-- Organiza esta parte da página. -->
+            Solicitações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./funcionarios.html" data-page="funcionarios" > <!-- Organiza esta parte da página. -->
+            Funcionários <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./setores.html" data-page="setores" > <!-- Organiza esta parte da página. -->
+            Setores <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./relatorios.html" data-page="relatorios" aria-current="page"> <!-- Organiza esta parte da página. -->
+            Relatórios <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./configuracoes.html" data-page="configuracoes" > <!-- Organiza esta parte da página. -->
+            Configurações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+        </nav> <!-- Encerra esta parte. -->
+      </header> <!-- Encerra esta parte. -->
+      <main> <!-- Organiza esta parte da página. -->
+        <h1> <!-- Organiza esta parte da página. -->
+          Relatórios <!-- Mostra este conteúdo. -->
+        </h1> <!-- Encerra esta parte. -->
+        <p> <!-- Organiza esta parte da página. -->
+          Carregando os dados desta página… <!-- Mostra este conteúdo. -->
+        </p> <!-- Encerra esta parte. -->
+      </main> <!-- Encerra esta parte. -->
+    </div> <!-- Encerra esta parte. -->
+    <template id="page-template"> <!-- Organiza o modelo desta página. -->
+      {{cabecalho}} <!-- Mostra este conteúdo. -->
+      <div class="metrics-grid"> <!-- Organiza esta parte da página. -->
+        {{conteudo}}{{conteudo2}}{{conteudo3}}{{conteudo4}} <!-- Mostra este conteúdo. -->
+      </div> <!-- Encerra esta parte. -->
+      <div class="report-grid"> <!-- Organiza esta parte da página. -->
+        <section class="panel chart-panel"> <!-- Organiza esta parte da página. -->
+          <h2> <!-- Organiza esta parte da página. -->
+            Cobertura por dia <!-- Mostra este conteúdo. -->
+          </h2> <!-- Encerra esta parte. -->
+          <p> <!-- Organiza esta parte da página. -->
+            Percentual mínimo de cobertura cumprido em cada data. <!-- Mostra este conteúdo. -->
+          </p> <!-- Encerra esta parte. -->
+          <div class="daily-bars"> <!-- Organiza esta parte da página. -->
+            {{conteudo5}} <!-- Mostra este conteúdo. -->
+          </div> <!-- Encerra esta parte. -->
+        </section> <!-- Encerra esta parte. -->
+        <section class="panel chart-panel"> <!-- Organiza esta parte da página. -->
+          <h2> <!-- Organiza esta parte da página. -->
+            Distribuição de dias <!-- Mostra este conteúdo. -->
+          </h2> <!-- Encerra esta parte. -->
+          <p> <!-- Organiza esta parte da página. -->
+            Trabalho atribuído por funcionário no mês. <!-- Mostra este conteúdo. -->
+          </p> <!-- Encerra esta parte. -->
+          {{conteudo6}} <!-- Mostra este conteúdo. -->
+        </section> <!-- Encerra esta parte. -->
+      </div> <!-- Encerra esta parte. -->
+      <section class="panel report-detail"> <!-- Organiza esta parte da página. -->
+        <div class="section-head"> <!-- Organiza esta parte da página. -->
+          <h2> <!-- Organiza esta parte da página. -->
+            Detalhamento por funcionário <!-- Mostra este conteúdo. -->
+          </h2> <!-- Encerra esta parte. -->
+          <span class="subdued"> <!-- Organiza esta parte da página. -->
+            Dias, horas e finais de semana planejados <!-- Mostra este conteúdo. -->
+          </span> <!-- Encerra esta parte. -->
+        </div> <!-- Encerra esta parte. -->
+        <div class="data-table"> <!-- Organiza esta parte da página. -->
+          <div class="data-head"> <!-- Organiza esta parte da página. -->
+            <b> <!-- Organiza esta parte da página. -->
+              Funcionário <!-- Mostra este conteúdo. -->
+            </b> <!-- Encerra esta parte. -->
+            <b> <!-- Organiza esta parte da página. -->
+              Turnos <!-- Mostra este conteúdo. -->
+            </b> <!-- Encerra esta parte. -->
+            <b> <!-- Organiza esta parte da página. -->
+              Horas <!-- Mostra este conteúdo. -->
+            </b> <!-- Encerra esta parte. -->
+            <b> <!-- Organiza esta parte da página. -->
+              Finais de semana <!-- Mostra este conteúdo. -->
+            </b> <!-- Encerra esta parte. -->
+          </div> <!-- Encerra esta parte. -->
+          {{conteudo7}} <!-- Mostra este conteúdo. -->
+        </div> <!-- Encerra esta parte. -->
+      </section> <!-- Encerra esta parte. -->
+    </template> <!-- Encerra esta parte. -->
+    <noscript> <!-- Organiza esta parte da página. -->
+      <p> <!-- Organiza esta parte da página. -->
+        Ative o JavaScript para utilizar o EscalaPro. <!-- Mostra este conteúdo. -->
+      </p> <!-- Encerra esta parte. -->
+    </noscript> <!-- Encerra esta parte. -->
+    <div id="overlay"> <!-- Organiza esta parte da página. -->
+    </div> <!-- Encerra esta parte. -->
+    <div id="toast" aria-live="polite"> <!-- Organiza esta parte da página. -->
+    </div> <!-- Encerra esta parte. -->
+  </body> <!-- Encerra esta parte. -->
+</html> <!-- Encerra esta parte. -->

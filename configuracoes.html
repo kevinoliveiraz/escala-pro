@@ -1,0 +1,156 @@
+<!doctype html> <!-- Define o documento. -->
+<html lang="pt-BR"> <!-- Organiza esta parte da página. -->
+  <head> <!-- Organiza esta parte da página. -->
+    <meta charset="utf-8"> <!-- Organiza esta parte da página. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Organiza esta parte da página. -->
+    <meta name="theme-color" content="#faf8f5"> <!-- Organiza esta parte da página. -->
+    <meta name="description" content="Configurações da equipe no EscalaPro."> <!-- Organiza esta parte da página. -->
+    <title>Configurações | EscalaPro</title> <!-- Organiza esta parte da página. -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml"> <!-- Organiza o arquivo de estilo. -->
+    <link rel="stylesheet" href="./css/base.css"> <!-- Organiza o arquivo de estilo. -->
+    <link rel="stylesheet" href="./css/configuracoes.css"> <!-- Organiza o arquivo de estilo. -->
+    <script type="module" src="./js/configuracoes.mjs"></script> <!-- Organiza o código da página. -->
+  </head> <!-- Encerra esta parte. -->
+  <body data-page="configuracoes" data-title="Configurações"> <!-- Organiza esta parte da página. -->
+    <div id="app"> <!-- Organiza esta parte da página. -->
+      <header> <!-- Organiza esta parte da página. -->
+        <a href="./index.html"> <!-- Organiza esta parte da página. -->
+          EscalaPro <!-- Mostra este conteúdo. -->
+        </a> <!-- Encerra esta parte. -->
+        <nav aria-label="Navegação principal"> <!-- Organiza esta parte da página. -->
+          <a href="./index.html" data-page="escalas" > <!-- Organiza esta parte da página. -->
+            Escalas <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./simulacoes.html" data-page="simulacoes" > <!-- Organiza esta parte da página. -->
+            Simulações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./solicitacoes.html" data-page="solicitacoes" > <!-- Organiza esta parte da página. -->
+            Solicitações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./funcionarios.html" data-page="funcionarios" > <!-- Organiza esta parte da página. -->
+            Funcionários <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./setores.html" data-page="setores" > <!-- Organiza esta parte da página. -->
+            Setores <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./relatorios.html" data-page="relatorios" > <!-- Organiza esta parte da página. -->
+            Relatórios <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./configuracoes.html" data-page="configuracoes" aria-current="page"> <!-- Organiza esta parte da página. -->
+            Configurações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+        </nav> <!-- Encerra esta parte. -->
+      </header> <!-- Encerra esta parte. -->
+      <main> <!-- Organiza esta parte da página. -->
+        <h1> <!-- Organiza esta parte da página. -->
+          Configurações <!-- Mostra este conteúdo. -->
+        </h1> <!-- Encerra esta parte. -->
+        <p> <!-- Organiza esta parte da página. -->
+          Carregando os dados desta página… <!-- Mostra este conteúdo. -->
+        </p> <!-- Encerra esta parte. -->
+      </main> <!-- Encerra esta parte. -->
+    </div> <!-- Encerra esta parte. -->
+    <template id="page-template"> <!-- Organiza o modelo desta página. -->
+      {{cabecalho}} <!-- Mostra este conteúdo. -->
+      <form class="settings-layout" id="settings-form"> <!-- Organiza esta parte da página. -->
+        <div class="panel settings-main"> <!-- Organiza esta parte da página. -->
+          <div class="section-head"> <!-- Organiza esta parte da página. -->
+            <h2> <!-- Organiza esta parte da página. -->
+              Regras da escala <!-- Mostra este conteúdo. -->
+            </h2> <!-- Encerra esta parte. -->
+            <span class="tag gray"> <!-- Organiza esta parte da página. -->
+              {{conteudo}} <!-- Mostra este conteúdo. -->
+            </span> <!-- Encerra esta parte. -->
+          </div> <!-- Encerra esta parte. -->
+          <div class="settings-block"> <!-- Organiza esta parte da página. -->
+            <h3> <!-- Organiza esta parte da página. -->
+              Limites e descanso <!-- Mostra este conteúdo. -->
+            </h3> <!-- Encerra esta parte. -->
+            <p> <!-- Organiza esta parte da página. -->
+              As regras abaixo são parâmetros ajustáveis, não aconselhamento trabalhista. <!-- Mostra este conteúdo. -->
+            </p> <!-- Encerra esta parte. -->
+            <div class="form-grid"> <!-- Organiza esta parte da página. -->
+              <label> <!-- Organiza esta parte da página. -->
+                Carga semanal máxima (horas) <!-- Mostra este conteúdo. -->
+                <input type="number" name="maxWeeklyHours" min="1" max="168" step="1" value="{{conteudo2}}" required> <!-- Organiza esta parte da página. -->
+              </label> <!-- Encerra esta parte. -->
+              <label> <!-- Organiza esta parte da página. -->
+                Máximo de dias consecutivos <!-- Mostra este conteúdo. -->
+                <input type="number" name="maxConsecutive" min="1" max="31" value="{{conteudo3}}" required> <!-- Organiza esta parte da página. -->
+              </label> <!-- Encerra esta parte. -->
+              <label> <!-- Organiza esta parte da página. -->
+                Descanso mínimo entre turnos (horas) <!-- Mostra este conteúdo. -->
+                <input type="number" name="minRest" min="0" max="48" value="{{conteudo4}}" required> <!-- Organiza esta parte da página. -->
+              </label> <!-- Encerra esta parte. -->
+            </div> <!-- Encerra esta parte. -->
+          </div> <!-- Encerra esta parte. -->
+          <div class="settings-block"> <!-- Organiza esta parte da página. -->
+            <h3> <!-- Organiza esta parte da página. -->
+              Cobertura mínima por turno <!-- Mostra este conteúdo. -->
+            </h3> <!-- Encerra esta parte. -->
+            <p> <!-- Organiza esta parte da página. -->
+              Quantidade de colaboradores necessária em cada período. <!-- Mostra este conteúdo. -->
+            </p> <!-- Encerra esta parte. -->
+            {{conteudo5}} <!-- Mostra este conteúdo. -->
+          </div> <!-- Encerra esta parte. -->
+          <div class="settings-block"> <!-- Organiza esta parte da página. -->
+            <h3> <!-- Organiza esta parte da página. -->
+              Critérios de distribuição <!-- Mostra este conteúdo. -->
+            </h3> <!-- Encerra esta parte. -->
+            <label class="toggle-row"> <!-- Organiza esta parte da página. -->
+              <span> <!-- Organiza esta parte da página. -->
+                Balancear trabalho nos fins de semana <!-- Mostra este conteúdo. -->
+                <small> <!-- Organiza esta parte da página. -->
+                  Favorecer quem trabalhou menos sábados e domingos. <!-- Mostra este conteúdo. -->
+                </small> <!-- Encerra esta parte. -->
+              </span> <!-- Encerra esta parte. -->
+              <input name="balanceWeekends" type="checkbox" {{conteudo6}}> <!-- Organiza esta parte da página. -->
+            </label> <!-- Encerra esta parte. -->
+            <label class="toggle-row"> <!-- Organiza esta parte da página. -->
+              <span> <!-- Organiza esta parte da página. -->
+                Evitar pessoas sozinhas <!-- Mostra este conteúdo. -->
+                <small> <!-- Organiza esta parte da página. -->
+                  O gerador exige ao menos duas pessoas em turnos ativos. <!-- Mostra este conteúdo. -->
+                </small> <!-- Encerra esta parte. -->
+              </span> <!-- Encerra esta parte. -->
+              <input name="avoidAlone" type="checkbox" {{conteudo7}}> <!-- Organiza esta parte da página. -->
+            </label> <!-- Encerra esta parte. -->
+          </div> <!-- Encerra esta parte. -->
+          <button class="btn primary" type="submit"> <!-- Organiza esta parte da página. -->
+            {{icone}} Salvar configurações <!-- Mostra este conteúdo. -->
+          </button> <!-- Encerra esta parte. -->
+        </div> <!-- Encerra esta parte. -->
+        <aside class="panel settings-side"> <!-- Organiza esta parte da página. -->
+          <h2> <!-- Organiza esta parte da página. -->
+            Dados e segurança <!-- Mostra este conteúdo. -->
+          </h2> <!-- Encerra esta parte. -->
+          <p> <!-- Organiza esta parte da página. -->
+            Esta versão funciona apenas no navegador atual. <!-- Mostra este conteúdo. -->
+          </p> <!-- Encerra esta parte. -->
+          <div class="callout warm"> <!-- Organiza esta parte da página. -->
+            {{icone2}} O localStorage não sincroniza funcionários, não oferece login seguro e pode ser apagado ao limpar os dados do navegador. <!-- Mostra este conteúdo. -->
+          </div> <!-- Encerra esta parte. -->
+          <div class="stack-buttons"> <!-- Organiza esta parte da página. -->
+            {{acao}}{{acao2}}{{acao3}} <!-- Mostra este conteúdo. -->
+          </div> <!-- Encerra esta parte. -->
+          <h3> <!-- Organiza esta parte da página. -->
+            Turnos cadastrados <!-- Mostra este conteúdo. -->
+          </h3> <!-- Encerra esta parte. -->
+          {{conteudo8}} <!-- Mostra este conteúdo. -->
+          <p class="subdued"> <!-- Organiza esta parte da página. -->
+            E-mail automático e acesso remoto exigem integração com um serviço de backend. <!-- Mostra este conteúdo. -->
+          </p> <!-- Encerra esta parte. -->
+        </aside> <!-- Encerra esta parte. -->
+      </form> <!-- Encerra esta parte. -->
+    </template> <!-- Encerra esta parte. -->
+    <noscript> <!-- Organiza esta parte da página. -->
+      <p> <!-- Organiza esta parte da página. -->
+        Ative o JavaScript para utilizar o EscalaPro. <!-- Mostra este conteúdo. -->
+      </p> <!-- Encerra esta parte. -->
+    </noscript> <!-- Encerra esta parte. -->
+    <div id="overlay"> <!-- Organiza esta parte da página. -->
+    </div> <!-- Encerra esta parte. -->
+    <div id="toast" aria-live="polite"> <!-- Organiza esta parte da página. -->
+    </div> <!-- Encerra esta parte. -->
+  </body> <!-- Encerra esta parte. -->
+</html> <!-- Encerra esta parte. -->

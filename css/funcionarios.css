@@ -1,0 +1,51 @@
+html { /* Raiz do CSS aninhado desta página. */
+  & .staff-detail dl { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: 115px 1fr; /* Distribui as colunas. */
+    gap: 15px 10px; /* Separa os elementos. */
+    margin: 23px 0; /* Define o espaço externo. */
+  } /* Fim destes estilos. */
+  & .staff-detail dt { /* Estiliza estes elementos. */
+    color: #6b8098; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .staff-detail dd { /* Estiliza estes elementos. */
+    margin: 0; /* Define o espaço externo. */
+    font-weight: 650; /* Define o peso do texto. */
+    overflow-wrap: anywhere; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .staff-table { /* Estiliza estes elementos. */
+    padding: 8px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .staff-table-head, & .staff-row { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: 1.5fr 1fr .85fr .6fr; /* Distribui as colunas. */
+    gap: 11px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    min-width: 520px; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .staff-table-head { /* Estiliza estes elementos. */
+    padding: 15px 10px; /* Define o espaço interno. */
+    color: #6e829d; /* Define a cor do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    border-bottom: 1px solid #edf1f5; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .staff-row { /* Estiliza estes elementos. */
+    width: 100%; /* Define a largura. */
+    border: 0; /* Define a borda. */
+    background: white; /* Define o fundo. */
+    border-bottom: 1px solid #edf0f5; /* Ajusta esta característica. */
+    text-align: left; /* Ajusta esta característica. */
+    padding: 12px 10px; /* Define o espaço interno. */
+    color: #4b5e78; /* Define a cor do texto. */
+    font-size: 11px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .staff-row.selected, & .staff-row:hover { /* Estiliza estes elementos. */
+    background: #eef6ff; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .staff-row b { /* Estiliza estes elementos. */
+    color: #263a58; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .staff-detail { /* Estiliza estes elementos. */
+    min-height: 300px; /* Define a altura mínima. */
+  } /* Fim destes estilos. */
+} /* Fim do CSS aninhado. */

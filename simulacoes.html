@@ -1,0 +1,111 @@
+<!doctype html> <!-- Define o documento. -->
+<html lang="pt-BR"> <!-- Organiza esta parte da página. -->
+  <head> <!-- Organiza esta parte da página. -->
+    <meta charset="utf-8"> <!-- Organiza esta parte da página. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Organiza esta parte da página. -->
+    <meta name="theme-color" content="#faf8f5"> <!-- Organiza esta parte da página. -->
+    <meta name="description" content="Simulações da equipe no EscalaPro."> <!-- Organiza esta parte da página. -->
+    <title>Simulações | EscalaPro</title> <!-- Organiza esta parte da página. -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml"> <!-- Organiza o arquivo de estilo. -->
+    <link rel="stylesheet" href="./css/base.css"> <!-- Organiza o arquivo de estilo. -->
+    <link rel="stylesheet" href="./css/simulacoes.css"> <!-- Organiza o arquivo de estilo. -->
+    <script type="module" src="./js/simulacoes.mjs"></script> <!-- Organiza o código da página. -->
+  </head> <!-- Encerra esta parte. -->
+  <body data-page="simulacoes" data-title="Simulações"> <!-- Organiza esta parte da página. -->
+    <div id="app"> <!-- Organiza esta parte da página. -->
+      <header> <!-- Organiza esta parte da página. -->
+        <a href="./index.html"> <!-- Organiza esta parte da página. -->
+          EscalaPro <!-- Mostra este conteúdo. -->
+        </a> <!-- Encerra esta parte. -->
+        <nav aria-label="Navegação principal"> <!-- Organiza esta parte da página. -->
+          <a href="./index.html" data-page="escalas" > <!-- Organiza esta parte da página. -->
+            Escalas <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./simulacoes.html" data-page="simulacoes" aria-current="page"> <!-- Organiza esta parte da página. -->
+            Simulações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./solicitacoes.html" data-page="solicitacoes" > <!-- Organiza esta parte da página. -->
+            Solicitações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./funcionarios.html" data-page="funcionarios" > <!-- Organiza esta parte da página. -->
+            Funcionários <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./setores.html" data-page="setores" > <!-- Organiza esta parte da página. -->
+            Setores <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./relatorios.html" data-page="relatorios" > <!-- Organiza esta parte da página. -->
+            Relatórios <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+          <a href="./configuracoes.html" data-page="configuracoes" > <!-- Organiza esta parte da página. -->
+            Configurações <!-- Mostra este conteúdo. -->
+          </a> <!-- Encerra esta parte. -->
+        </nav> <!-- Encerra esta parte. -->
+      </header> <!-- Encerra esta parte. -->
+      <main> <!-- Organiza esta parte da página. -->
+        <h1> <!-- Organiza esta parte da página. -->
+          Simulações <!-- Mostra este conteúdo. -->
+        </h1> <!-- Encerra esta parte. -->
+        <p> <!-- Organiza esta parte da página. -->
+          Carregando os dados desta página… <!-- Mostra este conteúdo. -->
+        </p> <!-- Encerra esta parte. -->
+      </main> <!-- Encerra esta parte. -->
+    </div> <!-- Encerra esta parte. -->
+    <template id="page-template"> <!-- Organiza o modelo desta página. -->
+      {{cabecalho}} <!-- Mostra este conteúdo. -->
+      <div class="simulation-choice"> <!-- Organiza esta parte da página. -->
+        {{conteudo}} <!-- Mostra este conteúdo. -->
+      </div> <!-- Encerra esta parte. -->
+      <section class="simulation-grid"> <!-- Organiza esta parte da página. -->
+        <div class="panel simulation-form"> <!-- Organiza esta parte da página. -->
+          <div class="section-head"> <!-- Organiza esta parte da página. -->
+            <h2> <!-- Organiza esta parte da página. -->
+              1. Defina a situação <!-- Mostra este conteúdo. -->
+            </h2> <!-- Encerra esta parte. -->
+          </div> <!-- Encerra esta parte. -->
+          <form id="simulation-form"> <!-- Organiza esta parte da página. -->
+            <label> <!-- Organiza esta parte da página. -->
+              Funcionário <!-- Mostra este conteúdo. -->
+            </label> <!-- Encerra esta parte. -->
+            <select name="employee" {{conteudo2}}> <!-- Organiza esta parte da página. -->
+              {{conteudo3}} <!-- Mostra este conteúdo. -->
+            </select> <!-- Encerra esta parte. -->
+            <label> <!-- Organiza esta parte da página. -->
+              Data <!-- Mostra este conteúdo. -->
+            </label> <!-- Encerra esta parte. -->
+            <input type="date" name="date" value="{{conteudo4}}" {{conteudo5}}> <!-- Organiza esta parte da página. -->
+            {{conteudo6}} <!-- Mostra este conteúdo. -->
+            <label class="check-field"> <!-- Organiza esta parte da página. -->
+              <input name="preserve" type="checkbox" checked> <!-- Organiza esta parte da página. -->
+              Preservar as alocações bloqueadas <!-- Mostra este conteúdo. -->
+            </label> <!-- Encerra esta parte. -->
+            <p class="subdued"> <!-- Organiza esta parte da página. -->
+              O sistema respeita folgas aprovadas, descanso, limites de jornada e cobertura mínima do setor. <!-- Mostra este conteúdo. -->
+            </p> <!-- Encerra esta parte. -->
+            <button class="btn primary full" type="submit"> <!-- Organiza esta parte da página. -->
+              {{icone}} Gerar alternativas <!-- Mostra este conteúdo. -->
+            </button> <!-- Encerra esta parte. -->
+          </form> <!-- Encerra esta parte. -->
+        </div> <!-- Encerra esta parte. -->
+        <div class="panel simulation-results"> <!-- Organiza esta parte da página. -->
+          <div class="section-head"> <!-- Organiza esta parte da página. -->
+            <h2> <!-- Organiza esta parte da página. -->
+              2. Resultado <!-- Mostra este conteúdo. -->
+            </h2> <!-- Encerra esta parte. -->
+            {{conteudo7}} <!-- Mostra este conteúdo. -->
+          </div> <!-- Encerra esta parte. -->
+          {{conteudo8}} <!-- Mostra este conteúdo. -->
+        </div> <!-- Encerra esta parte. -->
+      </section> <!-- Encerra esta parte. -->
+      {{conteudo9}} <!-- Mostra este conteúdo. -->
+    </template> <!-- Encerra esta parte. -->
+    <noscript> <!-- Organiza esta parte da página. -->
+      <p> <!-- Organiza esta parte da página. -->
+        Ative o JavaScript para utilizar o EscalaPro. <!-- Mostra este conteúdo. -->
+      </p> <!-- Encerra esta parte. -->
+    </noscript> <!-- Encerra esta parte. -->
+    <div id="overlay"> <!-- Organiza esta parte da página. -->
+    </div> <!-- Encerra esta parte. -->
+    <div id="toast" aria-live="polite"> <!-- Organiza esta parte da página. -->
+    </div> <!-- Encerra esta parte. -->
+  </body> <!-- Encerra esta parte. -->
+</html> <!-- Encerra esta parte. -->

@@ -1,0 +1,85 @@
+html { /* Raiz do CSS aninhado desta página. */
+  & .departments-grid { /* Estiliza estes elementos. */
+    display: grid; /* Organiza os elementos. */
+    grid-template-columns: repeat(3,1fr); /* Distribui as colunas. */
+    gap: 14px; /* Separa os elementos. */
+  } /* Fim destes estilos. */
+  & .department-card { /* Estiliza estes elementos. */
+    text-align: left; /* Ajusta esta característica. */
+    background: #fff; /* Define o fundo. */
+    border: 1px solid #e3e9f0; /* Define a borda. */
+    border-radius: 14px; /* Arredonda os cantos. */
+    padding: 22px; /* Define o espaço interno. */
+    min-height: 200px; /* Define a altura mínima. */
+    color: var(--text); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .department-card.selected, & .department-card:hover { /* Estiliza estes elementos. */
+    border-color: #6ca4f0; /* Ajusta esta característica. */
+    background: #f5f9ff; /* Define o fundo. */
+  } /* Fim destes estilos. */
+  & .dep-icon { /* Estiliza estes elementos. */
+    width: 43px; /* Define a largura. */
+    height: 43px; /* Define a altura. */
+    display: grid; /* Organiza os elementos. */
+    place-items: center; /* Ajusta esta característica. */
+    border-radius: 12px; /* Arredonda os cantos. */
+    color: var(--dep); /* Define a cor do texto. */
+    background: color-mix(in srgb,var(--dep) 11%,white); /* Define o fundo. */
+    margin-bottom: 12px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .department-card h2 { /* Estiliza estes elementos. */
+    font-size: 19px; /* Define o tamanho do texto. */
+  } /* Fim destes estilos. */
+  & .department-card p { /* Estiliza estes elementos. */
+    color: #7687a0; /* Define a cor do texto. */
+    min-height: 36px; /* Define a altura mínima. */
+  } /* Fim destes estilos. */
+  & .dep-summary { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    justify-content: space-between; /* Distribui o conteúdo. */
+    color: #547293; /* Define a cor do texto. */
+    border-top: 1px solid #edf0f4; /* Ajusta esta característica. */
+    padding-top: 13px; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .department-config { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    align-items: center; /* Alinha os itens. */
+    gap: 35px; /* Separa os elementos. */
+    margin-top: 15px; /* Ajusta esta característica. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .department-config>div:first-child { /* Estiliza estes elementos. */
+    min-width: 210px; /* Define a largura mínima. */
+  } /* Fim destes estilos. */
+  & .department-config p { /* Estiliza estes elementos. */
+    color: #8799aa; /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  & .dep-coverage { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 12px; /* Separa os elementos. */
+    flex: 1; /* Ajusta esta característica. */
+    flex-wrap: wrap; /* Ajusta esta característica. */
+  } /* Fim destes estilos. */
+  & .dep-coverage>div { /* Estiliza estes elementos. */
+    display: flex; /* Organiza os elementos. */
+    gap: 8px; /* Separa os elementos. */
+    align-items: center; /* Alinha os itens. */
+    font-size: 11px; /* Define o tamanho do texto. */
+    background: #f4f7fa; /* Define o fundo. */
+    border-radius: 8px; /* Arredonda os cantos. */
+    padding: 13px; /* Define o espaço interno. */
+  } /* Fim destes estilos. */
+  & .dep-coverage strong { /* Estiliza estes elementos. */
+    color: var(--blue); /* Define a cor do texto. */
+  } /* Fim destes estilos. */
+  @media(max-width:760px) { /* Adapta a apresentação. */
+    & .departments-grid { /* Estiliza estes elementos. */
+      grid-template-columns: repeat(2,1fr); /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+  @media(max-width:410px) { /* Adapta a apresentação. */
+    & .departments-grid { /* Estiliza estes elementos. */
+      grid-template-columns: 1fr; /* Distribui as colunas. */
+    } /* Fim destes estilos. */
+  } /* Fim da adaptação. */
+} /* Fim do CSS aninhado. */
