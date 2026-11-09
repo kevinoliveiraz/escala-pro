@@ -352,12 +352,31 @@ export function dayStatus(db, employeeId, day) { // Disponibiliza este recurso p
     source: 'none' // Define esta informação.
   }; // Encerra este bloco.
 } // Encerra este bloco.
+export function restGapsAt(db, employeeId, day, maxConsecutive) {
+  let previous = '', next = '';
+  for (const off of db.daysOff || []) {
+    if (off.employeeId !== employeeId) continue;
+    if (off.day < day && off.day > previous) previous = off.day;
+    if (off.day > day && (!next || off.day < next)) next = off.day;
+  }
+  for (const request of db.requests) {
+    if (request.employeeId !== employeeId || request.status !== 'approved' || request.type === 'troca') continue;
+    if (request.end < day && request.end > previous) previous = request.end;
+    if (request.start > day && (!next || request.start < next)) next = request.start;
+  }
+  // Only count dates between two known breaks, including unfilled dates in a draft.
+  return [[previous, day], [day, next]]
+    .filter(([start, end]) => start && end)
+    .map(([start, end]) => ({ start, end, days: diffDays(start, end) - 1 }))
+    .filter(gap => gap.days > maxConsecutive);
+}
 export function setDayStatus(db, { // Disponibiliza este recurso para outros arquivos.
   employeeId, // Executa esta etapa.
   departmentId, // Executa esta etapa.
   day, // Executa esta etapa.
   status, // Executa esta etapa.
-  shiftId // Executa esta etapa.
+  shiftId, // Executa esta etapa.
+  maxRestGap
 }) { // Continua a organização do bloco.
   employeeId = Number(employeeId); // Executa esta etapa.
   departmentId = Number(departmentId); // Executa esta etapa.
@@ -381,6 +400,18 @@ export function setDayStatus(db, { // Disponibiliza este recurso para outros arq
     ok: true, // Define esta informação.
     changed: false // Define esta informação.
   }; // Encerra este bloco.
+  if (status === 'folga' && Number.isFinite(maxRestGap)) {
+    const gaps = restGapsAt(db, employeeId, day, maxRestGap);
+    if (gaps.length) {
+      const formatDay = value => value.split('-').reverse().join('/');
+      const intervals = gaps.map(({ start, end, days }) =>
+        `Ficariam ${days} dias sem descanso registrado entre ${formatDay(start)} e ${formatDay(end)}.`);
+      return {
+        ok: false,
+        errors: ['Folga não registrada.', ...intervals, `O limite do setor é de ${maxRestGap} dias.`]
+      };
+    }
+  }
   const draft = clone(db), // Prepara os valores usados no bloco.
     previous = draft.assignments.find(item => item.employeeId === employeeId && item.day === day); // Executa esta etapa.
   draft.daysOff = (draft.daysOff || []).filter(item => item.employeeId !== employeeId || item.day !== day); // Organiza a lista de dados.

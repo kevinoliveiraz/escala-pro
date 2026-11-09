@@ -1,5 +1,6 @@
-import { db, state, setRenderer, render, saveView, navigate, moveMonth } from './context.mjs'; // Importa os recursos usados aqui.
+import { db, state, setRenderer, render, saveView, navigate, moveMonth, restoreSchedulePreview, selectSchedulePreview } from './context.mjs'; // Importa os recursos usados aqui.
 import { $, layout, closeModal, notice } from './ui.mjs'; // Importa os recursos usados aqui.
+import { openSchedulePreviewForm, submitSchedulePreview } from './schedule-preview-ui.mjs';
 async function sharedAction(button) { // Define esta rotina.
   switch (button.dataset.action) { // Executa esta etapa.
     case 'toggle-menu': // Trata esta opção.
@@ -22,6 +23,9 @@ async function sharedAction(button) { // Define esta rotina.
     case 'close-modal': // Trata esta opção.
       closeModal(); // Executa esta etapa.
       break; // Finaliza esta opção.
+    case 'new-schedule-preview':
+      openSchedulePreviewForm(button.dataset.source === 'simulation');
+      break;
     case 'new-request': // Trata esta opção.
       { // Encerra este bloco.
         const requests = await import('./requests.mjs'); // Prepara os valores usados no bloco.
@@ -61,6 +65,7 @@ export function startPage({ // Disponibiliza este recurso para outros arquivos.
   events = {} // Executa esta etapa.
 }) { // Continua a organização do bloco.
   state.page = id; // Executa esta etapa.
+  restoreSchedulePreview();
   state.currentRole = ['portal', 'my-requests'].includes(id) ? 'employee' : 'admin'; // Executa esta etapa.
   state.menuOpen = false; // Executa esta etapa.
   setRenderer(() => { // Executa esta etapa.
@@ -98,6 +103,8 @@ export function startPage({ // Disponibiliza este recurso para outros arquivos.
       if (formId === 'request-form') { // Confere a condição.
         const requests = await import('./requests.mjs'); // Prepara os valores usados no bloco.
         requests.submitRequest(event.target); // Executa esta etapa.
+      } else if (formId === 'schedule-preview-form') {
+        submitSchedulePreview(event.target);
       } else await onSubmit(event.target); // Continua a organização do bloco.
     } catch (error) { // Continua a organização do bloco.
       notice(error.message, 'error'); // Executa esta etapa.
@@ -105,7 +112,16 @@ export function startPage({ // Disponibiliza este recurso para outros arquivos.
   }); // Encerra este bloco.
   document.addEventListener('change', event => { // Conecta a interação da página.
     const input = event.target; // Prepara os valores usados no bloco.
-    if (input.id === 'department-switch') { // Confere a condição.
+    if (input.id === 'schedule-preview-select') {
+      try {
+        selectSchedulePreview(input.value);
+        render();
+        $('#schedule-preview-select')?.focus();
+      } catch (error) {
+        input.value = state.schedulePreviewId;
+        notice(error.message, 'error');
+      }
+    } else if (input.id === 'department-switch') { // Confere a condição.
       state.departmentId = Number(input.value); // Executa esta etapa.
       state.selectedEmployee = null; // Executa esta etapa.
       state.preview = null; // Executa esta etapa.

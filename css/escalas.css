@@ -1,3 +1,14 @@
+.day-preview-difference::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-inline-start: 4px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background: var(--blue);
+}
+
 html { /* Raiz do CSS aninhado desta página. */
   & .tools-left, & .tools-right, & .editor-tools { /* Estiliza estes elementos. */
     display: flex; /* Organiza os elementos. */
@@ -7,7 +18,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .editor-tools select { /* Estiliza estes elementos. */
     height: 39px; /* Define a altura. */
-    border: 1px solid #e1e6ef; /* Define a borda. */
+    border: 1px solid var(--field-edge); /* Define a borda. */
     background: white; /* Define o fundo. */
     border-radius: 9px; /* Arredonda os cantos. */
     padding: 0 11px; /* Define o espaço interno. */
@@ -21,7 +32,7 @@ html { /* Raiz do CSS aninhado desta página. */
     min-height: 34px; /* Define a altura mínima. */
   } /* Fim destes estilos. */
   & .tools-left>span { /* Estiliza estes elementos. */
-    color: #73849c; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 12px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .editor-tools select { /* Estiliza estes elementos. */
@@ -90,14 +101,14 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .pool-person small { /* Estiliza estes elementos. */
     font-size: 10px; /* Define o tamanho do texto. */
-    color: #8b98a9; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     white-space: nowrap; /* Ajusta esta característica. */
     overflow: hidden; /* Controla o conteúdo excedente. */
     text-overflow: ellipsis; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
   & .drag-handle { /* Estiliza estes elementos. */
     margin-left: auto; /* Ajusta esta característica. */
-    color: #8a9bb4; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .calendar-grid { /* Estiliza estes elementos. */
     width: 100%; /* Define a largura. */
@@ -113,7 +124,7 @@ html { /* Raiz do CSS aninhado desta página. */
   & .weekday-header>span { /* Estiliza estes elementos. */
     display: grid; /* Organiza os elementos. */
     place-items: center; /* Ajusta esta característica. */
-    color: #667a96; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 11px; /* Define o tamanho do texto. */
     font-weight: 700; /* Define o peso do texto. */
   } /* Fim destes estilos. */
@@ -159,7 +170,7 @@ html { /* Raiz do CSS aninhado desta página. */
     font-weight: 700; /* Define o peso do texto. */
   } /* Fim destes estilos. */
   & .out-month .day-top { /* Estiliza estes elementos. */
-    color: #bdc6d4; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .day-add { /* Estiliza estes elementos. */
     opacity: 0; /* Ajusta esta característica. */
@@ -216,7 +227,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .more-people { /* Estiliza estes elementos. */
     font-size: 10px; /* Define o tamanho do texto. */
-    color: #6c81a1; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     padding-left: 4px; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
   & .legend { /* Estiliza estes elementos. */
@@ -228,7 +239,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .legend span { /* Estiliza estes elementos. */
     font-size: 10px; /* Define o tamanho do texto. */
-    color: #71849a; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     display: flex; /* Organiza os elementos. */
     align-items: center; /* Alinha os itens. */
     gap: 5px; /* Separa os elementos. */
@@ -297,7 +308,7 @@ html { /* Raiz do CSS aninhado desta página. */
     font-size: 11px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .assigned-person small { /* Estiliza estes elementos. */
-    color: #7486a2; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 10px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .assigned-person .icon-btn { /* Estiliza estes elementos. */
@@ -338,10 +349,10 @@ html { /* Raiz do CSS aninhado desta página. */
     flex: 1; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
   & .coverage-line strong { /* Estiliza estes elementos. */
-    color: #0c806b; /* Define a cor do texto. */
+    color: #07644f; /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .coverage-line .red-text { /* Estiliza estes elementos. */
-    color: #d65a53; /* Define a cor do texto. */
+    color: #ac332d; /* Define a cor do texto. */
   } /* Fim destes estilos. */
   @media(max-width:1320px) { /* Adapta a apresentação. */
     & .editor-layout { /* Estiliza estes elementos. */
@@ -487,7 +498,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .planning-toolbar .month-picker input, & .planning-toolbar .field-select { /* Estiliza estes elementos. */
     height: 46px; /* Define a altura. */
-    border-color: #bdcee7; /* Ajusta esta característica. */
+    border-color: var(--field-edge); /* Ajusta esta característica. */
     border-radius: 9px; /* Arredonda os cantos. */
     background: #fff; /* Define o fundo. */
     font-size: 14px; /* Define o tamanho do texto. */
@@ -591,7 +602,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .pool-selected-date { /* Estiliza estes elementos. */
     margin: 12px 3px 7px; /* Define o espaço externo. */
-    color: #70849d; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 10px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .pool-list { /* Estiliza estes elementos. */
@@ -618,7 +629,7 @@ html { /* Raiz do CSS aninhado desta página. */
   & .pool-day-status { /* Estiliza estes elementos. */
     font-size: 10px; /* Define o tamanho do texto. */
     line-height: 1.5; /* Ajusta esta característica. */
-    color: #8793a5; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .pool-day-status.folga { /* Estiliza estes elementos. */
     color: #8a5b1e; /* Define a cor do texto. */
@@ -657,7 +668,7 @@ html { /* Raiz do CSS aninhado desta página. */
     margin: 0; /* Define o espaço externo. */
     font-size: 12px; /* Define o tamanho do texto. */
     line-height: 1.6; /* Ajusta esta característica. */
-    color: #657e9c; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .drop-status-hint { /* Estiliza estes elementos. */
     margin-bottom: 13px; /* Ajusta esta característica. */
@@ -806,3 +817,52 @@ html { /* Raiz do CSS aninhado desta página. */
     } /* Fim destes estilos. */
   } /* Fim da adaptação. */
 } /* Fim do CSS aninhado. */
+
+/* Calendário legível sem obrigar o celular a ampliar a página inteira. */
+html {
+  & :is(.employee-pool, .calendar-container, .day-panel) { min-width: 0; border-color: var(--edge); }
+  & .day-cell { border-color: #cbd5e1; }
+  & .weekday-header { border-color: #bdcbdc; background: #edf2f7; }
+  & .day-cell.out-month { background: #e8edf4; }
+  & .shift-pill small { opacity: 1; }
+  & .shift-pill .avatar { background: color-mix(in srgb, var(--pill) 55%, #102742); }
+  & .planning-toolbar { border-color: #93aed2; border-left-color: var(--blue); }
+  & .day-add { color: #174fa6; }
+  & .planning-icon, & .planning-toolbar .month-picker .square { border-color: var(--field-edge); }
+  & .ghost-add { border-color: #789fda; }
+  & .day-cell:focus-within .day-add { opacity: 1; }
+  @media (max-width: 760px) {
+    & .editor-layout { gap: 16px; }
+    & .planning-toolbar { padding: 16px; }
+    & .planning-intro { align-items: flex-start; }
+    & .planning-intro p { font-size: 13px; }
+    & .planning-toolbar .month-picker { flex-wrap: nowrap; }
+    & .planning-toolbar .month-picker input { order: 0; flex: 1 1 auto; width: 0; min-width: 0; }
+    & .planning-toolbar .month-picker .square { flex-basis: 44px; width: 44px; }
+    & .tools-left > span { font-size: 13px; }
+    & .tools-right { display: flex; gap: 8px; }
+    & .tools-right .btn { flex: 1 1 auto; }
+    & .pool-list { gap: 8px; scroll-snap-type: x proximity; }
+    & .pool-person { flex: 0 0 210px; width: 210px; min-width: 0; scroll-snap-align: start; }
+    & .pool-person small, & .pool-day-status { font-size: 12px; }
+    & .calendar-grid { min-width: 0; }
+    & .day-cell { min-height: 92px; padding: 6px 3px; }
+    & .weekday-header > span { font-size: 11px; }
+    & .day-top { font-size: 12px; height: 25px; }
+    & .day-add { opacity: 1; width: 20px; height: 24px; line-height: 24px; font-size: 14px; }
+    & .shift-pill { display: block; height: auto; min-height: 38px; padding: 4px 2px; line-height: 1.35; }
+    & .shift-pill .avatar { display: none; }
+    & .shift-pill > span { display: block; overflow: hidden; text-overflow: ellipsis; }
+    & .shift-pill small { display: block; margin: 1px 0 0; font-size: 9px; }
+    & .legend span { font-size: 12px; }
+    & .assigned-person :is(b, small) { font-size: 13px; }
+    & .assigned-person .icon-btn { width: 44px; height: 44px; }
+    & .coverage-line { font-size: 13px; }
+  }
+  @media (max-width: 380px) {
+    & .day-cell { padding-inline: 2px; }
+    & .day-top { font-size: 11px; }
+    & .drop-status-options, & .drop-shift-options { grid-template-columns: minmax(0, 1fr); }
+    & .drop-shift-choice { min-height: 96px; }
+  }
+}

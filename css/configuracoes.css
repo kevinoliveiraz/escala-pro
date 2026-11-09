@@ -9,7 +9,7 @@ html { /* Raiz do CSS aninhado desta página. */
     display: block; /* Organiza os elementos. */
     width: 100%; /* Define a largura. */
     border-radius: 9px; /* Arredonda os cantos. */
-    border: 1px solid #dce4ee; /* Define a borda. */
+    border: 1px solid var(--field-edge); /* Define a borda. */
     background: #fff; /* Define o fundo. */
     padding: 10px; /* Define o espaço interno. */
     color: #344960; /* Define a cor do texto. */
@@ -27,7 +27,7 @@ html { /* Raiz do CSS aninhado desta página. */
     border-top: 1px solid #eef0f4; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
   & .settings-block p { /* Estiliza estes elementos. */
-    color: #8192a5; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 12px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .settings-block input[type=number] { /* Estiliza estes elementos. */
@@ -47,7 +47,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .setting-row small { /* Estiliza estes elementos. */
     font-size: 11px; /* Define o tamanho do texto. */
-    color: #7a8aa0; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .setting-row input[type=number] { /* Estiliza estes elementos. */
     width: 78px; /* Define a largura. */
@@ -68,18 +68,24 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .toggle-row small { /* Estiliza estes elementos. */
     font-weight: 400; /* Define o peso do texto. */
-    color: #8493a6; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .toggle-row input { /* Estiliza estes elementos. */
     width: 19px; /* Define a largura. */
     height: 19px; /* Define a altura. */
     accent-color: #286fe1; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
+  & .toggle-row .btn { flex-shrink: 0; }
+  & .toggle-row .btn[aria-pressed="true"] {
+    border-color: #79a4e7;
+    background: #eaf2ff;
+    color: #164687;
+  }
   & .settings-side .callout { /* Estiliza estes elementos. */
     margin: 16px 0; /* Define o espaço externo. */
   } /* Fim destes estilos. */
   & .settings-side>p { /* Estiliza estes elementos. */
-    color: #7589a3; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .stack-buttons { /* Estiliza estes elementos. */
     flex-direction: column; /* Define a direção dos itens. */
@@ -94,3 +100,14 @@ html { /* Raiz do CSS aninhado desta página. */
     } /* Fim destes estilos. */
   } /* Fim da adaptação. */
 } /* Fim do CSS aninhado. */
+
+html {
+  @media (max-width: 760px) {
+    & .settings-grid { grid-template-columns: minmax(0, 1fr); }
+    & .settings-block input[type=number] { font-size: 16px; min-height: 44px; }
+    & .setting-row > span:nth-child(2), & .toggle-row > span { min-width: 0; }
+    & .setting-row { gap: 8px; }
+    & .setting-row small, & .toggle-row small { font-size: 12px; }
+    & .toggle-row input { flex-shrink: 0; }
+  }
+}

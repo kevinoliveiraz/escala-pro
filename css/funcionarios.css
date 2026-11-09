@@ -6,7 +6,7 @@ html { /* Raiz do CSS aninhado desta página. */
     margin: 23px 0; /* Define o espaço externo. */
   } /* Fim destes estilos. */
   & .staff-detail dt { /* Estiliza estes elementos. */
-    color: #6b8098; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .staff-detail dd { /* Estiliza estes elementos. */
     margin: 0; /* Define o espaço externo. */
@@ -25,7 +25,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .staff-table-head { /* Estiliza estes elementos. */
     padding: 15px 10px; /* Define o espaço interno. */
-    color: #6e829d; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 11px; /* Define o tamanho do texto. */
     border-bottom: 1px solid #edf1f5; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
@@ -49,3 +49,27 @@ html { /* Raiz do CSS aninhado desta página. */
     min-height: 300px; /* Define a altura mínima. */
   } /* Fim destes estilos. */
 } /* Fim do CSS aninhado. */
+
+/* No celular, cada funcionário vira um cartão com rótulos visíveis. */
+html {
+  @media (max-width: 640px) {
+    & .staff-table { padding: 6px; }
+    & .staff-table-head { display: none; }
+    & .staff-row {
+      min-width: 0;
+      grid-template-columns: minmax(0, 1fr) minmax(70px, .6fr);
+      gap: 12px;
+      padding: 16px 10px;
+      font-size: 13px;
+      border-bottom-color: var(--edge);
+    }
+    & .staff-row .cell-person { min-width: 0; align-items: flex-start; }
+    & .staff-row .cell-person b { white-space: normal; overflow-wrap: anywhere; }
+    & .staff-row > span:nth-child(4) { grid-column: 2; grid-row: 1; justify-self: end; }
+    & .staff-row > :is(span:nth-child(2), span:nth-child(3)) { display: grid; gap: 4px; }
+    & .staff-row > span:nth-child(2)::before { content: 'Função'; color: var(--muted); font-size: 12px; }
+    & .staff-row > span:nth-child(3)::before { content: 'Turno preferido'; color: var(--muted); font-size: 12px; }
+    & .staff-detail dl { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+    & .staff-detail dd { margin-bottom: 12px; }
+  }
+}

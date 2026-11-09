@@ -1,16 +1,54 @@
+.schedule-version-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  background: var(--paper, #fff);
+}
+
+.schedule-version-field {
+  display: grid;
+  gap: 5px;
+  width: min(260px, 100%);
+}
+
+.schedule-version-field label {
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.schedule-version-field select {
+  width: 100%;
+  min-width: 0;
+}
+
+.schedule-version-bar p {
+  flex: 1 1 240px;
+  align-self: center;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 html { /* Raiz do CSS aninhado desta página. */
   & { /* Estiliza estes elementos. */
-    --page: #faf8f5; /* Guarda um valor do tema. */
-    --paper: #fffefd; /* Guarda um valor do tema. */
-    --edge: #e9e9eb; /* Guarda um valor do tema. */
-    --text: #132749; /* Guarda um valor do tema. */
-    --muted: #78879b; /* Guarda um valor do tema. */
+    --page: #edf2f7; /* Guarda um valor do tema. */
+    --paper: #ffffff; /* Guarda um valor do tema. */
+    --edge: #bdcbdc;
+    --field-edge: #7a8da6; /* Guarda um valor do tema. */
+    --text: #152b48; /* Guarda um valor do tema. */
+    --muted: #4b6078; /* Guarda um valor do tema. */
     --navy: #0e274a; /* Guarda um valor do tema. */
     --blue: #2068d9; /* Guarda um valor do tema. */
     --sky: #eef5ff; /* Guarda um valor do tema. */
     --soft: #f5f7fa; /* Guarda um valor do tema. */
     --radius: 16px; /* Guarda um valor do tema. */
-    --shadow: 0 10px 35px rgba(24,41,67,.038); /* Guarda um valor do tema. */
+    --shadow: 0 4px 16px rgba(24,41,67,.07); /* Guarda um valor do tema. */
     font-family: Inter,"Segoe UI",Arial,sans-serif; /* Ajusta esta característica. */
     color: var(--text); /* Define a cor do texto. */
     font-synthesis: none; /* Ajusta esta característica. */
@@ -123,7 +161,7 @@ html { /* Raiz do CSS aninhado desta página. */
     background: #f1f4f8; /* Define o fundo. */
   } /* Fim destes estilos. */
   & .nav-badge { /* Estiliza estes elementos. */
-    background: #e94d63; /* Define o fundo. */
+    background: #a92843; /* Define o fundo. */
     color: white; /* Define a cor do texto. */
     display: grid; /* Organiza os elementos. */
     place-items: center; /* Ajusta esta característica. */
@@ -164,7 +202,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .local-label { /* Estiliza estes elementos. */
     font-size: 11px; /* Define o tamanho do texto. */
-    color: #647b9a; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     display: flex; /* Organiza os elementos. */
     gap: 6px; /* Separa os elementos. */
     align-items: center; /* Alinha os itens. */
@@ -224,7 +262,7 @@ html { /* Raiz do CSS aninhado desta página. */
     margin-bottom: 20px; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
   & .page-heading p { /* Estiliza estes elementos. */
-    color: #697e9c; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 14px; /* Define o tamanho do texto. */
     margin-bottom: 0; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
@@ -294,14 +332,14 @@ html { /* Raiz do CSS aninhado desta página. */
     place-items: center; /* Ajusta esta característica. */
     border: 0; /* Define a borda. */
     background: transparent; /* Define o fundo. */
-    color: #667c97; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .btn.red, & .red { /* Estiliza estes elementos. */
-    color: #dd5460!important; /* Define a cor do texto. */
+    color: #ac283c!important; /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .btn.danger-btn { /* Estiliza estes elementos. */
     background: #fff1f1; /* Define o fundo. */
-    color: #c63d4b; /* Define a cor do texto. */
+    color: #a92a3a; /* Define a cor do texto. */
     border: 1px solid #ffd3d7; /* Define a borda. */
   } /* Fim destes estilos. */
   & .btn.full { /* Estiliza estes elementos. */
@@ -313,7 +351,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .field-select, & .month-picker input { /* Estiliza estes elementos. */
     height: 39px; /* Define a altura. */
-    border: 1px solid #e1e6ef; /* Define a borda. */
+    border: 1px solid var(--field-edge); /* Define a borda. */
     background: white; /* Define o fundo. */
     border-radius: 9px; /* Arredonda os cantos. */
     padding: 0 11px; /* Define o espaço interno. */
@@ -356,11 +394,11 @@ html { /* Raiz do CSS aninhado desta página. */
     color: #236ada; /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .metric:nth-child(2) .metric-icon { /* Estiliza estes elementos. */
-    color: #148d82; /* Define a cor do texto. */
+    color: #09685e; /* Define a cor do texto. */
     background: #e2f5ef; /* Define o fundo. */
   } /* Fim destes estilos. */
   & .metric:nth-child(3) .metric-icon { /* Estiliza estes elementos. */
-    color: #dd844a; /* Define a cor do texto. */
+    color: #914715; /* Define a cor do texto. */
     background: #fff0e4; /* Define o fundo. */
   } /* Fim destes estilos. */
   & .metric:nth-child(4) .metric-icon { /* Estiliza estes elementos. */
@@ -382,7 +420,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .metric small { /* Estiliza estes elementos. */
     font-size: 11px; /* Define o tamanho do texto. */
-    color: #8290a2; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .panel { /* Estiliza estes elementos. */
     background: #fff; /* Define o fundo. */
@@ -417,7 +455,7 @@ html { /* Raiz do CSS aninhado desta página. */
     padding: 0 9px; /* Define o espaço interno. */
     border-radius: 9px; /* Arredonda os cantos. */
     height: 38px; /* Define a altura. */
-    color: #7a8da6; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .search-input input { /* Estiliza estes elementos. */
     min-width: 0; /* Define a largura mínima. */
@@ -463,19 +501,19 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .tag.success { /* Estiliza estes elementos. */
     background: #def6ed; /* Define o fundo. */
-    color: #10836b; /* Define a cor do texto. */
+    color: #07644f; /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .tag.warning { /* Estiliza estes elementos. */
     background: #fff0d7; /* Define o fundo. */
-    color: #a66a11; /* Define a cor do texto. */
+    color: #7b4d08; /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .tag.danger { /* Estiliza estes elementos. */
     background: #ffe6ea; /* Define o fundo. */
-    color: #c7455d; /* Define a cor do texto. */
+    color: #a52c43; /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .tag.gray { /* Estiliza estes elementos. */
     background: #edf1f6; /* Define o fundo. */
-    color: #5c718c; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .modal form label:not(.check-field) { /* Estiliza estes elementos. */
     display: block; /* Organiza os elementos. */
@@ -488,7 +526,7 @@ html { /* Raiz do CSS aninhado desta página. */
     display: block; /* Organiza os elementos. */
     width: 100%; /* Define a largura. */
     border-radius: 9px; /* Arredonda os cantos. */
-    border: 1px solid #dce4ee; /* Define a borda. */
+    border: 1px solid var(--field-edge); /* Define a borda. */
     background: #fff; /* Define o fundo. */
     padding: 10px; /* Define o espaço interno. */
     color: #344960; /* Define a cor do texto. */
@@ -504,7 +542,7 @@ html { /* Raiz do CSS aninhado desta página. */
     font-size: 12px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .subdued { /* Estiliza estes elementos. */
-    color: #8090a4; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 12px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .empty-simulation { /* Estiliza estes elementos. */
@@ -517,7 +555,7 @@ html { /* Raiz do CSS aninhado desta página. */
     text-align: center; /* Ajusta esta característica. */
     gap: 8px; /* Separa os elementos. */
     padding: 25px; /* Define o espaço interno. */
-    color: #7b8da5; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .empty-simulation svg { /* Estiliza estes elementos. */
     color: #236dd3; /* Define a cor do texto. */
@@ -553,7 +591,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .cell-person small { /* Estiliza estes elementos. */
     font-size: 10px; /* Define o tamanho do texto. */
-    color: #8c9db2; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .clip-text { /* Estiliza estes elementos. */
     white-space: nowrap; /* Ajusta esta característica. */
@@ -575,7 +613,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .person-profile p { /* Estiliza estes elementos. */
     margin: 0; /* Define o espaço externo. */
-    color: #8393a7; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 12px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .callout { /* Estiliza estes elementos. */
@@ -593,12 +631,12 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .callout.cool { /* Estiliza estes elementos. */
     background: #eaf6f4; /* Define o fundo. */
-    color: #237d70; /* Define a cor do texto. */
+    color: #146255; /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .empty-list { /* Estiliza estes elementos. */
     padding: 30px 10px; /* Define o espaço interno. */
     text-align: center; /* Ajusta esta característica. */
-    color: #8c9ab0; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .form-grid { /* Estiliza estes elementos. */
     display: grid; /* Organiza os elementos. */
@@ -623,7 +661,7 @@ html { /* Raiz do CSS aninhado desta página. */
     gap: 4px; /* Separa os elementos. */
   } /* Fim destes estilos. */
   & .portal-request small { /* Estiliza estes elementos. */
-    color: #798da4; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .modal-backdrop { /* Estiliza estes elementos. */
     position: fixed; /* Define a posição. */
@@ -657,7 +695,7 @@ html { /* Raiz do CSS aninhado desta página. */
     padding: 19px 21px; /* Define o espaço interno. */
   } /* Fim destes estilos. */
   & .modal-body>p { /* Estiliza estes elementos. */
-    color: #647b97; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .modal form { /* Estiliza estes elementos. */
     display: flex; /* Organiza os elementos. */
@@ -966,7 +1004,7 @@ html { /* Raiz do CSS aninhado desta página. */
     flex-shrink: 0; /* Ajusta esta característica. */
     margin: 0; /* Define o espaço externo. */
     font-size: 13px; /* Define o tamanho do texto. */
-    color: #657e9c; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .pdf-preview-frame { /* Estiliza estes elementos. */
     display: block; /* Organiza os elementos. */
@@ -992,3 +1030,79 @@ html { /* Raiz do CSS aninhado desta página. */
     } /* Fim destes estilos. */
   } /* Fim da adaptação. */
 } /* Fim do CSS aninhado. */
+
+/* Contraste do tema claro e controles que se adaptam à largura disponível. */
+html {
+  & body { line-height: 1.5; }
+  & :is(input, select, textarea) { min-width: 0; max-width: 100%; }
+  & :is(input, textarea)::placeholder { color: var(--muted); opacity: 1; }
+  & :is(button, a, input, select, textarea, [role=button]):focus-visible {
+    outline: 3px solid #1757b8;
+    outline-offset: 3px;
+  }
+  & .topbar { background: var(--paper); border-bottom-color: var(--edge); }
+  & .page-heading > div, & .panel, & .metric, & .metric > div { min-width: 0; }
+  & :is(.page-heading h1, .person-profile h2, .panel h2) { overflow-wrap: anywhere; }
+  & :is(.metric, .panel) { border-color: var(--edge); }
+  & .btn { border-color: #9aacc3; }
+  & .btn.square { border-color: #9aacc3; }
+  & .btn.danger-btn { border-color: #c67c86; }
+  & .search-input { border-color: var(--field-edge); background: var(--paper); }
+  & .search-input input { color: var(--text); }
+  & .avatar { background: color-mix(in srgb, var(--av) 55%, #102742); }
+  & .month-picker { min-width: 0; }
+  & .month-picker input { min-width: 0; }
+  & .modal-backdrop { padding: 16px; }
+  & .modal {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 520px);
+    max-height: calc(100dvh - 32px);
+    overflow: hidden;
+  }
+  & :is(.modal-head, .modal-footer) { flex-shrink: 0; }
+  & .modal-head { gap: 12px; border-bottom-color: var(--edge); }
+  & .modal-head .icon-btn { flex-shrink: 0; }
+  & .modal-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+  & .modal-footer { flex-wrap: wrap; border-top-color: var(--edge); }
+  & .modal.pdf-preview-modal { max-height: calc(100dvh - 32px); }
+
+  @media (max-width: 760px) {
+    & .btn { min-height: 44px; height: auto; padding-block: 10px; }
+    & :is(.btn.icon-btn, .topbar .icon-btn) { width: 44px; height: 44px; padding: 0; }
+    & .profile-btn { min-height: 44px; }
+    & .topbar .top-actions { gap: 2px; }
+    & .main { padding: 20px 12px 32px; }
+    & .page-heading { align-items: flex-start; }
+    & .heading-actions { width: 100%; justify-content: flex-start; }
+    & .heading-actions > :is(.btn, .field-select) { flex: 1 1 auto; min-width: 0; }
+    & .heading-actions > .month-picker { flex: 1 0 100%; }
+    & .month-picker { flex-wrap: nowrap; gap: 6px; }
+    & .month-picker input { order: 0; flex: 1 1 auto; width: 0; min-width: 0; height: 44px; }
+    & .month-picker .square { flex: 0 0 44px; width: 44px; height: 44px; }
+    & :is(.field-select, .modal input:not([type=checkbox]), .modal select, .modal textarea) { font-size: 16px; min-height: 44px; }
+    & .metric small, & .subdued, & .empty-list { font-size: 12px; }
+    & .panel { padding: 16px; }
+    & #toast { bottom: 12px; right: 12px; left: 12px; }
+    & .toast { max-width: none; }
+  }
+  @media (max-width: 540px) {
+    & :is(.metrics-grid, .metrics-grid.three) { grid-template-columns: minmax(0, 1fr); }
+    & .metric { min-height: 86px; padding: 14px; gap: 14px; }
+    & .metric strong { font-size: 25px; }
+    & .metric-icon { width: 42px; height: 42px; }
+    & .header-brand { font-size: 18px; gap: 6px; }
+    & .topbar { gap: 4px; padding-inline: 10px; }
+    & .topbar .local-label { display: none; }
+    & .topbar .profile-btn > svg { display: none; }
+    & .header-nav { grid-template-columns: minmax(0, 1fr); max-height: calc(100dvh - 85px); overflow-y: auto; }
+    & .modal-backdrop { padding: 8px; }
+    & .modal { max-height: calc(100dvh - 16px); border-radius: 14px; }
+    & :is(.modal-head, .modal-body) { padding: 16px; }
+    & .modal .form-grid { grid-template-columns: minmax(0, 1fr); }
+    & .modal form label:not(.check-field) { font-size: 14px; }
+    & .modal-footer > .btn { flex: 1 1 auto; }
+    & .portal-request { flex-wrap: wrap; }
+    & .portal-request > div { min-width: 0; overflow-wrap: anywhere; }
+  }
+}

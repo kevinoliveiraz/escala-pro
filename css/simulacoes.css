@@ -25,7 +25,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .choice small { /* Estiliza estes elementos. */
     font-size: 11px; /* Define o tamanho do texto. */
-    color: #7185a0; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     line-height: 1.45; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
   & .choice.active { /* Estiliza estes elementos. */
@@ -57,7 +57,7 @@ html { /* Raiz do CSS aninhado desta página. */
     display: block; /* Organiza os elementos. */
     width: 100%; /* Define a largura. */
     border-radius: 9px; /* Arredonda os cantos. */
-    border: 1px solid #dce4ee; /* Define a borda. */
+    border: 1px solid var(--field-edge); /* Define a borda. */
     background: #fff; /* Define o fundo. */
     padding: 10px; /* Define o espaço interno. */
     color: #344960; /* Define a cor do texto. */
@@ -106,7 +106,7 @@ html { /* Raiz do CSS aninhado desta página. */
     justify-content: space-between; /* Distribui o conteúdo. */
     border-bottom: 1px solid #edf0f4; /* Ajusta esta característica. */
     padding: 9px 0; /* Define o espaço interno. */
-    color: #667d97; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 12px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .compare-list>div strong { /* Estiliza estes elementos. */
@@ -130,13 +130,13 @@ html { /* Raiz do CSS aninhado desta página. */
     height: 40px; /* Define a altura. */
     border-radius: 7px; /* Arredonda os cantos. */
     background: #def5e9; /* Define o fundo. */
-    color: #138267; /* Define a cor do texto. */
+    color: #07644f; /* Define a cor do texto. */
     display: grid; /* Organiza os elementos. */
     place-items: center; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
   & .coverage-square.bad { /* Estiliza estes elementos. */
     background: #fff0d9; /* Define o fundo. */
-    color: #b17c29; /* Define a cor do texto. */
+    color: #7b4d08; /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .coverage-square small { /* Estiliza estes elementos. */
     font-size: 11px; /* Define o tamanho do texto. */
@@ -161,3 +161,15 @@ html { /* Raiz do CSS aninhado desta página. */
     } /* Fim destes estilos. */
   } /* Fim da adaptação. */
 } /* Fim do CSS aninhado. */
+
+html {
+  @media (max-width: 760px) {
+    & .simulation-form :is(select, input:not([type=checkbox])) { font-size: 16px; min-height: 44px; }
+    & .choice small, & .compare-list > div { font-size: 12px; }
+    & .diff-metrics { grid-template-columns: minmax(0, 1fr); }
+    & .compare-list > div { flex-wrap: wrap; gap: 6px; }
+  }
+  @media (max-width: 360px) {
+    & .simulation-choice { grid-template-columns: minmax(0, 1fr); }
+  }
+}

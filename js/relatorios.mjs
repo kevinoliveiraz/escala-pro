@@ -2,11 +2,13 @@ import { evaluate, eachDay } from './core.mjs'; // Importa os recursos usados aq
 import { db, state } from './shared/context.mjs'; // Importa os recursos usados aqui.
 import { renderTemplate, title, monthBar, viewSelect, btn, icon, cardMetric, safe } from './shared/ui.mjs'; // Importa os recursos usados aqui.
 import { startPage } from './shared/boot.mjs'; // Importa os recursos usados aqui.
+import { schedulePreviewBar } from './shared/schedule-preview-ui.mjs';
 function reportsPage() { // Define esta rotina.
   const data = evaluate(db, state.month, state.departmentId), // Prepara os valores usados no bloco.
     weekends = [...data.balance].sort((a, b) => b.days - a.days); // Organiza a lista de dados.
   return renderTemplate({ // Retorna o resultado.
     cabecalho: title('Relatórios', 'Indicadores derivados das alocações e regras reais, sem dados inventados.', `${monthBar()}${viewSelect()}${btn(icon('download') + ' Exportar CSV', 'export-csv', 'primary')}`), // Define esta informação.
+    versoes: schedulePreviewBar(),
     conteudo: cardMetric(data.staff, 'Funcionários', 'Neste setor', 'users'), // Define esta informação.
     conteudo2: cardMetric(data.percent + '%', 'Cobertura', `${data.filled}/${data.need} posições`, 'chart'), // Define esta informação.
     conteudo3: cardMetric(data.required.length, 'Lacunas', 'Turnos sem cobertura', 'alert'), // Define esta informação.

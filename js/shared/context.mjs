@@ -1,7 +1,10 @@
-import { iso } from '../core.mjs'; // Importa os recursos usados aqui.
+import { KEY, clone, iso } from '../core.mjs'; // Importa os recursos usados aqui.
 import { load, save } from '../storage.mjs'; // Importa os recursos usados aqui.
+import { previewPages, readSchedulePreview, saveSchedulePreview } from '../schedule-previews.mjs';
 export let db = load(); // Disponibiliza este recurso para outros arquivos.
-save(db); // Salva os dados locais.
+export let mainScheduleDb = db;
+export let activeSchedulePreview = null;
+if (!localStorage.getItem(KEY)) save(db);
 export const pages = [['escalas', 'calendar', 'Escalas'], ['simulacoes', 'spark', 'Simulações'], ['solicitacoes', 'check', 'Solicitações'], ['funcionarios', 'users', 'Funcionários'], ['setores', 'building', 'Setores'], ['relatorios', 'chart', 'Relatórios'], ['configuracoes', 'settings', 'Configurações']]; // Disponibiliza este recurso para outros arquivos.
 export const routes = { // Disponibiliza este recurso para outros arquivos.
   escalas: 'index.html', // Define esta informação.
@@ -15,7 +18,7 @@ export const routes = { // Disponibiliza este recurso para outros arquivos.
   'my-requests': 'minhas-solicitacoes.html' // Executa esta etapa.
 }; // Encerra este bloco.
 const VIEW_KEY = 'escalapro-view-v1'; // Prepara os valores usados no bloco.
-const rememberedKeys = ['month', 'departmentId', 'day', 'shiftId', 'selectedStaff', 'selectedRequest', 'scenario', 'scenarioEmployee', 'scenarioDate', 'requestFilter', 'portalEmployee', 'preview']; // Prepara os valores usados no bloco.
+const rememberedKeys = ['month', 'departmentId', 'day', 'shiftId', 'selectedStaff', 'selectedRequest', 'scenario', 'scenarioEmployee', 'scenarioDate', 'requestFilter', 'portalEmployee', 'preview', 'schedulePreviewId']; // Prepara os valores usados no bloco.
 let remembered = {}; // Prepara os valores usados no bloco.
 try { // Controla possíveis falhas.
   remembered = JSON.parse(sessionStorage.getItem(VIEW_KEY) || '{}'); // Executa esta etapa.
@@ -32,6 +35,7 @@ export const state = { // Disponibiliza este recurso para outros arquivos.
   selectedStaff: 1, // Define esta informação.
   selectedRequest: 1, // Define esta informação.
   preview: null, // Define esta informação.
+  schedulePreviewId: '',
   scenario: 'absence', // Define esta informação.
   scenarioEmployee: 1, // Define esta informação.
   scenarioDate: '2026-11-12', // Define esta informação.
@@ -44,11 +48,37 @@ export const state = { // Disponibiliza este recurso para outros arquivos.
 }; // Encerra este bloco.
 for (const key of rememberedKeys) if (Object.hasOwn(remembered, key)) state[key] = remembered[key]; // Percorre os itens.
 if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(state.month)) state.month = '2026-11'; // Confere a condição.
-if (!db.departments.some(item => item.id === state.departmentId)) state.departmentId = db.departments[0]?.id ?? null; // Confere a condição.
 if (!db.employees.some(item => item.id === state.portalEmployee)) state.portalEmployee = db.employees.find(item => item.active)?.id || db.employees[0]?.id; // Confere a condição.
-if (!db.departments.length) {
-  state.departmentId = null;
+
+function useScheduleDatabase(preview) {
+  activeSchedulePreview = preview;
+  db = preview ? clone(preview.database) : mainScheduleDb;
+  if (!db.departments.some(item => item.id === state.departmentId)) {
+    state.departmentId = db.departments[0]?.id ?? null;
+    state.preview = null;
+  }
+}
+
+export function restoreSchedulePreview() {
+  if (!previewPages.has(state.page)) {
+    useScheduleDatabase(null);
+    return;
+  }
+  const preview = readSchedulePreview(state.schedulePreviewId);
+  if (state.schedulePreviewId && !preview) state.preview = null;
+  state.schedulePreviewId = preview?.id || '';
+  useScheduleDatabase(preview);
+}
+
+export function selectSchedulePreview(id) {
+  if (!previewPages.has(state.page)) throw Error('Abra a página Escalas para escolher uma versão.');
+  const preview = readSchedulePreview(id);
+  if (id && !preview) throw Error('Este preview não está disponível neste navegador.');
+  mainScheduleDb = load();
+  state.schedulePreviewId = preview?.id || '';
+  state.selectedEmployee = null;
   state.preview = null;
+  useScheduleDatabase(preview);
 }
 let paint = () => {}; // Prepara os valores usados no bloco.
 export function setRenderer(renderer) { // Disponibiliza este recurso para outros arquivos.
@@ -64,10 +94,21 @@ export function render() { // Disponibiliza este recurso para outros arquivos.
   saveView(); // Executa esta etapa.
 } // Encerra este bloco.
 export function persist() { // Disponibiliza este recurso para outros arquivos.
+  if (activeSchedulePreview) {
+    try {
+      activeSchedulePreview = saveSchedulePreview(activeSchedulePreview, clone(db));
+    } catch (error) {
+      useScheduleDatabase(readSchedulePreview(activeSchedulePreview.id) || activeSchedulePreview);
+      state.preview = null;
+      render();
+      throw error;
+    }
+    return;
+  }
   save(db); // Salva os dados locais.
 } // Encerra este bloco.
 export function replaceDatabase(value) { // Disponibiliza este recurso para outros arquivos.
-  db = value; // Executa esta etapa.
+  db = mainScheduleDb = value; // Executa esta etapa.
 } // Encerra este bloco.
 export function mutate(fn) { // Disponibiliza este recurso para outros arquivos.
   const result = fn(); // Prepara os valores usados no bloco.

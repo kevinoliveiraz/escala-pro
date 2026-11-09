@@ -53,6 +53,14 @@ As linhas dos arquivos HTML, CSS e JavaScript possuem comentários breves. O CSS
 
 Arraste um funcionário até o dia, escolha Folga ou Plantão e, no plantão, escolha Manhã, Tarde ou Noite. Clicar em um plantão já colocado abre a mesma escolha. O botão PDF abre a prévia; o arquivo só é baixado ao escolher Baixar PDF.
 
+## Comparar previews da escala
+
+Em **Escalas**, clique em **Novo preview**, dê um nome e faça as alterações na cópia. Em **Simulações**, **Salvar como preview** cria uma versão com o resultado gerado. O seletor **Versão da escala** troca entre as cópias salvas e a **Escala principal** em Escalas, Simulações e Relatórios.
+
+Cada preview salva as próprias alterações no navegador, incluindo plantões e folgas de outros meses. O calendário marca com um ponto as datas diferentes da escala principal no setor e mês selecionados. A publicação e o e-mail ficam disponíveis na escala principal.
+
+Os previews são locais ao endereço do aplicativo. O backup JSON atual exporta a base principal.
+
 ## Conferir os testes
 
 Com Node.js disponível, execute na pasta do projeto:

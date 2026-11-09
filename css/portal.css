@@ -1,7 +1,7 @@
 html { /* Raiz do CSS aninhado desta página. */
   & .portal-switch select { /* Estiliza estes elementos. */
     height: 39px; /* Define a altura. */
-    border: 1px solid #e1e6ef; /* Define a borda. */
+    border: 1px solid var(--field-edge); /* Define a borda. */
     background: white; /* Define o fundo. */
     border-radius: 9px; /* Arredonda os cantos. */
     padding: 0 11px; /* Define o espaço interno. */
@@ -47,7 +47,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .portal-day.off { /* Estiliza estes elementos. */
     background: #fcfcfd; /* Define o fundo. */
-    color: #8796aa; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .portal-day small { /* Estiliza estes elementos. */
     font-size: 11px; /* Define o tamanho do texto. */
@@ -74,3 +74,12 @@ html { /* Raiz do CSS aninhado desta página. */
     } /* Fim destes estilos. */
   } /* Fim da adaptação. */
 } /* Fim do CSS aninhado. */
+
+html {
+  @media (max-width: 640px) {
+    & .portal-switch, & .portal-switch label { flex-wrap: wrap; }
+    & .portal-switch select { width: 100%; min-width: 0; font-size: 16px; min-height: 44px; }
+    & .portal-day span { font-size: 12px; }
+    & .portal-days { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+}

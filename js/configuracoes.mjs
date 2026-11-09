@@ -3,14 +3,19 @@ import { renderTemplate, title, viewSelect, btn, icon, safe, notice } from './sh
 import { department, defaultRules } from './core.mjs'; // Importa os recursos usados aqui.
 import { reset } from './storage.mjs'; // Importa os recursos usados aqui.
 import { startPage } from './shared/boot.mjs'; // Importa os recursos usados aqui.
+const restGapToggleLabel = enabled => enabled ? 'Ativado' : 'Desativado';
 function settingsPage() { // Define esta rotina.
-  const rules = db.rules[state.departmentId] || defaultRules(db.shifts); // Prepara os valores usados no bloco.
+  const savedRules = db.rules[state.departmentId];
+  const rules = savedRules || defaultRules(db.shifts);
+  const blockRestGap = rules.warnRestGap === true;
   return renderTemplate({ // Retorna o resultado.
     cabecalho: title('Configurações', 'Defina restrições, cobertura e preferências de geração.', `${viewSelect()}${btn(icon('download') + ' Backup', 'export-json', 'outline')}${btn(icon('refresh') + ' Limpar dados', 'reset-data', 'outline red')}`), // Define esta informação.
     conteudo: safe(department(db, state.departmentId)?.name), // Define esta informação.
     conteudo2: rules.maxWeeklyHours, // Define esta informação.
     conteudo3: rules.maxConsecutive, // Define esta informação.
     conteudo4: rules.minRest, // Define esta informação.
+    restGapHint: savedRules ? 'Impede marcar uma folga quando o intervalo sem descanso registrado passa do máximo de dias consecutivos do setor.' : 'Cadastre um setor para ativar este bloqueio.',
+    restGapToggle: btn(restGapToggleLabel(blockRestGap), 'toggle-rest-gap-block', 'outline', `aria-label="Bloquear folgas fora do limite" aria-pressed="${blockRestGap}" aria-describedby="rest-gap-hint" ${savedRules ? '' : 'disabled'}`),
     conteudo5: db.shifts.map(s => `<label class="setting-row"><span class="dot" style="background:${s.color}"></span><span><strong>${safe(s.name)}</strong><small>${s.start} – ${s.end}</small></span><input type="number" min="0" max="50" name="coverage_${s.id}" value="${rules.minStaff[s.id] || 0}" required></label>`).join(''), // Monta o conteúdo da interface.
     conteudo6: rules.balanceWeekends ? 'checked' : '', // Define esta informação.
     conteudo7: rules.avoidAlone ? 'checked' : '', // Define esta informação.
@@ -26,6 +31,22 @@ async function handlePageAction(el) { // Define esta rotina.
   const act = el.dataset.action; // Prepara os valores usados no bloco.
   const id = Number(el.dataset.id || 0); // Prepara os valores usados no bloco.
   switch (act) { // Executa esta etapa.
+    case 'toggle-rest-gap-block': {
+      const rules = db.rules[state.departmentId];
+      if (!rules) return false;
+      const previous = rules.warnRestGap;
+      const enabled = previous !== true;
+      rules.warnRestGap = enabled;
+      try {
+        persist();
+      } catch (error) {
+        rules.warnRestGap = previous;
+        throw error;
+      }
+      el.setAttribute('aria-pressed', String(enabled));
+      el.textContent = restGapToggleLabel(enabled);
+      break;
+    }
     case 'reset-data': // Trata esta opção.
       if (confirm('Tem certeza que deseja limpar os cadastros e escalas para começar do zero?')) { // Confere a condição.
         replaceDatabase(reset()); // Executa esta etapa.

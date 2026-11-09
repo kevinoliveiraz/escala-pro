@@ -1,7 +1,8 @@
 import { employee, shift, daysIn, iso, dayStatus, labelDate, setDayStatus, assignmentsOn, evaluate, labelMonth, department, validateInsert, putAssignment, csvRows, removeAssignment, addDays, publish } from './core.mjs'; // Importa os recursos usados aqui.
-import { db, state, render, persist, mutate, navigate } from './shared/context.mjs'; // Importa os recursos usados aqui.
+import { db, mainScheduleDb, state, activeSchedulePreview, render, persist, mutate, navigate } from './shared/context.mjs'; // Importa os recursos usados aqui.
 import { avatar, safe, icon, notice, openModal, btn, $, closeModal, renderTemplate, title, monthBar, viewSelect, $$ } from './shared/ui.mjs'; // Importa os recursos usados aqui.
 import { startPage } from './shared/boot.mjs'; // Importa os recursos usados aqui.
+import { changedScheduleDays, schedulePreviewBar } from './shared/schedule-preview-ui.mjs';
 function shiftChip(a) { // Define esta rotina.
   const e = employee(db, a.employeeId), // Prepara os valores usados no bloco.
     s = shift(db, a.shiftId); // Executa esta etapa.
@@ -11,7 +12,7 @@ function shiftChip(a) { // Define esta rotina.
 function dayOffChip(emp, day) { // Define esta rotina.
   return `<button type="button" class="shift-pill off-pill" data-action="choose-day-status" data-id="${emp.id}" data-target-day="${day}" title="${safe(emp.name)}: folga">${icon('moon', 13)}<span>${safe(emp.name.split(' ')[0])}</span><small>Folga</small></button>`; // Retorna o resultado.
 } // Encerra este bloco.
-function monthGrid(readOnly = false, published = false) { // Define esta rotina.
+function monthGrid(changedDays, readOnly = false, published = false) { // Define esta rotina.
   const [y, m] = state.month.split('-').map(Number), // Prepara os valores usados no bloco.
     first = new Date(y, m - 1, 1).getDay(), // Executa esta etapa.
     total = Math.ceil((first + daysIn(state.month)) / 7) * 7; // Executa esta etapa.
@@ -25,8 +26,10 @@ function monthGrid(readOnly = false, published = false) { // Define esta rotina.
       inside = n > 0 && n <= daysIn(state.month); // Executa esta etapa.
     const items = inside ? visible.filter(a => a.day === day && a.departmentId === state.departmentId) : []; // Prepara os valores usados no bloco.
     const off = inside && !readOnly && !published ? workers.filter(e => dayStatus(db, e.id, day).status === 'folga') : []; // Prepara os valores usados no bloco.
+    const changed = inside && changedDays.has(day);
+    const comparisonLabel = changed ? ', diferente da escala principal' : '';
     const marks = [...off.map(e => dayOffChip(e, day)), ...items.map(a => readOnly ? `<div class="shift-pill static" style="--pill:${shift(db, a.shiftId)?.color || '#2783D4'}">${avatar(employee(db, a.employeeId), 'tiny')}<span>${safe(employee(db, a.employeeId)?.name.split(' ')[0] || '')}</span></div>` : shiftChip(a))]; // Prepara os valores usados no bloco.
-    html += `<div class="day-cell ${inside ? '' : 'out-month'} ${state.day === day ? 'selected-day' : ''}" ${inside ? `data-day="${day}" tabindex="0" role="button" aria-label="${safe(labelDate(day))}, ${items.length} plantões e ${off.length} folgas"` : ''}><div class="day-top"><span>${inside ? n : dateObj.getDate()}</span>${inside && !readOnly ? `<button type="button" class="day-add" data-action="add-on-day" data-day="${day}" title="Adicionar funcionário">+</button>` : ''}</div><div class="day-chips">${marks.slice(0, 3).join('')}${marks.length > 3 ? `<span class="more-people">+${marks.length - 3} pessoas</span>` : ''}</div></div>`; // Monta o conteúdo da interface.
+    html += `<div class="day-cell ${inside ? '' : 'out-month'} ${state.day === day ? 'selected-day' : ''}" ${inside ? `data-day="${day}" tabindex="0" role="button" aria-label="${safe(labelDate(day))}, ${items.length} plantões e ${off.length} folgas${comparisonLabel}"` : ''}><div class="day-top"><span${changed ? ' class="day-preview-difference" title="Diferente da escala principal"' : ''}>${inside ? n : dateObj.getDate()}</span>${inside && !readOnly ? `<button type="button" class="day-add" data-action="add-on-day" data-day="${day}" title="Adicionar funcionário">+</button>` : ''}</div><div class="day-chips">${marks.slice(0, 3).join('')}${marks.length > 3 ? `<span class="more-people">+${marks.length - 3} pessoas</span>` : ''}</div></div>`; // Monta o conteúdo da interface.
   } // Encerra este bloco.
   return html + '</div></div>'; // Retorna o resultado.
 } // Encerra este bloco.
@@ -61,12 +64,14 @@ function confirmDayStatus(button) { // Define esta rotina.
   const employeeId = Number(button.dataset.id), // Prepara os valores usados no bloco.
     day = button.dataset.targetDay, // Executa esta etapa.
     status = button.dataset.status; // Executa esta etapa.
+  const rules = mainScheduleDb.rules[state.departmentId];
   const result = setDayStatus(db, { // Prepara os valores usados no bloco.
     employeeId, // Executa esta etapa.
     departmentId: state.departmentId, // Define esta informação.
     day, // Executa esta etapa.
     status, // Executa esta etapa.
-    shiftId: Number(button.dataset.shiftId) // Define esta informação.
+    shiftId: Number(button.dataset.shiftId), // Define esta informação.
+    maxRestGap: rules?.warnRestGap === true ? Number(rules.maxConsecutive) : undefined
   }); // Encerra este bloco.
   if (!result.ok) { // Confere a condição.
     const error = $('#drop-status-error'); // Prepara os valores usados no bloco.
@@ -103,20 +108,24 @@ function dayPanel() { // Define esta rotina.
 function calendarPage() { // Define esta rotina.
   const info = evaluate(db, state.month, state.departmentId); // Prepara os valores usados no bloco.
   const published = !!db.publications[`${state.departmentId}:${state.month}`]; // Prepara os valores usados no bloco.
+  const changedDays = changedScheduleDays();
+  const versionStatus = activeSchedulePreview ? `Preview · ${activeSchedulePreview.name}` : published ? 'Publicada' : 'Rascunho';
+  const officialActions = activeSchedulePreview ? 'disabled title="Disponível na escala principal"' : '';
   return renderTemplate({ // Retorna o resultado.
-    cabecalho: title(labelMonth(state.month), `${safe(department(db, state.departmentId)?.name || 'Setor')} • ${info.staff} funcionários • ${published ? 'Publicada' : 'Rascunho'}`), // Define esta informação.
+    cabecalho: title(labelMonth(state.month), `${safe(department(db, state.departmentId)?.name || 'Setor')} • ${info.staff} funcionários • ${versionStatus}`), // Define esta informação.
     icone: icon('calendar', 23), // Define esta informação.
     mes: monthBar(), // Define esta informação.
     setor: viewSelect(), // Define esta informação.
     acao: btn(icon('spark') + ' Gerar escala', 'generate-schedule', 'primary'), // Define esta informação.
+    versoes: schedulePreviewBar(changedDays),
     conteudo: state.selectedEmployee ? btn('Cancelar seleção', 'clear-selected', 'text') : '', // Define esta informação.
     acao2: btn(icon('trash') + ' Limpar mês', 'clear-month', 'outline small'), // Define esta informação.
     acao3: btn(icon('download') + ' CSV', 'export-csv', 'outline small'), // Define esta informação.
     acao4: btn(icon('file') + ' PDF', 'export-pdf', 'outline small'), // Define esta informação.
-    acao5: btn(icon('check') + ' Publicar', 'publish', 'outline small'), // Define esta informação.
-    acao6: btn(icon('mail') + ' E-mail', 'email', 'primary small'), // Define esta informação.
+    acao5: btn(icon('check') + ' Publicar', 'publish', 'outline small', officialActions), // Define esta informação.
+    acao6: btn(icon('mail') + ' E-mail', 'email', 'primary small', officialActions), // Define esta informação.
     funcionarios: employeePool(), // Define esta informação.
-    calendario: monthGrid(), // Define esta informação.
+    calendario: monthGrid(changedDays), // Define esta informação.
     conteudo2: db.shifts.map(s => `<span><i style="background:${s.color}"></i>${safe(s.name)} (${s.start}–${s.end})</span>`).join(''), // Monta o conteúdo da interface.
     detalhesDoDia: dayPanel(), // Define esta informação.
     icone2: icon('info', 17) // Define esta informação.
@@ -173,6 +182,10 @@ function reportEmail() { // Define esta rotina.
 } // Encerra este bloco.
 async function handlePageAction(el) { // Define esta rotina.
   const act = el.dataset.action; // Prepara os valores usados no bloco.
+  if (activeSchedulePreview && ['publish', 'email'].includes(act)) {
+    notice('Escolha a escala principal para publicar ou preparar o e-mail.', 'warn');
+    return true;
+  }
   const id = Number(el.dataset.id || 0); // Prepara os valores usados no bloco.
   switch (act) { // Executa esta etapa.
     case 'choose-day-status': // Trata esta opção.

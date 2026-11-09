@@ -31,7 +31,7 @@ html { /* Raiz do CSS aninhado desta página. */
     font-size: 19px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .department-card p { /* Estiliza estes elementos. */
-    color: #7687a0; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     min-height: 36px; /* Define a altura mínima. */
   } /* Fim destes estilos. */
   & .dep-summary { /* Estiliza estes elementos. */
@@ -52,7 +52,7 @@ html { /* Raiz do CSS aninhado desta página. */
     min-width: 210px; /* Define a largura mínima. */
   } /* Fim destes estilos. */
   & .department-config p { /* Estiliza estes elementos. */
-    color: #8799aa; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .dep-coverage { /* Estiliza estes elementos. */
     display: flex; /* Organiza os elementos. */
@@ -83,3 +83,13 @@ html { /* Raiz do CSS aninhado desta página. */
     } /* Fim destes estilos. */
   } /* Fim da adaptação. */
 } /* Fim do CSS aninhado. */
+
+html {
+  @media (max-width: 640px) {
+    & .departments-grid { grid-template-columns: minmax(0, 1fr); }
+    & .department-card { min-width: 0; padding: 18px; }
+    & .dep-summary { flex-wrap: wrap; gap: 8px; }
+    & .department-config { gap: 18px; }
+    & .department-config > div:first-child { min-width: 0; }
+  }
+}

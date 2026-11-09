@@ -9,7 +9,7 @@ html { /* Raiz do CSS aninhado desta página. */
     margin-bottom: 4px; /* Ajusta esta característica. */
   } /* Fim destes estilos. */
   & .chart-panel p { /* Estiliza estes elementos. */
-    color: #8697a9; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     font-size: 12px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
   & .daily-bars { /* Estiliza estes elementos. */
@@ -39,7 +39,7 @@ html { /* Raiz do CSS aninhado desta página. */
   } /* Fim destes estilos. */
   & .bar-col small { /* Estiliza estes elementos. */
     font-size: 9px; /* Define o tamanho do texto. */
-    color: #8293a6; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
   } /* Fim destes estilos. */
   & .person-bar { /* Estiliza estes elementos. */
     display: grid; /* Organiza os elementos. */
@@ -81,7 +81,7 @@ html { /* Raiz do CSS aninhado desta página. */
     padding: 12px 9px; /* Define o espaço interno. */
   } /* Fim destes estilos. */
   & .data-head { /* Estiliza estes elementos. */
-    color: #71859c; /* Define a cor do texto. */
+    color: var(--muted); /* Define a cor do texto. */
     border-bottom: 1px solid #e9edf2; /* Ajusta esta característica. */
     font-size: 11px; /* Define o tamanho do texto. */
   } /* Fim destes estilos. */
@@ -96,3 +96,19 @@ html { /* Raiz do CSS aninhado desta página. */
     } /* Fim destes estilos. */
   } /* Fim da adaptação. */
 } /* Fim do CSS aninhado. */
+
+html {
+  @media (max-width: 760px) {
+    & .daily-bars { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(20px, 1fr); overflow-x: auto; padding-bottom: 8px; }
+    & .bar-col small { font-size: 11px; }
+  }
+  @media (max-width: 540px) {
+    & .data-head { display: none; }
+    & .data-row { grid-template-columns: repeat(3, minmax(0, 1fr)); font-size: 13px; gap: 10px; padding-block: 16px; }
+    & .data-row > span:first-child { grid-column: 1 / -1; font-weight: 700; overflow-wrap: anywhere; }
+    & .data-row > span:nth-child(n+2) { display: grid; gap: 4px; }
+    & .data-row > span:nth-child(2)::before { content: 'Jornadas'; font-size: 12px; color: var(--muted); }
+    & .data-row > span:nth-child(3)::before { content: 'Horas'; font-size: 12px; color: var(--muted); }
+    & .data-row > span:nth-child(4)::before { content: 'Fins de semana'; font-size: 12px; color: var(--muted); }
+  }
+}
